@@ -1,0 +1,20 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+}
+
+html, body {
+	background-color: #000;
+}
+
+p.title {
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	
+	font-weight: 300;
+}
