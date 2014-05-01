@@ -77,21 +77,21 @@ div.metro.checkbox.checked .innerCheckbox:after {
 
 /* UI Elements, light background */
 
-.light button.metro {
+.lightBG button.metro {
 	background-color: #fff;
 	border: 3px solid #000;
 	
 	color: #000;
 }
-.light button.metro:active {
+.lightBG button.metro:active {
 	color: #fff;
 	background-color: #a20025;
 }
 
-.light div.metro.checkbox {
+.lightBG div.metro.checkbox {
 	border: 3px solid #000;
 }
-.light div.metro.checkbox .innerCheckbox:after {
+.lightBG div.metro.checkbox .innerCheckbox:after {
 	background-color: #000;
 	
 	border-color: #fff;
