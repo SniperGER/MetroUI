@@ -6,13 +6,68 @@
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/MetroUI.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+		
+		<!-- Prettyfi Code Embed -->
+		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="javascript/prettify.js"></script>	
 	</head>
 	
-	<body>
+	<body onload="prettyPrint()">
 		<p class="title">
 			<span style="font-size: 42pt">MetroUI.css</span><br>
 			<span>Design examples</span><br>
 			<span>&copy; 2014 Sniper_GER</span>
 		</p>
+		
+		<p class="headline">accent color</p>
+		<p class="light"><span style="color: #a20025;">Crimson</span> (testing purposes)</p>
+		<p class="light">More colors coming with MetroJS implementation</p>
+		
+		<p class="headline">buttons</p>
+		<p class="light">Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
+		
+		<p class="light">Example:</p>
+		<button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')">Button</button>
+		<button class="metro" type="button" disabled>Disabled</button>
+		
+		<p class="light">Code:</p>
+		<pre class="prettyprint lang-html linenums">
+			&lt;button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')"&gt;Button&lt;/button&gt;
+			&lt;button class="metro" type="button" disabled&gt;Disabled&lt;/button&gt;
+		</pre>
+		
+		<p class="headline">switches</p>
+		<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br>They are identified by their "data-id", so they can identify their belonging checkbox.<br><br></p>
+		
+		<p class="light">Example:</p>
+		<input class="metro" type="checkbox" data-id="switch1">
+		<div class="metro checkbox" data-id="switch1">
+			<div class="innerCheckbox"></div>
+		</div>
+		<input class="metro" type="checkbox" data-id="switch2">
+		<div class="metro checkbox checked" data-id="switch2">
+			<div class="innerCheckbox"></div>
+		</div>
+		
+		<p class="light">Code:</p>
+		<pre class="prettyprint lang-html linenums">
+			&lt;input class="metro" type="checkbox" data-id="switch1"&gt;
+			&lt;div class="metro checkbox" data-id="switch1"&gt;
+				&lt;div class="innerCheckbox"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;input class="metro" type="checkbox" data-id="switch2"&gt;
+			&lt;div class="metro checkbox checked" data-id="switch2"&gt;
+				&lt;div class="innerCheckbox"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		</pre>
+		<p class="headline">additional stuff</p>
+		<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
+		<ul>
+			<li>JavaScript integration</li>
+			<li>MetroJS integration</li>
+			<li>Toast notifications</li>
+			<li>Alerts</li>
+		</ul>
+		<p class="superlight footer">&copy; 2014 Sniper_GER | This pages uses Google's Prettify</p>
 	</body>
 </html>

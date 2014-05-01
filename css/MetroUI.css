@@ -1,0 +1,95 @@
+/* UI Elements, dark background */
+
+button.metro {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	min-width: 100px;
+	height: 36px;
+	
+	background-color: #000;
+	border: 3px solid #fff;
+
+	color: #fff;
+	font-size: 11pt;
+	
+	cursor: pointer;
+}
+button.metro:active {
+	color: #fff;
+	background-color: #a20025;
+}
+button.metro:disabled, button.metro:active:disabled {
+	opacity: 0.3;
+	
+	background-color: transparent;
+	
+	cursor: default;
+}
+input.metro[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+}
+div.metro.checkbox {
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	width: 65px;
+	height: 22px;
+
+	border: 3px solid #fff;
+}
+div.metro.checkbox .innerCheckbox {
+	position: relative;
+	
+	margin: 4px;
+	height: 14px;
+}
+div.metro.checkbox.checked .innerCheckbox {
+	background-color: #a20025;
+}
+
+div.metro.checkbox .innerCheckbox:after {
+	content: "";
+	
+	position: absolute;
+	left: -7px;
+	top: -14px;
+	
+	width: 13px;
+	height: 36px;
+	
+	background-color: #fff;
+	
+	border: 3px solid #000;
+	
+	z-index: 2;
+}
+div.metro.checkbox.checked .innerCheckbox:after {
+	left: 45px;
+}
+
+
+/* UI Elements, light background */
+
+.light button.metro {
+	background-color: #fff;
+	border: 3px solid #000;
+	
+	color: #000;
+}
+.light button.metro:active {
+	color: #fff;
+	background-color: #a20025;
+}
+
+.light div.metro.checkbox {
+	border: 3px solid #000;
+}
+.light div.metro.checkbox .innerCheckbox:after {
+	background-color: #000;
+	
+	border-color: #fff;
+}

@@ -4,17 +4,44 @@
 	border: none;
 	
 	font-family: 'Open Sans', sans-serif;
-	color: #fff;
 }
 
 html, body {
 	background-color: #000;
+	color: #fff;
+	
+	height: 100%;
+
+	padding-bottom: 50px;
+}
+body {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+body.light {
+	background-color: #fff;
+	color: #000;
 }
 
 p.title {
-	position: absolute;
-	top: 20px;
-	left: 50px;
+	margin-top: 20px;
 	
 	font-weight: 300;
+}
+p.headline {
+	font-size: 18pt;
+	
+	margin-top: 50px;
+}
+p.light {
+	font-weight: 300;
+	font-size: 10pt;
+}
+p.superlight {
+	font-weight: 300;
+	font-size: 8pt;
+}
+p.footer{
+	margin-top: 50px;
+	padding-bottom: 50px;
 }
