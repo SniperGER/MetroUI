@@ -41,6 +41,9 @@ div.metro.checkbox {
 
 	border: 3px solid #fff;
 }
+div.metro.checkbox.disabled {
+	opacity: 0.3;
+}
 div.metro.checkbox .innerCheckbox {
 	position: relative;
 	
@@ -55,7 +58,7 @@ div.metro.checkbox .innerCheckbox:after {
 	content: "";
 	
 	position: absolute;
-	left: -7px;
+	left: -10px;
 	top: -14px;
 	
 	width: 13px;
@@ -68,7 +71,7 @@ div.metro.checkbox .innerCheckbox:after {
 	z-index: 2;
 }
 div.metro.checkbox.checked .innerCheckbox:after {
-	left: 45px;
+	left: 48px;
 }
 
 

@@ -9,65 +9,128 @@
 		
 		<!-- Prettify Code Embed -->
 		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="javascript/prettify.js"></script>	
+		<script type="text/javascript" src="javascript/prettify.js"></script>
+		<script type="text/javascript" src="javascript/jquery.js"></script>
 	</head>
 	
-	<body onload="prettyPrint()">
-		<p class="title">
-			<span style="font-size: 42pt">MetroUI.css</span><br>
-			<span>Design examples</span><br>
-			<span>&copy; 2014 Sniper_GER</span>
-		</p>
-		
-		<p class="headline">accent color</p>
-		<p class="light"><span style="color: #a20025;">Crimson</span> (testing purposes)</p>
-		<p class="light">More colors coming with MetroJS implementation</p>
-		
-		<p class="headline">buttons</p>
-		<p class="light">Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
-		
-		<p class="light">Example:</p>
-		<button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')">Button</button>
-		<button class="metro" type="button" disabled>Disabled</button>
-		
-		<p class="light">Code:</p>
-		<pre class="prettyprint lang-html linenums">
-			&lt;button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')"&gt;Button&lt;/button&gt;
-			&lt;button class="metro" type="button" disabled&gt;Disabled&lt;/button&gt;
-		</pre>
-		
-		<p class="headline">switches</p>
-		<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br>They are identified by their "data-id", so they can identify their belonging checkbox.<br><br></p>
-		
-		<p class="light">Example:</p>
-		<input class="metro" type="checkbox" data-id="switch1">
-		<div class="metro checkbox" data-id="switch1">
-			<div class="innerCheckbox"></div>
-		</div>
-		<input class="metro" type="checkbox" data-id="switch2">
-		<div class="metro checkbox checked" data-id="switch2">
-			<div class="innerCheckbox"></div>
+	<body onload="prettyPrint()" class="darkBG">
+		<div>
+			<p class="title">
+				<span style="font-size: 42pt">MetroUI.css</span><br>
+				<span>Design examples</span><br>
+				<span>&copy; 2014 Sniper_GER</span>
+			</p>
 		</div>
 		
-		<p class="light">Code:</p>
-		<pre class="prettyprint lang-html linenums">
-			&lt;input class="metro" type="checkbox" data-id="switch1"&gt;
-			&lt;div class="metro checkbox" data-id="switch1"&gt;
-				&lt;div class="innerCheckbox"&gt;&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;input class="metro" type="checkbox" data-id="switch2"&gt;
-			&lt;div class="metro checkbox checked" data-id="switch2"&gt;
-				&lt;div class="innerCheckbox"&gt;&lt;/div&gt;
-			&lt;/div&gt;
-		</pre>
-		<p class="headline">additional stuff</p>
-		<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
-		<ul>
-			<li>JavaScript integration</li>
-			<li>MetroJS integration</li>
-			<li>Toast notifications</li>
-			<li>Alerts</li>
-		</ul>
-		<p class="superlight footer">&copy; 2014 Sniper_GER | This pages uses Google's Prettify</p>
+		<div>
+			<p class="headline">table of content</p>
+			<ul class="light">
+				<li>theming support</li>
+				<li>buttons</li>
+				<li>swtiches</li>
+				<li>important notice</li>
+				<li>addtional stuff</li>
+			</ul>
+		</div>
+
+		<div>
+			<p class="headline">theming support</p>
+			<p class="light">Current accent color has been set to <span style="color: #a20025;">Crimson</span> for presentation purposes.</p>
+			<p class="light">More colors coming with MetroJS implementation, meaning every color of Windows Phone 8 will be supported. Besides that, every UI element supports dark and light backgrounds.</p>
+		</div>
+		
+		<div>
+			<p class="headline">buttons</p>
+			<p class="light">Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
+			
+			<p class="light">Example:</p>
+			<button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')">Button</button>
+			<button class="metro" type="button" disabled>Disabled</button>
+			
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-html linenums">
+		&lt;button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')"&gt;Button&lt;/button&gt;
+		&lt;button class="metro" type="button" disabled&gt;Disabled&lt;/button&gt;
+			</pre>
+		</div>
+		
+		<div>
+			<p class="headline">switches</p>
+			<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br>They are identified by their "data-id", so they can identify their belonging checkbox.<br><br></p>
+			
+			<p class="light">Example:</p>
+			<input class="metro" type="checkbox" data-id="switch1" checked>
+			<div class="metro checkbox checked" data-id="switch1">
+				<div class="innerCheckbox"></div>
+			</div>
+			
+			<input class="metro" type="checkbox" data-id="switch2" disabled>
+			<div class="metro checkbox disabled" data-id="switch2">
+				<div class="innerCheckbox"></div>
+			</div>
+			
+			<p id="checkbox1checked">Checkbox 1 is: checked</p>
+			<p id="checkbox2checked">Checkbox 2 is: disabled</p>
+			<p><br></p>
+			
+			<p class="light">Code - HTML:</p>
+			<pre class="prettyprint lang-html linenums">
+		&lt;input class="metro" type="checkbox" data-id="switch1" checked&gt;
+		&lt;div class="metro checkbox checked" data-id="switch1"&gt;
+			&lt;div class="innerCheckbox"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	
+		&lt;input class="metro" type="checkbox" data-id="switch2" disabled&gt;
+		&lt;div class="metro checkbox disabled" data-id="switch2"&gt;
+			&lt;div class="innerCheckbox"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+			</pre>
+			
+			<p class="light"><br>Using the JavaScript code below, you can use the MetroUI.css switches to toggle their corresponding checkboxes, making it easier to use existing JavaScript with MetroUI.css.</p>
+			<p class="light">These lines basically bind an event (based on either touch or click) to a switch with an identification attribute of "switch1", toggling it's class "checked" and applying it's changed settings to a Input with the same identification.<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+		$('div[data-id=switch1]').bind(touchEventEnd, function() {
+			// Storing the requested element in a variable for easier access
+			var $checkboxElement = $('input[type=checkbox][data-id=' + $(this).attr("data-id") + ']');
+			
+			// Applying new class to the MetroUI switch and its corresponding checkbox
+			$(this).toggleClass("checked");
+			$checkboxElement.attr("checked", !$checkboxElement.attr("checked"));
+			
+			// PRESENTATION ONLY: Changing the status string for the first MetroUI switch
+			if ($checkboxElement.attr("checked") == "checked") {
+				$('p#checkbox1checked').html("Checkbox 1 is: " + $checkboxElement.attr("checked"));
+			} else {
+				$('p#checkbox1checked').html("Checkbox 1 is: unchecked");
+			}
+		});
+			</pre>
+		</div>
+		
+		<div>
+			<p class="headline">important notice</p>
+			<p class="light"><br>MetroUI.css's JavaScript is based on jQuery, so be sure to include that before everything else!<br><br></p>
+			<p class="light">Code - HTML:</p>
+			<pre class="prettyprint lang-html linenums">
+		&lt;script src="http://code.jquery.com/jquery-1.11.0.min.js"&gt;&lt;/script&gt; &lt;!-- Use if you want to load jQuery from a remote resource --&gt;
+		&lt;script src="javascript/jquery-1.11.0.min.js"&gt;&lt;/script&gt;				&lt;!-- Use if you have jQuery saved locally, change Source if needed --&gt;
+			</pre>
+		</div>
+		
+		<div>
+			<p class="headline">additional stuff</p>
+			<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
+			<ul class="light">
+				<li>JavaScript integration</li>
+				<li>MetroJS integration</li>
+				<li>Toast notifications</li>
+				<li>Alerts</li>
+			</ul>
+		</div>
+		
+		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>
+		
+		<script src="javascript/MetroUI.js"></script>
 	</body>
 </html>
