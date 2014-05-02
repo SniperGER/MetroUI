@@ -67,6 +67,9 @@ div.metro.checkbox .innerCheckbox:after {
 	background-color: #fff;
 	
 	border: 3px solid #000;
+
+       -webkit-transition: left .2s ease-out;
+       transition: left .2s ease-out;
 	
 	z-index: 2;
 }
