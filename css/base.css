@@ -16,6 +16,7 @@ html, body {
 	min-height: 100%;
 }
 body {
+	padding-top: 30px;
 	padding-left: 50px;
 	padding-right: 50px;
 }
@@ -49,4 +50,20 @@ p.title {
 .footer{
 	margin-top: 50px;
 	padding-bottom: 50px;
+}
+
+div.importantNotice {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	width: 100%;
+	height: 30px;
+	
+	background-color: #1ba1e2;
+	
+	text-align: center;
+}
+div.importantNotice p {
+	line-height: 30px;
 }
