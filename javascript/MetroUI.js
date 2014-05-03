@@ -8,7 +8,7 @@ var MetroUI = {
 			type = options.type || undefined,
 			objID = options.objID || undefined,
 			id = options.id || undefined,
-			active = options.active || false,
+			active = options.active || true,
 			startSwitched = options.startSwitched || false,
 			callback = options.callback || undefined;
 		
