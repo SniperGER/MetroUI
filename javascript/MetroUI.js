@@ -8,7 +8,7 @@ var MetroUI = {
 			type = options.type || undefined,
 			objID = options.objID || undefined,
 			id = options.id || undefined,
-			active = options.active || true,
+			active = options.active || false,
 			startSwitched = options.startSwitched || false,
 			callback = options.callback || undefined;
 		
@@ -19,6 +19,7 @@ var MetroUI = {
 			}
 			if (active == false) {
 				$(objID).attr("disabled","disabled");
+				
 			}
 		}
 		
