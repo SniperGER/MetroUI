@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MetroUI.css - Playground</title>
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+		
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/MetroUI.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+		
+		<!-- Prettify Code Embed -->
+		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="javascript/prettify.js"></script>
+		<script type="text/javascript" src="javascript/jquery.js"></script>
+		<script src="javascript/MetroUI.js"></script>
+	</head>
+	
+	<body class="darkBG">
+		<div>
+			<p class="title">
+				<span style="font-size: 42pt">MetroUI.css</span><br>
+				<span>Playground</span><br>
+				<span>Full documentation accessible <a href="MetroUI.html">here</a>.</span><br>
+				<span>&copy; 2014 Sniper_GER</span>
+			</p>
+		</div>
+		
+		
+		<div>
+			<p class="headline">table of content</p>
+			<ul class="light">
+				<li>buttons</li>
+				<li>swtiches</li>
+			</ul>
+		</div>
+		
+		<div>
+			<p class="headline">buttons</p>
+
+			<button id="button1" type="button">Button</button>
+			<button id="button2" type="button">Disabled</button>
+			<script>
+				MetroUI.create({
+					type: 'button',
+					objID: $('#button1'),
+					id: 'button1',
+					active: true,
+					callback: function() { setTimeout(function() { $('body').toggleClass("darkBG lightBG") }, 20) }
+				});
+				MetroUI.create({
+					type: 'button',
+					objID: $('#button2'),
+					id: 'button2',
+					active: false
+				});
+			</script>
+			<p class="superlight">Use the button to switch between dark and light backgrounds.<br><br></p>
+		</div>
+		
+		<div>
+			<p class="headline">switches</p>
+			
+			<div class="metro checkbox" id="switch1">
+				<div class="innerCheckbox"></div>
+			</div>
+			<div class="metro checkbox" id="switch2">
+				<div class="innerCheckbox"></div>
+			</div>
+			<div class="metro checkbox disabled" id="switch3">
+				<div class="innerCheckbox"></div>
+			</div>
+			<script>
+				MetroUI.create({
+					type: "switch",
+					objID: $('#switch1'),
+					id: "switch1"
+				});
+				
+				MetroUI.create({
+					type: "switch",
+					objID: $('#switch2'),
+					id: "switch2",
+					startSwitched: true
+				});
+				MetroUI.create({
+					type: "switch",
+					objID: $('#switch3'),
+					id: "switch3",
+					startSwitched: true
+				});
+			</script>
+		</div>
+
+		<div class="importantNotice">
+			<p class="light">Huge update incoming: Complete rewrite, MetroJS support and more UI elements!</p>
+		</div>
+
+		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>
+	</body>
+</html>

@@ -17,7 +17,7 @@ button.metro {
 }
 button.metro:active {
 	color: #fff;
-	background-color: #1ba1e2;
+	background-color: #f0a30a;
 }
 button.metro:disabled, button.metro:active:disabled {
 	opacity: 0.3;
@@ -51,7 +51,7 @@ div.metro.checkbox.disabled {
 div.metro.checkbox .innerCheckbox {
 	position: relative;
 
-	background-color: #1ba1e2;
+	background-color: #f0a30a;
 	
 	margin: 4px;
 	width: 0px;
@@ -98,7 +98,7 @@ div.metro.checkbox.checked .innerCheckbox:after {
 }
 .lightBG button.metro:active {
 	color: #fff;
-	background-color: #1ba1e2;
+	background-color: #f0a30a;
 }
 
 .lightBG div.metro.checkbox {

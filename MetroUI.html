@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>MetroUI: CSS Examples</title>
+		<title>MetroUI.css</title>
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 		
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/MetroUI.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 		
 		<!-- Prettify Code Embed -->
-		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+		<link href="css/prettify.css" type="text/css" rel="stylesheet">
 		<script type="text/javascript" src="javascript/prettify.js"></script>
 		<script type="text/javascript" src="javascript/jquery.js"></script>
 		<script src="javascript/MetroUI.js"></script>
@@ -18,7 +20,8 @@
 		<div>
 			<p class="title">
 				<span style="font-size: 42pt">MetroUI.css</span><br>
-				<span>Design examples</span><br>
+				<span>Documentation</span><br>
+				<span>Playground accessible <a href="MetroUI.min.html">here</a>.</span><br>
 				<span>&copy; 2014 Sniper_GER</span>
 			</p>
 		</div>
@@ -26,39 +29,173 @@
 		<div>
 			<p class="headline">table of content</p>
 			<ul class="light">
-				<li>theming support</li>
+				<p><br>INTRODUCTION</p>
+				<li>required libraries</li>
+				<li>the metro font</li>
+				<li>touch support</li>
+				<li>the 'create' function</li>
+				<p><br>UI ELEMENTS</p>
 				<li>buttons</li>
-				<li>swtiches</li>
+				<li>switches</li>
+				<p><br>OTHER STUFF</p>
+				<li>theming support</li>
 				<li>important notice</li>
-				<li>addtional stuff</li>
+				<li>where is the rest?</li>
 			</ul>
-		</div>
-
-		<div>
-			<p class="headline">theming support</p>
-			<p class="light">Current accent color has been set to <span style="color: #1ba1e2;">Cyan</span> for presentation purposes.</p>
-			<p class="light">More colors coming with MetroJS implementation, meaning every color of Windows Phone 8 will be supported. Besides that, every UI element supports dark and light backgrounds.</p>
 		</div>
 		
 		<div>
-			<p class="headline">buttons</p>
-			<p class="light">Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
-			
-			<p class="light">Example:</p>
-			<button class="metro" type="button" onclick="$('body').toggleClass('darkBG lightBG')">Button</button>
-			<button class="metro" type="button" disabled>Disabled</button>
-			<p class="superlight">Use the button to switch between dark and light backgrounds.<br><br></p>
-			
-			<p class="light">Code - JavaScript:</p>
+			<p class="headline">required libraries</p>
+			<p class="light">The JavaScript components of MetroUI are based on jQuery, so you will need to include it before anything else. Then you can include MetroUI's JavaScript file. And don't forget to include the CSS file!<br><br></p>
+			<p class="light">Code - html</p>
 			<pre class="prettyprint lang-html linenums">
-	&lt;button class="metro" type="button" onclick="alert('You\'ve clicked an active button!')"&gt;Button&lt;/button&gt;
-	&lt;button class="metro" type="button" disabled&gt;Disabled&lt;/button&gt;
+	&lt;link rel="stylesheet" type="text/css" href="css/MetroUI.css"&gt;
+	
+	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="javascript/MetroUI.js"&gt;&lt;/script&gt;
 			</pre>
 		</div>
 		
 		<div>
+			<p class="headline">the metro font</p>
+			<p class="light">As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets his hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the &lt;head&gt;&lt;/head&gt; region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.<br><br></p>
+			<p class="light">Code - HTML:</p>
+			<pre class="prettyprint lang-html linenums">
+		&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'&gt;
+			</pre>
+		</div>
+		
+		<div>
+			<p class="headline">touch support</p>
+			<p class="light">MetroUI and its components support touch based input. Touch based input removes the annoying 300ms delay on touch devices, so actions are performed instantaneously. It is achieved with two variables setting an event based on the users screen.<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	var touchEventStart = (('ontouchend' in window)) ? 'touchstart' : 'mousedown';
+	var touchEventEnd = (('ontouchend' in window)) ? 'touchend' : 'click';
+			</pre>
+			<p class="light"><br>These lines are included within MetroUI's Javascript component, so you don't have to include them yourself anywhere. They can also be used for anything you would like to add touch support to.</p>
+		</div>
+
+		<div>
+			<p class="headline">the 'create' function</p>
+			<p class="light">Every MetroUI element is initialized with the 'create' function. It is making any raw element shown on this page (except for lists and accent lists right now) a working MetroUI element. Using it is extremely simple! Here is an example:<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.create({
+		type: "switch",
+		objID: $('#switch1'),
+		id: "switch1",
+		enabled: true,
+		startSwitched: false
+	});
+			</pre>
+			<p class="light"><br>This example makes a switch out of the jQuery object "$('#switch1)" and assigns it the "data-id=switch1". It is also set to be unswitched at start. Let's have a look on the options you have when creating a MetroUI element:<br><br></p>
+			<table>
+				<tr>
+					<th>argument</th>
+					<th>type</th>
+					<th>options</th>
+					<th>default setting</th>
+					<th>notes</th>
+				</tr>
+				<tr>
+					<td>type</td>
+					<td>String</td>
+					<td>"button", "switch", "list", "accentList"</td>
+					<td>undefined</td>
+					<td>"list", "accentList" not supported yet</td>
+				</tr>
+				<tr>
+					<td>objID</td>
+					<td>jQuery Object</td>
+					<td>none</td>
+					<td>undefined</td>
+					<td>Can be jQuery .class instead of #id if unique</td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td>String</td>
+					<td>none</td>
+					<td>undefined</td>
+					<td>Should be equal to the specified jQuery object</td>
+				</tr>
+				<tr>
+					<td>active</td>
+					<td>boolean</td>
+					<td>true, false</td>
+					<td>true</td>
+					<td>Is the element activated on start or not?</td>
+				</tr>
+				<tr>
+					<td>startSwitched</td>
+					<td>boolean</td>
+					<td>true, false</td>
+					<td>false</td>
+					<td>Only applicable to switches<br><br></td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td>function</td>
+					<td>none</td>
+					<td>none</td>
+					<td>What an element has to do after being used.</td>
+				</tr>
+			</table>
+			<p class="light"><br>Every argument that defaults to "undefined" is required, others are optional.</p>
+			<p class="superlight">Please note that the types "list" and "accentList" aren't implemented yet, so trying to create elements of those types will be unsuccessful.</p>
+		</div>
+		
+		<div>
+			<p class="headline">buttons</p>
+			<p class="light">Coming now to the real UI elements, starting with Buttons. Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
+			
+			<p class="light">Example:</p>
+			<button id="button1" type="button">Button</button>
+			<button id="button2" type="button">Disabled</button>
+			<script>
+				MetroUI.create({
+					type: 'button',
+					objID: $('#button1'),
+					id: 'button1',
+					active: true,
+					callback: function() { setTimeout(function() { $('body').toggleClass("darkBG lightBG") }, 20) }
+				});
+				MetroUI.create({
+					type: 'button',
+					objID: $('#button2'),
+					id: 'button2',
+					active: false
+				});
+			</script>
+
+			<p class="superlight">Use the button to switch between dark and light backgrounds.<br><br></p>
+			
+			<p class="light">Code - HTML:</p>
+			<pre class="prettyprint lang-html linenums">
+	&lt;button id="button1" type="button"&gt;Button&lt;/button&gt;
+	&lt;button id="button2" type="button"&gt;Disabled&lt;/button&gt;
+			</pre>
+			<p class="light"><br><br>Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.create({
+		type: "button",
+		objID: $('#button1'),
+		id: "button1",
+		callback: function() { setTimeout(function() { $('body').toggleClass("darkBG lightBG") }, 20) }
+	});
+	MetroUI.create({
+		type: "button",
+		objID: $('#button2'),
+		id: "button2",
+		active: false
+	});
+			</pre>
+			<p class="superlight">On buttons, a 20ms delay is needed to perform an action. If it has no delay, actions are likely to be performed multiple times on touch based devices.</p>
+		</div>
+		
+		<div>
 			<p class="headline">switches</p>
-			<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br>They are identified by their "id" attribute, so they can identify their belonging checkbox.<br>Metro switches containing the class "disabled" are not set up as a working switch.<br></p>
+			<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br><br></p>
 			
 			<p class="light">Example:</p>
 			<div class="metro checkbox" id="switch1">
@@ -71,20 +208,23 @@
 				<div class="innerCheckbox"></div>
 			</div>
 			<script>
-				MetroUI.init({
+				MetroUI.create({
+					type: "switch",
 					objID: $('#switch1'),
 					id: "switch1"
 				});
 				
-				MetroUI.init({
+				MetroUI.create({
+					type: "switch",
 					objID: $('#switch2'),
 					id: "switch2",
-					startEnabled: true
+					startSwitched: true
 				});
-				MetroUI.init({
+				MetroUI.create({
+					type: "switch",
 					objID: $('#switch3'),
 					id: "switch3",
-					startEnabled: true
+					startSwitched: true
 				});
 			</script>
 			
@@ -96,7 +236,7 @@
 	    &lt;div class="innerCheckbox"&gt;&lt;/div&gt;
 	&lt;/div&gt;
 	
-	&lt;div class="metro checkbox" id="switch2"&gt;
+	&lt;div class="metro checkbox checked" id="switch2"&gt;
 	    &lt;div class="innerCheckbox"&gt;&lt;/div&gt;
 	&lt;/div&gt;
 
@@ -104,43 +244,16 @@
 	    &lt;div class="innerCheckbox"&gt;&lt;/div&gt;
 	&lt;/div&gt;
 			</pre>
-			
-			<p class="light"><br>Using the JavaScript code below, you can create a new checkbox and assign it to the MetroUI switch. It binds an event to the switch based on touch/click input toggling its "checked" class and the checkboxes "checked" state.<br><br></p>
-			<p class="light">Code - JavaScript:</p>
-			<pre class="prettyprint lang-js linenums">
-	MetroUI.init({
-		objID: $('#switch1'), 	// Create new switch indentified by jQuery id selector
-		id: "switch1",			// Assign both the switch and a newly created input an ID, should be same as objID
-		startEnabled: false	// OPTIONAL: Should the switch be enabled on creation? Default: false
-	});
-
-	MetroUI.init({
-		objID: $('#switch2'),
-		id: "switch2",
-		startEnabled: true
-	});
-
-	// Will not be set up as MetroUI switch
-	MetroUI.init({
-		objID: $('#switch3'),
-		id: "switch3",
-		startEnabled: true
-	});
-			</pre>
 		</div>
 		
 		<div>
-			<p class="headline">important notice</p>
-			<p class="light"><br>MetroUI.css's JavaScript is based on jQuery, so be sure to include that before everything else!<br><br></p>
-			<p class="light">Code - HTML:</p>
-			<pre class="prettyprint lang-html linenums">
-		&lt;script src="http://code.jquery.com/jquery-1.11.0.min.js"&gt;&lt;/script&gt; &lt;!-- Use if you want to load jQuery from a remote resource --&gt;
-		&lt;script src="javascript/jquery-1.11.0.min.js"&gt;&lt;/script&gt;				&lt;!-- Use if you have jQuery saved locally, change Source if needed --&gt;
-			</pre>
+			<p class="headline">theming support</p>
+			<p class="light">Current accent color has been set to <span style="color: #f0a30a;">Amber</span> for presentation purposes.</p>
+			<p class="light">More colors coming with MetroJS implementation, meaning every color of Windows Phone 8 will be supported. Besides that, every UI element supports dark and light backgrounds.</p>
 		</div>
 		
 		<div>
-			<p class="headline">additional stuff</p>
+			<p class="headline">where is the rest?</p>
 			<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
 			<ul class="light">
 				<li>JavaScript integration</li>
