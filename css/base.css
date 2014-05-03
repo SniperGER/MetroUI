@@ -53,6 +53,9 @@ p.title {
 	font-size: 8pt;
 }
 .footer{
+	position: absolute;
+	bottom: 0;
+	
 	margin-top: 50px;
 	padding-bottom: 50px;
 }
