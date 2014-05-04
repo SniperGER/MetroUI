@@ -179,12 +179,14 @@ div.alert p.alertTitle {
 	padding-top: 20px;
 	padding-left: 15px;
 	font-size: 15pt;
+	font-weight: 600;
 }
 div.alert p.alertContent {
 	padding-top: 20px;
 	padding-left: 15px;
+	padding-right: 15px;
 	font-size: 11pt;
-	font-weight: 300;
+	font-weight: 400;
 }
 div.alert div.buttons {
 	float: right;
@@ -224,6 +226,9 @@ div.alertBG {
 }
 .lightBG div.alert {
 	background-color: #dedfde;
+}
+.lightBG div.alert p {
+	color: #000;
 }
 .lightBG div.alert button.metro {
 	background-color: #dedfde;
