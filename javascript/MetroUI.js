@@ -2,6 +2,22 @@ var touchEventStart = (('ontouchend' in window)) ? 'touchstart' : 'mousedown';
 var touchEventEnd = (('ontouchend' in window)) ? 'touchend' : 'click';
 var timeouts = [];
 
+var currentAccentColor = "cobalt";
+// Available accent colors: "lime", "green", "emerald", "teal", "cyan", "cobalt", "indigo", "violet", "pink", "magenta", "crimson", "red", "orange", "amber", "yellow", "brown", "olive", "steel", "mauve", "taupe"
+
+
+$(document).ready(function() {
+	$('.innerCheckbox').addClass("accent");
+	$('.accent:not(.noColor), .accentColor:not(.noColor), .accentBorder:not(.noColor)').addClass(currentAccentColor);
+	$('a').addClass("accentColor " + currentAccentColor);
+	$('button').bind(touchEventStart, function() {
+		$(this).addClass("accent " + currentAccentColor);
+	});
+	$('button').bind(touchEventEnd, function() {
+		$(this).removeClass("accent " + currentAccentColor);
+	});
+});
+
 var MetroUI = {
 	create: function(options) {
 
@@ -52,7 +68,7 @@ var MetroUI = {
 	},
 	notify: function(sender,message,iconPath) {
 		if($('div.notification').length <= 0) {
-			$('body').append("<div class=\"notification\"><img class=\"notifyImage\" src=\"" + iconPath + "\" /><span class=\"sender\">" + sender + "</span><span class=\"message\">"+message+"</span></div>");
+			$('body').append("<div class=\"notification accent "+currentAccentColor+"\"><img class=\"notifyImage\" src=\"" + iconPath + "\" /><span class=\"sender\">" + sender + "</span><span class=\"message\">"+message+"</span></div>");
 			$('div.notification').bind(touchEventEnd, function() {
 				MetroUI.dismissNotification();
 			});
@@ -91,6 +107,12 @@ var MetroUI = {
 				$('.alertBG').bind(touchEventStart, function(e) {
 					e.preventDefault()
 				});
+				$('button').bind(touchEventStart, function() {
+					$(this).addClass("accent " + currentAccentColor);
+				});
+				$('button').bind(touchEventEnd, function() {
+					$(this).removeClass("accent " + currentAccentColor);
+				});
 			}, 20);
 		}
 	},
@@ -119,6 +141,12 @@ var MetroUI = {
 				});
 				$('.alertBG').bind(touchEventStart, function(e) {
 					e.preventDefault()
+				});
+				$('button').bind(touchEventStart, function() {
+					$(this).addClass("accent " + currentAccentColor);
+				});
+				$('button').bind(touchEventEnd, function() {
+					$(this).removeClass("accent " + currentAccentColor);
 				});
 			}, 20);
 		}

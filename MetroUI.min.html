@@ -7,6 +7,7 @@
 		
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/MetroUI.css">
+		<link rel="stylesheet" href="css/MetroJs.ltt.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 		
 		<!-- Prettify Code Embed -->
@@ -29,7 +30,7 @@
 		
 		<div>
 			<p class="headline">table of content</p>
-			<ul class="light">
+			<ul>
 				<li>buttons</li>
 				<li>swtiches</li>
 				<li>notifications + alerts</li>
@@ -61,13 +62,13 @@
 			<p class="headline">switches</p>
 
 			<div class="metro checkbox" id="switch1">
-				<div class="innerCheckbox"></div>
+				<div class="innerCheckbox accent"></div>
 			</div>
 			<div class="metro checkbox" id="switch2">
-				<div class="innerCheckbox"></div>
+				<div class="innerCheckbox accent"></div>
 			</div>
 			<div class="metro checkbox disabled" id="switch3">
-				<div class="innerCheckbox"></div>
+				<div class="innerCheckbox accent"></div>
 			</div>
 			<script>
 				MetroUI.create({
@@ -122,6 +123,12 @@
 					}) }
 				});
 			</script>
+		</div>
+
+		<div>
+			<p class="headline">theming support</p>
+			<p class="light">&lt;p class="accentColor"&gt;<span class="accentColor">This paragraph is themed by MetroUI.</span>&lt;/p&gt;</p>
+			<p class="light">&lt;p class="accentColor crimson noColor"&gt;<span class="accentColor crimson noColor">This paragraph will be crimson.</span>&lt;/p&gt;</p>
 		</div>
 
 		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>

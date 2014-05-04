@@ -15,7 +15,6 @@ button.metro {
 }
 button.metro:active {
 	color: #fff;
-	background-color: #f0a30a;
 }
 button.metro:disabled, button.metro:active:disabled {
 	opacity: 0.3;
@@ -52,8 +51,6 @@ div.metro.checkbox.disabled {
 }
 div.metro.checkbox .innerCheckbox {
 	position: relative;
-
-	background-color: #f0a30a;
 	
 	margin: 4px;
 	width: 0px;
@@ -99,7 +96,7 @@ div.metro.checkbox.checked .innerCheckbox:after {
 }
 
 div.notification {
-	background-color: #f0a30a;
+	/* background-color: #f0a30a; */
 	height: 40px;
 	left: 0;
 	padding-left: 75px;
@@ -172,9 +169,6 @@ div.alert button.metro {
 	width: 140px;
 	background-color: #212021;
 }
-div.alert button.metro:active {
-	background-color: #f0a30a;
-}
 div.alert p.alertTitle {
 	padding-top: 20px;
 	padding-left: 15px;
@@ -214,7 +208,6 @@ div.alertBG {
 }
 .lightBG button.metro:active {
 	color: #fff;
-	background-color: #f0a30a;
 }
 
 .lightBG div.metro.checkbox {

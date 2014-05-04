@@ -7,10 +7,11 @@
 		
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/MetroUI.css">
+		<link rel="stylesheet" href="css/MetroJs.ltt.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 		
 		<!-- Prettify Code Embed -->
-		<link href="css/prettify.css" type="text/css" rel="stylesheet">
+		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="javascript/prettify.js"></script>
 		<script type="text/javascript" src="javascript/jquery.js"></script>
 		<script src="javascript/MetroUI.js"></script>
@@ -62,7 +63,7 @@
 			<p class="light">As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets their hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the &lt;head&gt;&lt;/head&gt; region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.<br><br></p>
 			<p class="light">Code - HTML:</p>
 			<pre class="prettyprint lang-html linenums">
-		&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'&gt;
+	&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'&gt;
 			</pre>
 		</div>
 		
@@ -428,15 +429,48 @@
 		
 		<div>
 			<p class="headline">theming support</p>
-			<p class="light">Current accent color has been set to <span style="color: #f0a30a;">Amber</span> for presentation purposes.</p>
-			<p class="light">More colors coming with MetroJS implementation, meaning every color of Windows Phone 8 will be supported. Besides that, every UI element supports dark and light backgrounds.</p>
+			<p class="light">Theming is done via the CSS file included in Drew Greenwell's Metro JS. I've changed it a bit, so that it includes all the Windows Phone 8 accent colors. It is not usable yet, but it works. There will be more information when I make progress.<br>If you want to test it for yourself, download MetroUI and open MetroUI.js. There you will find a variable for the current accent color. Just enter one of WP8's accent colors in lowercase letters and you should see results in different button and notification colors. This process will be much more practical when I manage to implement accent color lists. Sorry for the inconvenience.<br><br></p>
+			<p class="light">Any element can be set up to have an accent color. Buttons and switches are set up automatically. There are several CSS classes for you needs: for background colors, text colors and border colors. MetroUI will take care of adding the specified accent colors to those elements.<br><br></p>
+				<table>
+					<tr>
+						<th>CSS class</th>
+						<th>example</th>
+						<th>description</th>
+					</tr>
+					<tr>
+						<td>.accent</td>
+						<td>&lt;div class="accent lime noColor"&gt;This container will have a lime background.&lt;/div&gt;</td>
+						<td>Changes the background color of any element to the specified accent color.</td>
+					</tr>
+					<tr>
+						<td>.accentColor</td>
+						<td>&lt;p class="accentColor crimson noColor"&gt;This paragraph will be crimson.&lt;/p&gt;</td>
+						<td>Changes the text color of paragraphs and spans.</td>
+					</tr>
+					<tr>
+						<td>.accentButton</td>
+						<td>&lt;div class="accentBorder teal noColor"&gt;This container will have teal borders.&lt;/div&gt;</td>
+						<td>Changes the of any element. If the element has any border.</td>
+					</tr>
+					<tr>
+						<td>.noColor</td>
+						<td>&lt;div class="accentBorder teal noColor"&gt;This container will have teal borders.&lt;/div&gt;</td>
+						<td>Changes the of any element. If the element has any border.</td>
+					</tr>
+			</table>
+			<p class="light"><br>The .noColor class is important if you want your element not to be themed by MetroUI.</p>
+			<p class="light"><br>Example:</p>
+			<p class="light">&lt;p class="accentColor"&gt;<span class="accentColor">This paragraph is themed by MetroUI.</span>&lt;/p&gt;</p>
+			<p class="light">&lt;p class="accentColor crimson noColor"&gt;<span class="accentColor crimson noColor">This paragraph will be crimson.</span>&lt;/p&gt;</p>
+
+
 		</div>
 		
 		<div>
 			<p class="headline">where is the rest?</p>
 			<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
 			<ul class="light">
-				<li>MetroJS integration</li>
+				<li>MetroJS integration (partially done)</li>
 				<li>Lists</li>
 				<li>Accent color lists</li>
 			</ul>
