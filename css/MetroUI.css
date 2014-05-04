@@ -3,16 +3,14 @@
 button.metro {
 	margin-top: 10px;
 	margin-bottom: 10px;
-
+	padding-left: 10px;
+	padding-right: 10px;
 	min-width: 100px;
-	height: 36px;
-	
-	background-color: #000;
+	height: 32px;
 	border: 3px solid #fff;
-
+	background-color: #000;
 	color: #fff;
 	font-size: 11pt;
-	
 	cursor: pointer;
 }
 button.metro:active {
@@ -26,6 +24,7 @@ button.metro:disabled, button.metro:active:disabled {
 	
 	cursor: default;
 }
+
 input.metro[type="checkbox"] {
 	position: absolute;
 	opacity: 0;
@@ -42,6 +41,9 @@ div.metro.checkbox {
 	border: 3px solid #fff;
 	
 	cursor: pointer;
+}
+div.metro.checkbox.rightLabel {
+	margin-left: 160px;
 }
 div.metro.checkbox.disabled {
 	opacity: 0.3;
@@ -60,10 +62,19 @@ div.metro.checkbox .innerCheckbox {
 	-webkit-transition: width .1s ease-out;
 	transition: width .1s ease-out;
 }
+div.metro.checkbox label {
+	position: relative;
+	top: -22px;
+	left: 160px;
+	
+	height: 100%;
+}
+div.metro.checkbox.rightLabel label {
+	left: -160px;
+}
 div.metro.checkbox.checked .innerCheckbox {
 	width: 57px;
 }
-
 div.metro.checkbox .innerCheckbox:after {
 	content: "";
 	
@@ -87,13 +98,116 @@ div.metro.checkbox.checked .innerCheckbox:after {
 	left: 48px;
 }
 
+div.notification {
+	background-color: #f0a30a;
+	height: 40px;
+	left: 0;
+	padding-left: 75px;
+	position: fixed;
+	text-align: left;
+	top: 0;
+	transform: translate3d(0,-40px,0);
+	transition: -webkit-transform .3s ease-out;
+	-webkit-transform: translate3d(0,-40px,0);
+	-webkit-transition: -webkit-transform .3s ease-out;
+	width: 100%;
+	z-index: 999;
+	color: #fff;
+	cursor: default;
+}
+div.notification img.notifyImage {
+	position: absolute;
+	bottom: 6px;
+	left: 15px;
+	width: 20px;
+	height: 20px;
+}
+div.notification.slideIn {
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
+}	
+div.notification span.sender {
+	font-size: 11pt;
+	font-weight: 600;
+	line-height: 50px;
+	margin-right: 10px;
+	margin-left: -25px;
+	max-width: 250px;
+}
+div.notifcation span.message {
+	font-weight: 300;
+	line-height: 50px;
+	margin-right: 15px;
+}
+
+div.alertWrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	-webkit-perspective: 1000px;
+	min-height: 200px;
+	z-index: 998;
+}
+div.alert {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 62px;
+	background-color: #212021;
+	-webkit-transform: rotateX(90deg);
+	-webkit-transition: -webkit-transform .15s ease-out;
+}
+div.alert.rotateIn {
+	-webkit-transform: rotateX(0deg);
+}
+div.alert.rotateOut {
+	-webkit-transform: rotateX(-90deg);
+}
+div.alert button.metro {
+	margin-top: 0;
+	margin-left: 10px;
+	padding: 0;
+	width: 140px;
+	background-color: #212021;
+}
+div.alert button.metro:active {
+	background-color: #f0a30a;
+}
+div.alert p.alertTitle {
+	padding-top: 20px;
+	padding-left: 15px;
+	font-size: 15pt;
+}
+div.alert p.alertContent {
+	padding-top: 20px;
+	padding-left: 15px;
+	font-size: 11pt;
+	font-weight: 300;
+}
+div.alert div.buttons {
+	float: right;
+	margin-top: 30px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+}
+div.alertBG {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index: 900;
+	opacity: 0.5;
+}
 
 /* UI Elements, light background */
 
 .lightBG button.metro {
 	background-color: #fff;
 	border: 3px solid #000;
-	
 	color: #000;
 }
 .lightBG button.metro:active {
@@ -106,6 +220,14 @@ div.metro.checkbox.checked .innerCheckbox:after {
 }
 .lightBG div.metro.checkbox .innerCheckbox:after {
 	background-color: #000;
-	
 	border-color: #fff;
+}
+.lightBG div.alert {
+	background-color: #dedfde;
+}
+.lightBG div.alert button.metro {
+	background-color: #dedfde;
+}
+.lightBG div.alert button.metro:active {
+	background-color: #f0a30a;
 }

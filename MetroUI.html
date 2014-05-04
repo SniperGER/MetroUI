@@ -21,7 +21,7 @@
 			<p class="title">
 				<span style="font-size: 42pt">MetroUI.css</span><br>
 				<span>Documentation</span><br>
-				<span>Playground accessible <a href="playground.html">here</a>.</span><br>
+				<span>Playground accessible <a href="MetroUI.min.html">here</a>.</span><br>
 				<span>&copy; 2014 Sniper_GER</span>
 			</p>
 		</div>
@@ -37,6 +37,7 @@
 				<p><br>UI ELEMENTS</p>
 				<li>buttons</li>
 				<li>switches</li>
+				<li>notifications + alerts</li>
 				<p><br>OTHER STUFF</p>
 				<li>theming support</li>
 				<li>important notice</li>
@@ -58,7 +59,7 @@
 		
 		<div>
 			<p class="headline">the metro font</p>
-			<p class="light">As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets his hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the &lt;head&gt;&lt;/head&gt; region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.<br><br></p>
+			<p class="light">As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets their hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the &lt;head&gt;&lt;/head&gt; region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.<br><br></p>
 			<p class="light">Code - HTML:</p>
 			<pre class="prettyprint lang-html linenums">
 		&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'&gt;
@@ -73,7 +74,7 @@
 	var touchEventStart = (('ontouchend' in window)) ? 'touchstart' : 'mousedown';
 	var touchEventEnd = (('ontouchend' in window)) ? 'touchend' : 'click';
 			</pre>
-			<p class="light"><br>These lines are included within MetroUI's Javascript component, so you don't have to include them yourself anywhere. They can also be used for anything you would like to add touch support to.</p>
+			<p class="light"><br>These lines are included within MetroUI's Javascript component, so you don't have to include them yourself anywhere else. They can also be used for anything you would like to add touch support to.</p>
 		</div>
 
 		<div>
@@ -83,9 +84,8 @@
 			<pre class="prettyprint lang-js linenums">
 	MetroUI.create({
 		type: "switch",
-		objID: $('#switch1'),
 		id: "switch1",
-		enabled: true,
+		active: true,
 		startSwitched: false
 	});
 			</pre>
@@ -106,18 +106,11 @@
 					<td>"list", "accentList" not supported yet</td>
 				</tr>
 				<tr>
-					<td>objID</td>
-					<td>jQuery Object</td>
-					<td>none</td>
-					<td>undefined</td>
-					<td>Can be jQuery .class instead of #id if unique</td>
-				</tr>
-				<tr>
 					<td>id</td>
 					<td>String</td>
 					<td>none</td>
 					<td>undefined</td>
-					<td>Should be equal to the specified jQuery object</td>
+					<td>Specifies jQuery DOM element. Must be unique!</td>
 				</tr>
 				<tr>
 					<td>active</td>
@@ -134,11 +127,18 @@
 					<td>Only applicable to switches<br><br></td>
 				</tr>
 				<tr>
+					<td>label</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>Specify an optional label for a switch</td>
+				</tr>
+				<tr>
 					<td>callback</td>
 					<td>function</td>
 					<td>none</td>
 					<td>none</td>
-					<td>What an element has to do after being used.</td>
+					<td>What an element has to do after being used</td>
 				</tr>
 			</table>
 			<p class="light"><br>Every argument that defaults to "undefined" is required, others are optional.</p>
@@ -150,19 +150,17 @@
 			<p class="light">Coming now to the real UI elements, starting with Buttons. Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
 			
 			<p class="light">Example:</p>
-			<button id="button1" type="button">Button</button>
+			<button id="button1" type="button">Button</button><br>
 			<button id="button2" type="button">Disabled</button>
 			<script>
 				MetroUI.create({
 					type: 'button',
-					objID: $('#button1'),
 					id: 'button1',
 					active: true,
-					callback: function() { setTimeout(function() { $('body').toggleClass("darkBG lightBG") }, 20) }
+					callback: function() { $('body').toggleClass("darkBG lightBG") }
 				});
 				MetroUI.create({
 					type: 'button',
-					objID: $('#button2'),
 					id: 'button2'
 				});
 			</script>
@@ -178,23 +176,20 @@
 			<pre class="prettyprint lang-js linenums">
 	MetroUI.create({
 		type: "button",
-		objID: $('#button1'),
 		id: "button1",
 		active: true,
-		callback: function() { setTimeout(function() { $('body').toggleClass("darkBG lightBG") }, 20) }
+		callback: function() { $('body').toggleClass("darkBG lightBG") }
 	});
 	MetroUI.create({
 		type: "button",
-		objID: $('#button2'),
 		id: "button2"
 	});
 			</pre>
-			<p class="superlight">On buttons, a 20ms delay is needed to perform an action. If it has no delay, actions are likely to be performed multiple times on touch based devices.</p>
 		</div>
 		
 		<div>
 			<p class="headline">switches</p>
-			<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br><br></p>
+			<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br>By default, labeled switches receive a "margin-left" of 160 pixels and the labels themselves a "left" of -160 pixels. If this is not suitable to your page, this can be changed in MetroUI.css.<br><br></p>
 			
 			<p class="light">Example:</p>
 			<div class="metro checkbox" id="switch1">
@@ -209,21 +204,19 @@
 			<script>
 				MetroUI.create({
 					type: "switch",
-					objID: $('#switch1'),
-					id: "switch1"
+					id: "switch1",
+					label: "Switch 1"
 				});
-				
 				MetroUI.create({
 					type: "switch",
-					objID: $('#switch2'),
 					id: "switch2",
-					startSwitched: true
+					startSwitched: true,
+					label: "Switch 2"
 				});
 				MetroUI.create({
 					type: "switch",
-					objID: $('#switch3'),
 					id: "switch3",
-					startSwitched: true
+					label: "Disabled"
 				});
 			</script>
 			
@@ -235,7 +228,7 @@
 	    &lt;div class="innerCheckbox"&gt;&lt;/div&gt;
 	&lt;/div&gt;
 	
-	&lt;div class="metro checkbox checked" id="switch2"&gt;
+	&lt;div class="metro checkbox" id="switch2"&gt;
 	    &lt;div class="innerCheckbox"&gt;&lt;/div&gt;
 	&lt;/div&gt;
 
@@ -243,6 +236,194 @@
 	    &lt;div class="innerCheckbox"&gt;&lt;/div&gt;
 	&lt;/div&gt;
 			</pre>
+			<p><br></p>
+			
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.create({
+		type: "switch",
+		id: "switch1",
+		label: "Switch 1"
+	});
+	
+	MetroUI.create({
+		type: "switch",
+		id: "switch2",
+		startSwitched: true,
+		label: "Switch 2"
+	});
+	
+	MetroUI.create({
+		type: "switch",
+		id: "switch3",
+		label: "Disabled"
+	});
+			</pre>
+		</div>
+		
+		<div>
+			<p class="headline">notifications + alerts</p>
+			<p class="light" style="font-size: 16pt">Notifications</p>
+			<p class="light">Notifications (so-called "Toasts") provide useful information for a short period of time. They disappear automatically or when a user interacts with them.<br>There can only be one notification, alert or confirm dialog at once. To create a new one, the old one has to be dismissed first. Only notifications can overlay alerts and confirm dialogs.<br>Notification triggers can be assigned to buttons, switches or even other JavaScript functions. In the following examples notifications, alerts and confirm dialogs are triggered through buttons. Let's have a look at the code first:<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.notify(sender, message, iconPath);
+			</pre>
+			<p class="light"><br><br></p>
+			<table>
+				<tr>
+					<th>argument</th>
+					<th>type</th>
+					<th>options</th>
+					<th>default setting</th>
+					<th>notes</th>
+				</tr>
+				<tr>
+					<td>sender</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>Sets the notification source to the specified string</td>
+				</tr>
+				<tr>
+					<td>message</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>The message that should be displayed on screen</td>
+				</tr>
+				<tr>
+					<td>iconPath</td>
+					<td>String</td>
+					<td>none</td>
+					<td>none</td>
+					<td>Specifies an notification icon</td>
+				</tr>
+
+			</table>
+			<button id="trigger_toast" type="button">trigger notification</button>
+			<p class="light" style="font-size: 16pt">Alerts</p>
+			<p class="light">Alerts require user interaction. Unlike notifications, alerts are static and will not dismiss until the user decides to do so.<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.showAlert(title, message, dismissButton);
+			</pre>
+			<p class="light"><br><br></p>
+			<table>
+				<tr>
+					<th>argument</th>
+					<th>type</th>
+					<th>options</th>
+					<th>default setting</th>
+					<th>notes</th>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>Sets the alert title to the specified string</td>
+				</tr>
+				<tr>
+					<td>message</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>The message that should be displayed on screen</td>
+				</tr>
+				<tr>
+					<td>dismissButton</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>The String that should be displayed on the dismiss button</td>
+				</tr>
+			</table>
+			<button id="trigger_alert" type="button">trigger alert</button>
+			<p class="light" style="font-size: 16pt">Confirm dialogs</p>
+			<p class="light">Confirm dialogs are a lot like alerts. They are both static and require user interaction. But confirm dialogs give a user the choice to accept or decline an upcoming change.<br>There will be more options when I add them over time.<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.showConfirm({
+		title: "",
+		message: "",
+		confirmButtonTitle: "",
+		confirmButtonAction: function() { },
+		abortButtonTitle: ""
+	});
+			</pre>
+			<p class="light"><br><br></p>
+			<table>
+				<tr>
+					<th>argument</th>
+					<th>type</th>
+					<th>options</th>
+					<th>default setting</th>
+					<th>notes</th>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>Sets the alert title to the specified string</td>
+				</tr>
+				<tr>
+					<td>message</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>The message that should be displayed on screen</td>
+				</tr>
+				<tr>
+					<td>confirmButtonTitle</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>The String that should be displayed on the confirm button</td>
+				</tr>
+				<tr>
+					<td>confirmButtonAction</td>
+					<td>function</td>
+					<td>none</td>
+					<td>function() { }</td>
+					<td>The action that shoulb be perfomed on confirmation</td>
+				</tr>
+				<tr>
+					<td>abortButtonTitle</td>
+					<td>String</td>
+					<td>none</td>
+					<td>""</td>
+					<td>The String that should be displayed on the abort button</td>
+				</tr>
+			</table>
+			<button id="trigger_confirm" type="button">trigger confirm dialog</button>
+			<script>
+				MetroUI.create({
+					type: "button",
+					id: "trigger_toast",
+					active: true,
+					callback: function() { MetroUI.notify("Test Notification","This is a sample notification","images/notify.png") }
+				});
+				MetroUI.create({
+					type: "button",
+					id: "trigger_alert",
+					active: true,
+					callback: function() { MetroUI.showAlert("Sample alert","This alert should not be here. Unless you want it to be here.","dismiss") }
+				});
+				MetroUI.create({
+					type: "button",
+					id: "trigger_confirm",
+					active: true,
+					callback: function() { MetroUI.showConfirm({
+						title: "Sample confirm",
+						message: "Do you want this sample to be shown any longer?",
+						confirmButtonTitle: "yes",
+						confirmButtonAction: function() { MetroUI.showAlert("Confirmed","You have successfully confirmed a confirm dialog!","great!") },
+						abortButtonTitle: "no"
+					}) }
+				});
+			</script>
 		</div>
 		
 		<div>
@@ -255,16 +436,10 @@
 			<p class="headline">where is the rest?</p>
 			<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
 			<ul class="light">
-				<li>JavaScript integration</li>
 				<li>MetroJS integration</li>
-				<li>Toast notifications</li>
-				<li>Alerts</li>
-				<li>Touch support for iOS and Android</li>
+				<li>Lists</li>
+				<li>Accent color lists</li>
 			</ul>
-		</div>
-		
-		<div class="importantNotice">
-			<p class="light">Huge update incoming: Complete rewrite, MetroJS support and more UI elements!</p>
 		</div>
 		
 		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>

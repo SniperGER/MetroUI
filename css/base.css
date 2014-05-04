@@ -52,10 +52,7 @@ p.title {
 	font-weight: 300;
 	font-size: 8pt;
 }
-.footer{
-	position: absolute;
-	bottom: 0;
-	
+.footer {
 	margin-top: 50px;
 	padding-bottom: 50px;
 }

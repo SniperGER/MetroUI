@@ -32,25 +32,24 @@
 			<ul class="light">
 				<li>buttons</li>
 				<li>swtiches</li>
+				<li>notifications + alerts</li>
 			</ul>
 		</div>
 		
 		<div>
 			<p class="headline">buttons</p>
 
-			<button id="button1" type="button">Button</button>
+			<button id="button1" type="button">Button</button><br>
 			<button id="button2" type="button">Disabled</button>
 			<script>
 				MetroUI.create({
 					type: 'button',
-					objID: $('#button1'),
 					id: 'button1',
 					active: true,
-					callback: function() { setTimeout(function() { $('body').toggleClass("darkBG lightBG") }, 20) }
+					callback: function() { $('body').toggleClass("darkBG lightBG") }
 				});
 				MetroUI.create({
 					type: 'button',
-					objID: $('#button2'),
 					id: 'button2',
 					active: false
 				});
@@ -60,7 +59,7 @@
 		
 		<div>
 			<p class="headline">switches</p>
-			
+
 			<div class="metro checkbox" id="switch1">
 				<div class="innerCheckbox"></div>
 			</div>
@@ -73,27 +72,56 @@
 			<script>
 				MetroUI.create({
 					type: "switch",
-					objID: $('#switch1'),
-					id: "switch1"
+					id: "switch1",
+					label: "Switch 1"
 				});
 				
 				MetroUI.create({
 					type: "switch",
-					objID: $('#switch2'),
 					id: "switch2",
-					startSwitched: true
+					startSwitched: true,
+					label: "Switch 2"
 				});
 				MetroUI.create({
 					type: "switch",
-					objID: $('#switch3'),
 					id: "switch3",
-					startSwitched: true
+					startSwitched: true,
+					label: "Disabled"
 				});
 			</script>
 		</div>
-
-		<div class="importantNotice">
-			<p class="light">Huge update incoming: Complete rewrite, MetroJS support and more UI elements!</p>
+		
+		<div>
+			<p class="headline">notifications + alerts</p>
+			<button id="trigger_toast" type="button">trigger notification</button>
+			<button id="trigger_alert" type="button">trigger alert</button>
+			<button id="trigger_confirm" type="button">trigger confirm dialog</button>
+			<script>
+				MetroUI.create({
+					type: "button",
+					id: "trigger_toast",
+					active: true,
+					callback: function() { MetroUI.notify("Test Notification","This is a sample notification", "images/notify.png") }
+				});
+				MetroUI.create({
+					type: "button",
+					id: "trigger_alert",
+					active: true,
+					callback: function() { MetroUI.showAlert("Sample alert","This alert should not be here. Unless you want it to be here.","dismiss") }
+				});
+				MetroUI.create({
+					type: "button",
+					id: "trigger_confirm",
+					active: true,
+					callback: function() { MetroUI.showConfirm({
+						title: "Sample confirm",
+						message: "Do you want this sample to be shown any longer?",
+						confirmButtonTitle: "yes",
+						confirmButtonAction: function() { MetroUI.showAlert("Confirmed","You have successfully confirmed a confirm dialog!","great!") },
+						abortButtonTitle: "no"
+					}) }
+				});
+			</script>
 		</div>
 
 		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>
