@@ -210,6 +210,7 @@ MetroUI.create({
 Theming is mostly done via accent color lists. You just open them and select a color, and MetroUI takes care of coloring everything. You can also change the current accent color manually, by calling the function "MetroUI.changeAccentColor(newAccentColor)", where newAccentColor is any color included in Windows Phone 8.1. The colors are included in a slightly change version of Metro JS's CSS file, which also supports live tiles (will be included later).
 
 Any element can be set up to have an accent color. Buttons and switches are set up automatically if you have specified a default color in MetroUI's JavaScript component. You can also set up cookies, so users visiting your site don't always have to change the color. There are several CSS classes for you needs: for background colors, text colors and border colors. MetroUI will take care of adding the specified accent colors to those elements.
+
 | CSS class | example | description |
 |-----------|---------|-------------|
 | .accent | <div class="accent">This container will have a colored background.</div> |  Changes the background color of any element to the specified accent color. |
