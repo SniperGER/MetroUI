@@ -68,7 +68,7 @@ This example makes a switch out of the DOM element "#switch1" and assigns it the
 | type | String | "button", "switch", "list", "accentList" | undefined | "list" not supported yet |
 | id | String | none | undefined | Specifies jQuery DOM element. Must be unique! |
 | active | boolean | true, false | false | Is the element activated on start or not? |
-| startSwitched | true, false | false | Only applicable to switches |
+| startSwitched | boolean | true, false | false | Only applicable to switches |
 | label | String | none | "" | pecify an optional label for a switch |
 | callback | function | none | none | What an element has to do after being used |
 
@@ -142,6 +142,7 @@ Notification triggers can be assigned to buttons, switches or even other JavaScr
 ```javascript
 MetroUI.notify(sender, message, iconPath);
 ```
+
 | argument | type | options | default value | notes |
 |----------|------|---------|---------------|-------|
 | sender | String | none | "" | Sets the notification source to the specified string |
@@ -154,6 +155,7 @@ Alerts require user interaction. Unlike notifications, alerts are static and wil
 ```javascript
 MetroUI.showAlert(title, message, dismissButton);
 ```
+
 | argument | type | options | default value | notes |
 |----------|------|---------|---------------|-------|
 | title | String | none | "" | Sets the alert title to the specified string |
@@ -172,6 +174,7 @@ MetroUI.showConfirm({
 	abortButtonTitle: ""
 });
 ```
+
 | argument | type | options | default value | notes |
 |----------|------|---------|---------------|-------|
 | title | String | none | "" | Sets the alert title to the specified string |
