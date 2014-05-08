@@ -62,6 +62,7 @@ MetroUI.create({
 });
 ```
 This example makes a switch out of the DOM element "#switch1" and assigns it the attribute "data-id=switch1". It is also set to be unswitched at start. Let's have a look on the options you have when creating a MetroUI element:
+
 | argument | type | options | default value | notes |
 |----------|------|---------|---------------|-------|
 | type | String | "button", "switch", "list", "accentList" | undefined | "list" not supported yet |
@@ -70,6 +71,7 @@ This example makes a switch out of the DOM element "#switch1" and assigns it the
 | startSwitched | true, false | false | Only applicable to switches |
 | label | String | none | "" | pecify an optional label for a switch |
 | callback | function | none | none | What an element has to do after being used |
+
 Every argument that defaults to "undefined" is required, others are optional. The argument 'active' is required if you want your MetroUI element to be usable. Please note that "list" isn't implemented yet, so trying to create elements of this type will be unsuccessful.
 
 ##Buttons
