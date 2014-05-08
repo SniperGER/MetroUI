@@ -18,8 +18,8 @@ html, body {
 }
 body {
 	padding-top: 30px;
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .darkBG {
 	background-color: #000;
@@ -28,6 +28,10 @@ body {
 .lightBG {
 	background-color: #fff;
 	color: #000;
+}
+
+ul, pre {
+	margin-left: 35px;
 }
 
 p.title {
@@ -92,4 +96,11 @@ table tr > th:not(:last-child), table tr > td:not(:last-child) {
 }
 table tr:nth-child(2), table tr:nth-child(4), table tr:nth-child(6), table tr:nth-child(8) {
 	background-color: #212021;
+}
+p.title-category {
+	font-weight: 700;
+	font-size: 11pt;
+	padding-top: 10px;
+	padding-left: 15px;
+	text-transform: uppercase;
 }

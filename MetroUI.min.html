@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>MetroUI.css - Playground</title>
+		<title>MetroUI - Playground</title>
 		
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 		
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/MetroUI.css">
 		<link rel="stylesheet" href="css/MetroJs.ltt.css">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+		<link href='css/OpenSans.css' rel='stylesheet' type='text/css'>
 		
 		<!-- Prettify Code Embed -->
 		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="javascript/prettify.js"></script>
 		<script type="text/javascript" src="javascript/jquery.js"></script>
-		<script src="javascript/MetroUI.js"></script>
+		<script src="javascript/script.js"></script>
+		<script src="javascript/MetroUI.min.js"></script>
 	</head>
 	
 	<body class="darkBG">
 		<div>
 			<p class="title">
-				<span style="font-size: 42pt">MetroUI.css</span><br>
+				<span style="font-size: 38pt">MetroUI</span><br>
 				<span>Playground</span><br>
 				<span>Full documentation accessible <a href="MetroUI.html">here</a>.</span><br>
 				<span>&copy; 2014 Sniper_GER</span>
@@ -29,11 +30,13 @@
 		
 		
 		<div>
-			<p class="headline">table of content</p>
-			<ul>
-				<li>buttons</li>
-				<li>swtiches</li>
+			<p class="headline tableHeader">table of content</p>
+			<ul class="light">
+				<li><a href="#buttons">buttons</a></li>
+				<li><a href="#switches">switches</a></li>
 				<li>notifications + alerts</li>
+				<li>lists + accent color lists</li>
+				<li>theming support<lip>
 			</ul>
 		</div>
 		
@@ -124,7 +127,18 @@
 				});
 			</script>
 		</div>
-
+		
+		<div>
+			<p class="headline">lists + accent color lists</p>
+			<div id="list2"></div>
+			<script>
+				MetroUI.create({
+					type: "accentList",
+					id: "list2"
+				});
+			</script>
+		</div>
+		
 		<div>
 			<p class="headline">theming support</p>
 			<p class="light">&lt;p class="accentColor"&gt;<span class="accentColor">This paragraph is themed by MetroUI.</span>&lt;/p&gt;</p>

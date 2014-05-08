@@ -18,9 +18,7 @@ button.metro:active {
 }
 button.metro:disabled, button.metro:active:disabled {
 	opacity: 0.3;
-	
 	background-color: transparent;
-	
 	cursor: default;
 }
 
@@ -33,12 +31,9 @@ input.metro[type="checkbox"] {
 div.metro.checkbox {
 	margin-top: 20px;
 	margin-bottom: 20px;
-
 	width: 65px;
 	height: 22px;
-
 	border: 3px solid #fff;
-	
 	cursor: pointer;
 }
 div.metro.checkbox.rightLabel {
@@ -46,24 +41,21 @@ div.metro.checkbox.rightLabel {
 }
 div.metro.checkbox.disabled {
 	opacity: 0.3;
-	
 	cursor: default;
 }
 div.metro.checkbox .innerCheckbox {
 	position: relative;
-	
 	margin: 4px;
 	width: 0px;
 	height: 14px;
-	
 	-webkit-transition: width .1s ease-out;
 	transition: width .1s ease-out;
+	-moz-transition: width .1s ease-out;
 }
 div.metro.checkbox label {
 	position: relative;
 	top: -22px;
 	left: 160px;
-	
 	height: 100%;
 }
 div.metro.checkbox.rightLabel label {
@@ -74,27 +66,32 @@ div.metro.checkbox.checked .innerCheckbox {
 }
 div.metro.checkbox .innerCheckbox:after {
 	content: "";
-	
 	position: absolute;
 	left: -10px;
 	top: -14px;
-	
 	width: 13px;
 	height: 36px;
-	
 	background-color: #fff;
-	
 	border: 3px solid #000;
-
 	-webkit-transition: left .1s ease-out;
 	transition: left .1s ease-out;
-	
+	-moz-transition: left .1s ease-out;
 	z-index: 2;
 }
 div.metro.checkbox.checked .innerCheckbox:after {
 	left: 48px;
 }
-
+div.notificationWrapper {
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	perspective: 1000px;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+}
 div.notification {
 	/* background-color: #f0a30a; */
 	height: 40px;
@@ -103,14 +100,17 @@ div.notification {
 	position: fixed;
 	text-align: left;
 	top: 0;
-	transform: translate3d(0,-40px,0);
-	transition: -webkit-transform .3s ease-out;
-	-webkit-transform: translate3d(0,-40px,0);
-	-webkit-transition: -webkit-transform .3s ease-out;
+	transform: rotateX(90deg);
+	transition: -webkit-transform .3s ease-out, opacity .2s ease-out;
+	-webkit-transform: rotateX(90deg);
+	-webkit-transition: -webkit-transform .3s ease-out. opacity .2s ease-out;
+	-moz-transform: rotateX(90deg);
+	-moz-transition: -moz-transform .3s ease-out, opacity .2s ease-out;
 	width: 100%;
 	z-index: 999;
 	color: #fff;
-	cursor: default;
+	cursor: pointer;
+	opacity: 0;
 }
 div.notification img.notifyImage {
 	position: absolute;
@@ -120,11 +120,24 @@ div.notification img.notifyImage {
 	height: 20px;
 }
 div.notification.slideIn {
-	transform: translate3d(0,0,0);
-	-webkit-transform: translate3d(0,0,0);
-}	
+	transform: rotateX(0deg);
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	opacity: 1;
+}
+div.notification.slideOut {
+	transition: -webkit-transform .2s ease-in, opacity .2s ease-in;
+	-webkit-transition: -webkit-transform .2s ease-in. opacity .2s ease-in;
+	-moz-transition: -moz-transform .2s ease-in, opacity .2s ease-in;
+	transform: rotateX(-90deg);
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	opacity: 1;
+}
+div.notification span {
+	font-size: 10pt;
+}
 div.notification span.sender {
-	font-size: 11pt;
 	font-weight: 600;
 	line-height: 50px;
 	margin-right: 10px;
@@ -142,6 +155,8 @@ div.alertWrapper {
 	top: 0;
 	left: 0;
 	width: 100%;
+	perspective: 1000px;
+	-moz-perspective: 1000px;
 	-webkit-perspective: 1000px;
 	min-height: 200px;
 	z-index: 998;
@@ -153,21 +168,35 @@ div.alert {
 	width: 100%;
 	min-height: 62px;
 	background-color: #212021;
+	opacity: 0;
+	transform: rotateX(90deg);
+	transition: transform .2s ease-out, opacity .2s ease-out;
+	-moz-transform: rotateX(90deg);
+	-moz-transition: -moz-transform .2s ease-out, opacity .2s ease-out;
 	-webkit-transform: rotateX(90deg);
-	-webkit-transition: -webkit-transform .15s ease-out;
+	-webkit-transition: -webkit-transform .2s ease-out, opacity .2s ease-out;
 }
 div.alert.rotateIn {
+	transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
 	-webkit-transform: rotateX(0deg);
+	opacity: 1;
 }
 div.alert.rotateOut {
+	transition: -webkit-transform .2s ease-in, opacity .2s ease-in;
+	-webkit-transition: -webkit-transform .2s ease-in. opacity .2s ease-in;
+	-moz-transition: -moz-transform .2s ease-in, opacity .2s ease-in;
+	transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
 	-webkit-transform: rotateX(-90deg);
+	opacity: 1;
 }
 div.alert button.metro {
 	margin-top: 0;
 	margin-left: 10px;
 	padding: 0;
 	width: 140px;
-	background-color: #212021;
+	background: transparent;
 }
 div.alert p.alertTitle {
 	padding-top: 20px;
@@ -198,6 +227,84 @@ div.alertBG {
 	z-index: 900;
 	opacity: 0.5;
 }
+div.closeBox {
+	cursor: pointer;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 22px;
+	right: 15px;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #fff;
+	border-radius: 30px;
+	background-color: #000;
+}
+div.accentColorPickerUI {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 998;
+}
+div.tilesWrapper {
+	position: absolute;
+	left: 50%;
+	margin-left: -160px;
+	width: 320px;
+	height: 100%;
+	background-color: #212021;
+	z-index: 998;
+	padding-top: 20px;
+}
+div.tile {
+	position: absolute;
+	width: 65px;
+	height: 65px;
+	opacity: 0;
+	cursor: pointer;
+	transform: rotateX(90deg);
+	transition: transform .2s ease-out, opacity .15s ease-out;
+	-moz-transform: rotateX(90deg);
+	-moz-transition: transform .2s ease-out, opacity .15s ease-out;
+	-webkit-transform: rotateX(90deg);
+	-webkit-transition: -webkit-transform .2s ease-out, opacity .15s ease-out;
+}
+div.tilesWrapper.rotateIn .tile {
+	opacity: 1;
+	-webkit-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+}
+div.tilesWrapper.rotateOut .tile {
+	transition: -webkit-transform .2s ease-in, opacity .15s ease-in;
+	-webkit-transition: -webkit-transform .2s ease-in. opacity .15s ease-in;
+	-moz-transition: -moz-transform .2s ease-in, opacity .15s ease-in;
+	opacity: 0;
+	-webkit-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+}
+div.metro.list {
+	position: relative;
+	width: 290px;
+	height: 32px;
+	border: 3px solid #fff;
+	margin-top: 5px;
+}
+div.metro.list .currentAccent {
+	margin-top: 9px;
+	margin-left: 5px;
+	width: 15px;
+	height: 15px;
+}
+div.metro.list p.currentAccentColor {
+	font-weight: 400;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 30px;
+	float: left;
+}
 
 /* UI Elements, light background */
 
@@ -217,15 +324,21 @@ div.alertBG {
 	background-color: #000;
 	border-color: #fff;
 }
+
 .lightBG div.alert {
 	background-color: #dedfde;
 }
 .lightBG div.alert p {
 	color: #000;
 }
-.lightBG div.alert button.metro {
+
+.lightBG div.tilesWrapper {
 	background-color: #dedfde;
 }
-.lightBG div.alert button.metro:active {
-	background-color: #f0a30a;
+.lightBG div.closeBox {
+	-webkit-filter: invert(1);
+}
+.lightBG div.metro.list {
+	border-color: #000;
+	color: #000;
 }

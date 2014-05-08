@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 	<head>
 		<title>MetroUI.css</title>
 		
@@ -8,19 +8,20 @@
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/MetroUI.css">
 		<link rel="stylesheet" href="css/MetroJs.ltt.css">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+		<link href='css/OpenSans.css' rel='stylesheet' type='text/css'>
 		
 		<!-- Prettify Code Embed -->
 		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="javascript/prettify.js"></script>
 		<script type="text/javascript" src="javascript/jquery.js"></script>
-		<script src="javascript/MetroUI.js"></script>
+		<script src="javascript/script.js"></script>
+		<script src="javascript/MetroUI.min.js"></script>
 	</head>
 	
 	<body onload="prettyPrint()" class="darkBG">
 		<div>
 			<p class="title">
-				<span style="font-size: 42pt">MetroUI.css</span><br>
+				<span style="font-size: 38pt">MetroUI</span><br>
 				<span>Documentation</span><br>
 				<span>Playground accessible <a href="MetroUI.min.html">here</a>.</span><br>
 				<span>&copy; 2014 Sniper_GER</span>
@@ -28,28 +29,28 @@
 		</div>
 		
 		<div>
-			<p class="headline">table of content</p>
+			<p class="headline tableHeader">table of content</p>
 			<ul class="light">
 				<p><br>INTRODUCTION</p>
-				<li>required libraries</li>
-				<li>the metro font</li>
-				<li>touch support</li>
-				<li>the 'create' function</li>
+				<li><a href="#requiredLibraries">required libraries</a></li>
+				<li><a href="#font">the metro font</a></li>
+				<li><a href="#touchSupport">touch support</a></li>
+				<li><a href="#createFunction">the 'create' function</a></li>
 				<p><br>UI ELEMENTS</p>
-				<li>buttons</li>
-				<li>switches</li>
-				<li>notifications + alerts</li>
+				<li><a href="#buttons">buttons</a></li>
+				<li><a href="#switches">switches</a></li>
+				<li><a href="#notifications">notifications + alerts</a></li>
+				<li><a href="#lists">lists + accent color lists</a></li>
 				<p><br>OTHER STUFF</p>
-				<li>theming support</li>
-				<li>important notice</li>
-				<li>where is the rest?</li>
+				<li><a href="#themes">theming support</a></li>
+				<li><a href="#rest">where is the rest?</a></li>
 			</ul>
 		</div>
 		
 		<div>
-			<p class="headline">required libraries</p>
+			<a name="requiredLibraries"><p class="headline">required libraries</p></a>
 			<p class="light">The JavaScript components of MetroUI are based on jQuery, so you will need to include it before anything else. Then you can include MetroUI's JavaScript file. And don't forget to include the CSS file!<br><br></p>
-			<p class="light">Code - html</p>
+			<p class="light">Code - HTML</p>
 			<pre class="prettyprint lang-html linenums">
 	&lt;link rel="stylesheet" type="text/css" href="css/MetroUI.css"&gt;
 	
@@ -59,16 +60,16 @@
 		</div>
 		
 		<div>
-			<p class="headline">the metro font</p>
+			<a name="font"><p class="headline">the metro font</p></A>
 			<p class="light">As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets their hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the &lt;head&gt;&lt;/head&gt; region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.<br><br></p>
 			<p class="light">Code - HTML:</p>
 			<pre class="prettyprint lang-html linenums">
-	&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'&gt;
+	&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'&gt;
 			</pre>
 		</div>
 		
 		<div>
-			<p class="headline">touch support</p>
+			<a name="touchSupport"><p class="headline">touch support</p></a>
 			<p class="light">MetroUI and its components support touch based input. Touch based input removes the annoying 300ms delay on touch devices, so actions are performed instantaneously. It is achieved with two variables setting an event based on the users screen.<br><br></p>
 			<p class="light">Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
@@ -79,8 +80,8 @@
 		</div>
 
 		<div>
-			<p class="headline">the 'create' function</p>
-			<p class="light">Every MetroUI element is initialized with the 'create' function. It is making any raw element shown on this page (except for lists and accent lists right now) a working MetroUI element. Using it is extremely simple! Here is an example:<br><br></p>
+			<a name="createFunction"><p class="headline">the 'create' function</p></a>
+			<p class="light">Every MetroUI element is initialized with the 'create' function. It is making any raw element shown on this page (except for lists right now) a working MetroUI element. Using it is extremely simple! Here is an example:<br><br></p>
 			<p class="light">Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
 	MetroUI.create({
@@ -90,7 +91,7 @@
 		startSwitched: false
 	});
 			</pre>
-			<p class="light"><br>This example makes a switch out of the jQuery object "$('#switch1)" and assigns it the "data-id=switch1". It is also set to be unswitched at start. Let's have a look on the options you have when creating a MetroUI element:<br><br></p>
+			<p class="light"><br>This example makes a switch out of the DOM element "#switch1" and assigns it the attribute "data-id=switch1". It is also set to be unswitched at start. Let's have a look on the options you have when creating a MetroUI element:<br><br></p>
 			<table>
 				<tr>
 					<th>argument</th>
@@ -104,7 +105,7 @@
 					<td>String</td>
 					<td>"button", "switch", "list", "accentList"</td>
 					<td>undefined</td>
-					<td>"list", "accentList" not supported yet</td>
+					<td>"list" not supported yet</td>
 				</tr>
 				<tr>
 					<td>id</td>
@@ -125,7 +126,7 @@
 					<td>boolean</td>
 					<td>true, false</td>
 					<td>false</td>
-					<td>Only applicable to switches<br><br></td>
+					<td>Only applicable to switches</td>
 				</tr>
 				<tr>
 					<td>label</td>
@@ -142,12 +143,12 @@
 					<td>What an element has to do after being used</td>
 				</tr>
 			</table>
-			<p class="light"><br>Every argument that defaults to "undefined" is required, others are optional.</p>
-			<p class="superlight">Please note that the types "list" and "accentList" aren't implemented yet, so trying to create elements of those types will be unsuccessful.</p>
+			<p class="light"><br>Every argument that defaults to "undefined" is required, others are optional. The argument 'active' is required if you want your MetroUI element to be usable.</p>
+			<p class="superlight">Please note that "list" isn't implemented yet, so trying to create elements of this type will be unsuccessful.</p>
 		</div>
 		
 		<div>
-			<p class="headline">buttons</p>
+			<a name="buttons"><p class="headline">buttons</p></a>
 			<p class="light">Coming now to the real UI elements, starting with Buttons. Buttons are used for temporary interaction, whether in forms or just to run a JavaScript function.<br>They can easily be inserted using code as shown below.<br><br></p>
 			
 			<p class="light">Example:</p>
@@ -189,7 +190,7 @@
 		</div>
 		
 		<div>
-			<p class="headline">switches</p>
+			<a name="switches"><p class="headline">switches</p></a>
 			<p class="light">Switches are used, unlike buttons, for long-term interaction, meaning they can change settings for a longer period than buttons.<br>By default, labeled switches receive a "margin-left" of 160 pixels and the labels themselves a "left" of -160 pixels. If this is not suitable to your page, this can be changed in MetroUI.css.<br><br></p>
 			
 			<p class="light">Example:</p>
@@ -263,7 +264,7 @@
 		</div>
 		
 		<div>
-			<p class="headline">notifications + alerts</p>
+			<a name="notifications"><p class="headline">notifications + alerts</p></a>
 			<p class="light" style="font-size: 16pt">Notifications</p>
 			<p class="light">Notifications (so-called "Toasts") provide useful information for a short period of time. They disappear automatically or when a user interacts with them.<br>There can only be one notification, alert or confirm dialog at once. To create a new one, the old one has to be dismissed first. Only notifications can overlay alerts and confirm dialogs.<br>Notification triggers can be assigned to buttons, switches or even other JavaScript functions. In the following examples notifications, alerts and confirm dialogs are triggered through buttons. Let's have a look at the code first:<br><br></p>
 			<p class="light">Code - JavaScript:</p>
@@ -304,7 +305,7 @@
 			</table>
 			<button id="trigger_toast" type="button">trigger notification</button>
 			<p class="light" style="font-size: 16pt">Alerts</p>
-			<p class="light">Alerts require user interaction. Unlike notifications, alerts are static and will not dismiss until the user decides to do so.<br><br></p>
+			<p class="light">Alerts require user interaction. Unlike notifications, alerts are static and will not dismiss until the user decides to do so. They can display warnings or obstacles while trying to change a setting.<br><br></p>
 			<p class="light">Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
 	MetroUI.showAlert(title, message, dismissButton);
@@ -388,7 +389,7 @@
 					<td>function</td>
 					<td>none</td>
 					<td>function() { }</td>
-					<td>The action that shoulb be perfomed on confirmation</td>
+					<td>The action that should be perfomed on confirmation</td>
 				</tr>
 				<tr>
 					<td>abortButtonTitle</td>
@@ -428,9 +429,44 @@
 		</div>
 		
 		<div>
-			<p class="headline">theming support</p>
-			<p class="light">Theming is done via the CSS file included in Drew Greenwell's Metro JS. I've changed it a bit, so that it includes all the Windows Phone 8 accent colors. It is not usable yet, but it works. There will be more information when I make progress.<br>If you want to test it for yourself, download MetroUI and open MetroUI.js. There you will find a variable for the current accent color. Just enter one of WP8's accent colors in lowercase letters and you should see results in different button and notification colors. This process will be much more practical when I manage to implement accent color lists. Sorry for the inconvenience.<br><br></p>
-			<p class="light">Any element can be set up to have an accent color. Buttons and switches are set up automatically. There are several CSS classes for you needs: for background colors, text colors and border colors. MetroUI will take care of adding the specified accent colors to those elements.<br><br></p>
+			<a name="lists"><p class="headline">lists + accent color lists</p></a>
+			<p class="light" style="font-size: 16pt">Lists (not fully done yet)</p>
+			<p class="light">Lists are an important UI element. They can store multiple items the user can select. When he selects one item, the others are hidden, so that UX (user experience) is not disturbed. In MetroUI, lists are created with the 'create' function.<br><br></p>
+			<p class="light">Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.create({
+		type: "list",
+		id: "list1"
+	});
+			</pre>
+			
+			<p class="superlight"><br>Lists are one of the few UI elements where the 'active' flag is not required to be set.</p>
+			<p class="light" style="font-size: 16pt">Accent color lists</p>
+			<p class="light">Accent color lists are just advanced lists, except they do not open themselves and they trigger the accent color panel. From there, you can change the accent color used by MetroUI and other elements.<br>For more information on theming, see 'theming support'.<br><br></p>
+			<p class="light">Code - HTML:</p>
+			<pre class="prettyprint lang-html linenums">
+	&lt;div id="list2"&gt;&lt;/div&gt;
+			</pre>
+			<p class="light"><br><br>Code - JavaScript:</p>
+			<pre class="prettyprint lang-js linenums">
+	MetroUI.create({
+		type: "accentList",
+		id: "list2"
+	});
+			</pre>
+			<div id="list2"></div>
+			<script>
+				MetroUI.create({
+					type: "accentList",
+					id: "list2"
+				});
+			</script>
+		</div>
+		
+		<div>
+			<a name="themes"><p class="headline">theming support</p></a>
+			<p class="light">Theming is mostly done via accent color lists. You just open them and select a color, and MetroUI takes care of coloring everything. You can also change the current accent color manually, by calling the function "MetroUI.changeAccentColor(newAccentColor)", where newAccentColor is any color included in Windows Phone 8.1. The colors are included in a slightly change version of Metro JS's CSS file, which also supports live tiles (will be included later).<br><br></p>
+			<p class="light">Any element can be set up to have an accent color. Buttons and switches are set up automatically if you have specified a default color in MetroUI's JavaScript component. You can also set up cookies, so users visiting your site don't always have to change the color. There are several CSS classes for you needs: for background colors, text colors and border colors. MetroUI will take care of adding the specified accent colors to those elements.<br><br></p>
 				<table>
 					<tr>
 						<th>CSS class</th>
@@ -439,41 +475,39 @@
 					</tr>
 					<tr>
 						<td>.accent</td>
-						<td>&lt;div class="accent lime noColor"&gt;This container will have a lime background.&lt;/div&gt;</td>
+						<td>&lt;div class="accent"&gt;This container will have a colored background.&lt;/div&gt;</td>
 						<td>Changes the background color of any element to the specified accent color.</td>
 					</tr>
 					<tr>
 						<td>.accentColor</td>
-						<td>&lt;p class="accentColor crimson noColor"&gt;This paragraph will be crimson.&lt;/p&gt;</td>
+						<td>&lt;p class="accentColor"&gt;This paragraph will be in the specified accent color.&lt;/p&gt;</td>
 						<td>Changes the text color of paragraphs and spans.</td>
 					</tr>
 					<tr>
-						<td>.accentButton</td>
-						<td>&lt;div class="accentBorder teal noColor"&gt;This container will have teal borders.&lt;/div&gt;</td>
-						<td>Changes the of any element. If the element has any border.</td>
+						<td>.accentBorder</td>
+						<td>&lt;div class="accentBorder"&gt;This container will have accented borders.&lt;/div&gt;</td>
+						<td>Changes the border color of any element. If the element has any border.</td>
 					</tr>
 					<tr>
 						<td>.noColor</td>
 						<td>&lt;div class="accentBorder teal noColor"&gt;This container will have teal borders.&lt;/div&gt;</td>
-						<td>Changes the of any element. If the element has any border.</td>
+						<td>Prevents MetroUI of adding any accent to an element.</td>
 					</tr>
 			</table>
 			<p class="light"><br>The .noColor class is important if you want your element not to be themed by MetroUI.</p>
 			<p class="light"><br>Example:</p>
 			<p class="light">&lt;p class="accentColor"&gt;<span class="accentColor">This paragraph is themed by MetroUI.</span>&lt;/p&gt;</p>
 			<p class="light">&lt;p class="accentColor crimson noColor"&gt;<span class="accentColor crimson noColor">This paragraph will be crimson.</span>&lt;/p&gt;</p>
-
-
 		</div>
 		
 		<div>
-			<p class="headline">where is the rest?</p>
-			<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
-			<ul class="light">
-				<li>MetroJS integration (partially done)</li>
-				<li>Lists</li>
-				<li>Accent color lists</li>
-			</ul>
+			<a name="rest"><p class="headline">where is the rest?</p></a>
+				<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
+				<ul class="light">
+					<li>MetroJS integration (partially done)</li>
+					<li>Lists</li>
+					<li>Accent color lists</li>
+				</ul>
 		</div>
 		
 		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>
