@@ -36,9 +36,9 @@ The JavaScript components of MetroUI are based on jQuery, so you will need to in
 
 ##The Metro font
 
-As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets their hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the `&lt;head&gt;&lt;/head&gt;` region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.
+As the original Metro fonts, called 'Segoe UI' for Windows 8 and 'Segoe WP' for Windows Phone 8, are distributed via licenses, MetroUI can't just include them so everyone gets their hands on it.<br>Instead, MetroUI uses a font called 'Open Sans' in various font weights, which really looks a lot like Segoe. And the best of it: it is distributed for free via Google Fonts, so we won't get into licensing troubles.<br><br>If you want Open Sans on your site too, just include the following lines in the `<head></head>` region of your HTML and you're good to go. Just make anything use "font-family: 'Open Sans', sans-serif" and one of the font-weights.
 ```html
-&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'&gt;
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 ```
 
 ##Touch support
