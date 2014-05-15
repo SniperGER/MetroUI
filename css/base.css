@@ -94,8 +94,17 @@ table td {
 table tr > th:not(:last-child), table tr > td:not(:last-child) {
 	border-right: 1px solid #fff;
 }
-table tr:nth-child(2), table tr:nth-child(4), table tr:nth-child(6), table tr:nth-child(8) {
+table tr:nth-child(even) {
 	background-color: #212021;
+}
+.lightBG table {
+	border-color: #000;
+}
+.lightBG table tr > th:not(:last-child), .lightBG table tr > td:not(:last-child) {
+	border-color: #000;
+}
+.lightBG table tr:nth-child(even) {
+	background-color: #dedfde;
 }
 p.title-category {
 	font-weight: 700;

@@ -15,7 +15,7 @@
 		<script type="text/javascript" src="javascript/prettify.js"></script>
 		<script type="text/javascript" src="javascript/jquery.js"></script>
 		<script src="javascript/script.js"></script>
-		<script src="javascript/MetroUI.min.js"></script>
+		<script src="javascript/MetroUI.js"></script>
 	</head>
 	
 	<body class="darkBG">
@@ -34,14 +34,14 @@
 			<ul class="light">
 				<li><a href="#buttons">buttons</a></li>
 				<li><a href="#switches">switches</a></li>
-				<li>notifications + alerts</li>
-				<li>lists + accent color lists</li>
-				<li>theming support<lip>
+				<li><a href="#notifications">notifications + alerts</a></li>
+				<li><a href="#lists">lists + accent color lists</a></li>
+				<li><a href="#theming">theming support</a></li>
 			</ul>
 		</div>
 		
 		<div>
-			<p class="headline">buttons</p>
+			<a name="buttons"><p class="headline">buttons</p></a>
 
 			<button id="button1" type="button">Button</button><br>
 			<button id="button2" type="button">Disabled</button>
@@ -49,8 +49,7 @@
 				MetroUI.create({
 					type: 'button',
 					id: 'button1',
-					active: true,
-					callback: function() { $('body').toggleClass("darkBG lightBG") }
+					active: true
 				});
 				MetroUI.create({
 					type: 'button',
@@ -58,11 +57,10 @@
 					active: false
 				});
 			</script>
-			<p class="superlight">Use the button to switch between dark and light backgrounds.<br><br></p>
 		</div>
 		
 		<div>
-			<p class="headline">switches</p>
+			<a name="switches"><p class="headline">switches</p></a>
 
 			<div class="metro checkbox" id="switch1">
 				<div class="innerCheckbox accent"></div>
@@ -77,14 +75,15 @@
 				MetroUI.create({
 					type: "switch",
 					id: "switch1",
-					label: "Switch 1"
+					label: "Light BG",
+					callback: function() { $('body').toggleClass("darkBG lightBG") }
 				});
 				
 				MetroUI.create({
 					type: "switch",
 					id: "switch2",
 					startSwitched: true,
-					label: "Switch 2"
+					label: "Cookies"
 				});
 				MetroUI.create({
 					type: "switch",
@@ -96,7 +95,7 @@
 		</div>
 		
 		<div>
-			<p class="headline">notifications + alerts</p>
+			<a name="notifications"><p class="headline">notifications + alerts</p></a>
 			<button id="trigger_toast" type="button">trigger notification</button>
 			<button id="trigger_alert" type="button">trigger alert</button>
 			<button id="trigger_confirm" type="button">trigger confirm dialog</button>
@@ -129,9 +128,21 @@
 		</div>
 		
 		<div>
-			<p class="headline">lists + accent color lists</p>
+			<a name="lists"><p class="headline">lists + accent color lists</p></a>
+			<div id="list1">
+				<p>Element 1</p>
+				<p>Element 2</p>
+				<p>Element 3</p>
+				<p>Element 4</p>
+				<p>Element 5</p>
+			</div>
 			<div id="list2"></div>
 			<script>
+				MetroUI.create({
+					type: "list",
+					id: "list1",
+					callback: function() { MetroUI.notify("Alert","Element "+listSelectedIndex+" has been selected", "images/notify.png") }
+				});
 				MetroUI.create({
 					type: "accentList",
 					id: "list2"
@@ -140,7 +151,7 @@
 		</div>
 		
 		<div>
-			<p class="headline">theming support</p>
+			<a name="theming"><p class="headline">theming support</p></a>
 			<p class="light">&lt;p class="accentColor"&gt;<span class="accentColor">This paragraph is themed by MetroUI.</span>&lt;/p&gt;</p>
 			<p class="light">&lt;p class="accentColor crimson noColor"&gt;<span class="accentColor crimson noColor">This paragraph will be crimson.</span>&lt;/p&gt;</p>
 		</div>

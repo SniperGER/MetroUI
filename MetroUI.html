@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 	<head>
-		<title>MetroUI.css</title>
+		<title>MetroUI</title>
 		
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 		
@@ -15,7 +15,7 @@
 		<script type="text/javascript" src="javascript/prettify.js"></script>
 		<script type="text/javascript" src="javascript/jquery.js"></script>
 		<script src="javascript/script.js"></script>
-		<script src="javascript/MetroUI.min.js"></script>
+		<script src="javascript/MetroUI.js"></script>
 	</head>
 	
 	<body onload="prettyPrint()" class="darkBG">
@@ -44,6 +44,9 @@
 				<p><br>OTHER STUFF</p>
 				<li><a href="#themes">theming support</a></li>
 				<li><a href="#rest">where is the rest?</a></li>
+				<p><br>DOWNLOAD</p>
+				<li><a href="#download-minified">minified production version</a></li>
+				<li><a href="#download-development">development version</a></li>
 			</ul>
 		</div>
 		
@@ -66,6 +69,7 @@
 			<pre class="prettyprint lang-html linenums">
 	&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'&gt;
 			</pre>
+			<p class="light"><br><br>For better offline support, there will be a seperate download for the Open Sans package soon, so you can store the fonts and the CSS file for it locally.</p>
 		</div>
 		
 		<div>
@@ -158,16 +162,13 @@
 				MetroUI.create({
 					type: 'button',
 					id: 'button1',
-					active: true,
-					callback: function() { $('body').toggleClass("darkBG lightBG") }
+					active: true
 				});
 				MetroUI.create({
 					type: 'button',
 					id: 'button2'
 				});
 			</script>
-
-			<p class="superlight">Use the button to switch between dark and light backgrounds.<br><br></p>
 			
 			<p class="light">Code - HTML:</p>
 			<pre class="prettyprint lang-html linenums">
@@ -179,8 +180,7 @@
 	MetroUI.create({
 		type: "button",
 		id: "button1",
-		active: true,
-		callback: function() { $('body').toggleClass("darkBG lightBG") }
+		active: true
 	});
 	MetroUI.create({
 		type: "button",
@@ -207,13 +207,14 @@
 				MetroUI.create({
 					type: "switch",
 					id: "switch1",
-					label: "Switch 1"
+					label: "Light BG",
+					callback: function() { $('body').toggleClass("darkBG lightBG") }
 				});
 				MetroUI.create({
 					type: "switch",
 					id: "switch2",
 					startSwitched: true,
-					label: "Switch 2"
+					label: "Cookies"
 				});
 				MetroUI.create({
 					type: "switch",
@@ -245,14 +246,15 @@
 	MetroUI.create({
 		type: "switch",
 		id: "switch1",
-		label: "Switch 1"
+		label: "Light BG",
+		callback: function() { $('body').toggleClass("darkBG lightBG") }
 	});
 	
 	MetroUI.create({
 		type: "switch",
 		id: "switch2",
 		startSwitched: true,
-		label: "Switch 2"
+		label: "Cookies"
 	});
 	
 	MetroUI.create({
@@ -265,7 +267,7 @@
 		
 		<div>
 			<a name="notifications"><p class="headline">notifications + alerts</p></a>
-			<p class="light" style="font-size: 16pt">Notifications</p>
+			<p class="light" style="font-size: 16pt"><br>Notifications</p>
 			<p class="light">Notifications (so-called "Toasts") provide useful information for a short period of time. They disappear automatically or when a user interacts with them.<br>There can only be one notification, alert or confirm dialog at once. To create a new one, the old one has to be dismissed first. Only notifications can overlay alerts and confirm dialogs.<br>Notification triggers can be assigned to buttons, switches or even other JavaScript functions. In the following examples notifications, alerts and confirm dialogs are triggered through buttons. Let's have a look at the code first:<br><br></p>
 			<p class="light">Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
@@ -304,7 +306,7 @@
 
 			</table>
 			<button id="trigger_toast" type="button">trigger notification</button>
-			<p class="light" style="font-size: 16pt">Alerts</p>
+			<p class="light" style="font-size: 16pt"><br><br>Alerts</p>
 			<p class="light">Alerts require user interaction. Unlike notifications, alerts are static and will not dismiss until the user decides to do so. They can display warnings or obstacles while trying to change a setting.<br><br></p>
 			<p class="light">Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
@@ -342,7 +344,7 @@
 				</tr>
 			</table>
 			<button id="trigger_alert" type="button">trigger alert</button>
-			<p class="light" style="font-size: 16pt">Confirm dialogs</p>
+			<p class="light" style="font-size: 16pt"><br><br>Confirm dialogs</p>
 			<p class="light">Confirm dialogs are a lot like alerts. They are both static and require user interaction. But confirm dialogs give a user the choice to accept or decline an upcoming change.<br>There will be more options when I add them over time.<br><br></p>
 			<p class="light">Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
@@ -430,18 +432,36 @@
 		
 		<div>
 			<a name="lists"><p class="headline">lists + accent color lists</p></a>
-			<p class="light" style="font-size: 16pt">Lists (not fully done yet)</p>
-			<p class="light">Lists are an important UI element. They can store multiple items the user can select. When he selects one item, the others are hidden, so that UX (user experience) is not disturbed. In MetroUI, lists are created with the 'create' function.<br><br></p>
-			<p class="light">Code - JavaScript:</p>
+			<p class="light" style="font-size: 16pt"><br>Lists</p>
+			<p class="light">Lists are an important UI element. They can store multiple items the user can select. When he selects one item, the others are hidden, so that UX (user experience) is not disturbed. In MetroUI, lists are created with the 'create' function. Their content is prepared dynamically, based on the &lt;p&gt;&lt;/p&gt; child count within the list, so no matter how many options you have in that list, they will be displayed.<br><br></p>
+			<p class="light">Code - HTML:</p>
+			<pre class="prettyprint lang-html linenums">
+	&lt;div id="list1"&gt;
+		&lt;p&gt;Element 1&lt;/p&gt;
+		&lt;p&gt;Element 2&lt;/p&gt;	
+	&lt;/div&gt;
+			</pre>
+			<p class="light"><br><br>Code - JavaScript:</p>
 			<pre class="prettyprint lang-js linenums">
 	MetroUI.create({
 		type: "list",
 		id: "list1"
 	});
 			</pre>
+			<div id="list1">
+				<p>Element 1</p>
+				<p>Element 2</p>
+			</div>
+			<script>
+				MetroUI.create({
+					type: "list",
+					id: "list1"
+				});
+			</script>
+				
 			
 			<p class="superlight"><br>Lists are one of the few UI elements where the 'active' flag is not required to be set.</p>
-			<p class="light" style="font-size: 16pt">Accent color lists</p>
+			<p class="light" style="font-size: 16pt"><br><br>Accent color lists</p>
 			<p class="light">Accent color lists are just advanced lists, except they do not open themselves and they trigger the accent color panel. From there, you can change the accent color used by MetroUI and other elements.<br>For more information on theming, see 'theming support'.<br><br></p>
 			<p class="light">Code - HTML:</p>
 			<pre class="prettyprint lang-html linenums">
@@ -505,10 +525,37 @@
 				<p class="light">As this is in an early development, things will be added over time. There are some currently planned features:</p>
 				<ul class="light">
 					<li>MetroJS integration (partially done)</li>
-					<li>Lists</li>
-					<li>Accent color lists</li>
+					<li>Cookies for better theming support</li>
 				</ul>
 		</div>
+		
+		<div>
+			<a name="download-minified"><p class="headline">download the minified version</p></a>
+			<p class="light">The minified version is the cleaned up version of MetroUI. It requires less bandwith so it is recommended to be used on production websites.</p>
+			<button id="dl_minified" type="button">MetroUI.min, 1.1, ???kB</button>
+			<script>
+				MetroUI.create({
+					type: "button",
+					id: "dl_minified",
+					active: true
+				});
+			</script>
+		</div>
+		
+		<div>
+			<a name="download-development"><p class="headline">download the development version</p></a>
+			<p class="light">The development version of MetroUI contains the uncompressed version of MetroUI.js and the full documentation you're currently looking at.</p>
+			<button id="dl_development" type="button">MetroUI, 1.1, 225 kB</button>
+			<script>
+				MetroUI.create({
+					type: "button",
+					id: "dl_development",
+					active: true,
+					callback: function() { window.location.href = "https://github.com/SniperGER/MetroUI/archive/master.zip" }
+				});
+			</script>
+		</div>
+
 		
 		<p class="superlight footer">&copy; 2014 Sniper_GER | For the good of all of us</p>
 	</body>

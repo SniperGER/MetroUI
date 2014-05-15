@@ -291,12 +291,36 @@ div.metro.list {
 	height: 32px;
 	border: 3px solid #fff;
 	margin-top: 5px;
+	overflow: hidden;
+	-webkit-transition: height .2s ease-in-out;
+	cursor: pointer;
 }
 div.metro.list .currentAccent {
 	margin-top: 9px;
 	margin-left: 5px;
 	width: 15px;
 	height: 15px;
+	cursor: default;
+}
+div.metro.list p {
+	height: 32px;
+	line-height: 32px;
+	padding-left: 5px;
+	cursor: pointer;
+	transition: height .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
+	-moz-transition:  height .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
+	-webkit-transition: height .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
+}
+div.metro.list.extended p {
+	height: 42px;
+	line-height: 42px;
+}
+div.metro.list.accent p {
+	color: #fff;
+}
+div.metro.list.accentBorder {
+	background-color: #fff;
+	color: #000;
 }
 div.metro.list p.currentAccentColor {
 	font-weight: 400;
@@ -336,7 +360,9 @@ div.metro.list p.currentAccentColor {
 	background-color: #dedfde;
 }
 .lightBG div.closeBox {
-	-webkit-filter: invert(1);
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+	-moz-filter: invert(100%);
 }
 .lightBG div.metro.list {
 	border-color: #000;
