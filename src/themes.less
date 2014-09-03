@@ -1,0 +1,95 @@
+@import "mixins.less";
+
+/* Themes */
+.theme-mixin(e('dark'),#000,#fff,darken(#000, -12%),darken(#000, -72%));
+.theme-mixin(e('light'),#fff,#000,darken(#fff, 12%), darken(#fff, 72%));
+
+@media all and (min-width: 597px) {
+	body[data-theme="light"] {
+		button {
+			background-color: #ccc;
+			border-color: #ccc;
+			color: #000;
+		}
+		button.disabled {
+			background-color: #ccc !important;
+		}
+		button:not(.disabled):hover {
+			background-color: #d8d8d8;
+			border-color: #d8d8d8;
+		}
+		button:not(.disabled):active {
+			background-color: #000;
+			border-color: #000 !important;
+		}
+		div.switch {
+			div.switch-button {
+				background-color: #333;
+			}
+		}
+		div.checkbox, div.radio {
+			background-color: #fff;
+			box-shadow: inset 0 0 0 2px #bababa;
+		}
+		div.checkbox:hover, div.radio:hover {
+			box-shadow: inset 0 0 0 2px #919191;
+		}
+		div.checkbox:active, div.radio:active {
+			box-shadow: none !important;
+		}
+		div.checkbox:active {
+			input[type="checkbox"]:checked + div.checkbox-inner:after {
+				background-image: url("../img/wp8_check_dark.svg");
+			}
+		}
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		textarea {
+			background-color: #fff;
+			box-shadow: 0 0 0 2px #bababa;
+			&::-webkit-input-placeholder { color: #666; }
+			&::moz-input-placeholder { color: #666; }
+			
+			&:not(:disabled):active, &:focus {
+				box-shadow: 0 0 0 2px #5c5c5c;
+			}
+		}
+		input[type="range"] {
+			background-color: #c6c6c6;
+		}
+	}
+	body[data-theme="dark"] {
+		background-color: #1d1d1d;
+		
+		div.checkbox:hover, div.radio:hover {
+			background-color: darken(#fff, 12%);
+		}
+	}
+}
+
+/* Accent Colors */
+.color-mixin(e('lime'),#a4c400);
+.color-mixin(e('green'),#60a917);
+.color-mixin(e('emerald'),#008a00);
+.color-mixin(e('teal'),#00aba9);
+.color-mixin(e('cyan'),#1ba1e2);
+.color-mixin(e('cobalt'),#0050ef);
+.color-mixin(e('indigo'),#6a00ff);
+.color-mixin(e('violet'),#aa00ff);
+.color-mixin(e('pink'),#f472d0);
+.color-mixin(e('magenta'),#d80073);
+.color-mixin(e('crimson'),#a20025);
+.color-mixin(e('red'),#e51400);
+.color-mixin(e('orange'),#fa6800);
+.color-mixin(e('amber'),#f0a30a);
+.color-mixin(e('yellow'),#e3c800);
+.color-mixin(e('brown'),#825a2c);
+.color-mixin(e('olive'),#6d8764);
+.color-mixin(e('steel'),#647687);
+.color-mixin(e('mauve'),#76608a);
+.color-mixin(e('taupe'),#87794e);

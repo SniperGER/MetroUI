@@ -1,0 +1,269 @@
+@media all and (max-width: 596px) {
+	div.application-bar {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		background-color: #1f1f1f;
+		width: 100%;
+		max-width: 596px;
+		height: 64px;
+		transition: transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		transform: translate3d(0,16px,0);
+		-moz-transition: -moz-transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-moz-transform: translate3d(0,16px,0);
+		-webkit-transition: -webkit-transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-webkit-transform: translate3d(0,16px,0);
+		z-index: 1000;
+				
+		div.icon-more {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 32px;
+			height: 58px;
+			background-image: url(../img/wp8_more.svg);
+			background-size: 17px 4px;
+			background-position: 0 10px;
+			background-repeat: no-repeat;
+		}
+		div.icon {
+			position: relative;
+			width: 32px;
+			height: 32px;
+			border-radius: 32px;
+			box-shadow: inset 0 0 0 2px #fff;
+			display: inline-block;
+			margin-right: 24px;
+			
+			div.label {
+				position: absolute;
+				font-size: 7pt;
+				top: 40px;
+				left: 50%;
+				margin-left: -16px;
+				width: 32px;
+				text-align: center;
+			}
+			
+			&.disabled {
+				opacity: 0.3;
+			}
+		}
+		div.left, div.right {
+			display: none;
+		}
+		div.center {
+			padding-top: 8px;
+			text-align: center;
+			
+			div.icon:last-child {
+				margin: 0;
+			}
+		}
+		&.extended {
+			transform: translate3d(0,0,0);
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+		}
+	}
+}
+@media all and (min-width: 597px) {
+	div.navigation-bar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 90px;
+		background-color: #000;
+		z-index: 1000;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		white-space: nowrap;
+		transition: transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-moz-transition: -moz-transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-webkit-transition: -webkit-transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		transform: translate3d(0,-90px,0);
+		-moz-transform: translate3d(0,-90px,0);
+		-webkit-transform: translate3d(0,-90px,0);
+
+		&.extended {
+			opacity: 1;
+			transform: translate3d(0,0,0);
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+		}
+		div.content {
+			min-width: calc(~"100% - 59px");
+			height: 100%;
+			padding: 0 30px;
+			
+			div.button {
+				display: inline-block;
+				white-space: nowrap;
+				width: 210px;
+				height: 50px;
+				background-color: #1f1f1f;
+				margin-top: 20px;
+				margin-left: 10px;
+				float: left;
+				
+				&.selected { box-shadow: inset 0 0 0 3px #1ba1e2; }
+				
+				div.label {
+					width: 100%;
+					height: 100%;
+					line-height: 50px;
+					font-weight: 600;
+					font-size: 11pt;	
+					color: #fff;
+					padding-left: 10px;
+				}
+				&.icon {
+					div.label { padding-left: 60px; }
+				}
+				&:first-child { margin-left: 0; }
+				&:active { background-color: lighten(#1f1f1f, 12%); }
+			}
+		}
+	}
+	div.application-bar {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		background-color: #000;
+		width: 100%;
+		height: 86px;
+		transition: transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-moz-transition: -moz-transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		-webkit-transition: -webkit-transform .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		z-index: 1000;
+		
+		div.icon-more {
+			position: absolute;
+			top: 6px;
+			right: 0;
+			width: 28px;
+			height: 86px;
+			background-image: url(../img/wp8_more.svg);
+			background-size: 17px 4px;
+			background-repeat: no-repeat;
+			cursor: pointer;
+		}
+		div.icon {
+			position: relative;
+			width: 40px;
+			height: 40px;
+			border-radius: 40px;
+			box-shadow: inset 0 0 0 2px #fff;
+			display: inline-block;
+			cursor: pointer;
+			
+			&:not(.disabled):active {
+				background-color: #fff !important;
+				
+				&:after {
+					color: #000 !important;
+				}
+			}
+			&.disabled {
+				opacity: 0.3;
+				cursor: default;
+			}
+			div.label {
+				position: absolute;
+				top: 45px;
+				left: 50%;
+				margin-left: -50px;
+				width: 100px;
+				text-align: center;
+				font-size: 9pt;
+				font-weight: 400;
+				color: #fff;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+		div.left, div.right {
+			display: inline-block;
+			
+			div.icon:nth-child(n+5) {
+				display: none;
+			}
+		}
+		div.center {
+			display: none;
+		}
+		div.left {
+			padding-top: 16px;
+			margin-left: 40px;
+			width: calc(~"50% - 40px");
+			width: -moz-calc(~"50% - 40px");
+			width: -webkit-calc(~"50% - 40px");
+			height: 100%;
+			
+			div.icon {
+				margin-right: 60px;
+			}
+		}
+		div.right {
+			padding-top: 16px;
+			float: right;
+			margin-right: 40px;
+			width: calc(~"50% - 40px");
+			width: -moz-calc(~"50% - 40px");
+			width: -webkit-calc(~"50% - 40px");
+			height: 100%;
+			
+			div.icon {
+				float: right;
+				margin-left: 60px;
+			}
+		}
+		&.minimal {
+		transform: translate3d(0,70px,0);
+		-moz-transform: translate3d(0,70px,0);
+		-webkit-transform: translate3d(0,70px,0);
+		}
+		&.extended {
+			transform: translate3d(0,0,0);
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			
+			div.icon-more { display: none; }
+		}
+		&:not(.minimal) {
+			div.icon-more { display: none; }
+		}
+	}
+	
+	div.navigation-back {
+		position: absolute;
+		//position: relative;
+		top: 50px;
+		left: 40px;
+		width: 42px;
+		height: 42px;
+		box-shadow: inset 0 0 0 2px #fff;
+		border-radius: 42px;
+		-webkit-backface-visibility: hidden;
+		
+		&:after {
+			content: "\e112";
+				position: absolute;
+				width: 42px;
+				height: 42px;
+				line-height: 42px;
+				text-align: center;
+				font-family: "Metro Symbol";
+				font-size: 18pt;
+				color: #fff;
+		}
+		&:active {
+			background-color: #fff;
+			
+			&:after { color: #1d1d1d; }
+		}
+	}
+}
+
+@import "icons.less";

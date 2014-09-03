@@ -1,0 +1,257 @@
+.theme-mixin(@themeName,@colorPrimary,@colorSecondary,@colorBG,@contentColor) {
+	body[data-theme="@{themeName}"] {
+		@media all and (max-width: 596px) {
+			background-color: @colorPrimary;
+			color: @colorSecondary;
+			
+			div.content-title {
+				color: @contentColor;
+			}
+			
+			button {
+				border-color: @colorSecondary;
+				color: @colorSecondary;
+				
+				&:not(.disabled):active {
+					color: #fff;
+				}
+			}
+			div.switch {
+				div.switch-content {
+					box-shadow: inset 0 0 0 2px @colorSecondary;
+					
+					div.switch-button {
+						background-color: @colorSecondary;
+						border-color: @colorPrimary;
+					}
+					div.switch-button:after {
+						border-color: @colorPrimary;
+					}
+				}
+			}
+			div.checkbox {
+				border: 2px solid @colorSecondary;
+				input[type="checkbox"]:checked + div.checkbox-inner:after {
+					background-image: url("../img/wp8_check_@{themeName}.svg");
+				}
+			}
+			div.radio {
+				border-color: @colorSecondary;
+				
+				input[type="radio"]:checked + div.radio-inner:after {
+					background-color: @colorSecondary;
+				}
+			}
+			input[type="email"],
+			input[type="number"],
+			input[type="password"],
+			input[type="search"],
+			input[type="tel"],
+			input[type="text"],
+			input[type="url"],
+			textarea {
+				border-color: @colorSecondary;
+				color: @colorSecondary;
+			}
+			div.select {
+				border-color: @colorSecondary;
+			}
+			input[type="range"] {
+				background-color: @colorBG;
+				&::-webkit-slider-thumb:after {
+					background-color: @colorSecondary;
+				}
+			}
+			div.alert {
+				background-color: @colorBG;
+				color: @colorSecondary;
+			}
+		}
+		@media all and (min-width: 597px) {
+			background-color: @colorPrimary;
+			color: @colorSecondary;
+			div.navigation-back {
+				box-shadow: inset 0 0 0 2px @colorSecondary;
+				&:after { color: @colorSecondary; }
+				&:active {
+					background-color: @colorSecondary;
+					&:after { color: @colorPrimary; }
+				}
+			}
+			p { color: @colorSecondary; }
+			button {
+				border-color: @colorSecondary;
+				color: #fff;
+			
+				&:not(.disabled):hover {
+					background-color: darken(@colorPrimary, -12%);
+				}
+				&:not(.disabled):active {
+					background-color: @colorSecondary !important;
+					color: @colorPrimary;
+				}
+				&.disabled {
+					background-color: transparent !important;
+					color: @colorSecondary;
+				}
+				&.color:not(.disabled) {
+					color: #fff;
+				}
+				&.color:not(.disabled):active {
+					color: @colorPrimary;
+				}
+			}
+			div.switch {
+				div.switch-content {
+					box-shadow: inset 0 0 0 2px rgba(red(@colorSecondary),green(@colorSecondary),blue(@colorSecondary), 0.4);
+				}
+				div.switch-button {
+					background-color: @colorSecondary;
+				}
+			}
+			div.switch.disabled {
+				div.switch-inner {
+					background-color: fadeout(@colorSecondary, 70%) !important;
+				}
+			}
+			div.checkbox:active, div.radio:active {
+				box-shadow: none;
+				background-color: @colorSecondary !important;
+				
+				input[type="radio"]:checked + div.radio-inner:after {
+	 				background-color: @colorPrimary;
+	 			}
+			}
+			input[type="range"] {
+				&::-webkit-slider-thumb:after {
+					background-color: @colorSecondary;
+				}
+			}
+		}
+	}
+}
+
+.color-mixin(@colorName,@color) {
+	body[data-color="@{colorName}"] {
+		@media all and (max-width: 596px) {
+			button:not(.disabled):active {
+				background-color: @color;
+			}
+			div.switch {
+				div.switch-inner {
+					background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,@color 51%,@color 100%);
+					background-size: 102px;
+				}
+			}
+			div.checkbox:not(.disabled):active, div.radio:not(.disabled):active {
+				background-color: @color;
+			}
+			input[type="email"]:focus,
+			input[type="number"]:focus,
+			input[type="password"]:focus,
+			input[type="search"]:focus,
+			input[type="tel"]:focus,
+			input[type="text"]:focus,
+			input[type="url"]:focus,
+			textarea:focus {
+				border-color: @color;
+				color: #000;
+			}
+			div.select:not(.disabled):active, div.select.open {
+				border-color: @color;
+			}
+			div.select.open {
+				ul {
+					li.checked {
+						color: @color;
+					}
+				}
+			}
+			input[type=range]::-webkit-slider-thumb:before {
+				background-color: @color;
+			}
+			div.notification {
+				background-color: @color;
+			}
+			div.theme-preview {
+				background-color: @color;
+			}
+			div.application-bar div.icon:not(.disabled):active {
+				background-color: @color;
+			}
+		}
+		@media all and (min-width: 597px) {
+			button.color:not(.disabled) {
+				background-color: @color;
+				&:hover { background-color: darken(@color, -6%); }
+			}
+			div.range {
+				input[type="range"]::-webkit-slider-thumb:before { background-color: @color; }
+			}
+			div.notification {
+				background-color: @color;
+				box-shadow: inset 0 0 0 3px darken(@color, -8%);
+			}
+			div.select.open div ul li.checked {
+				background-color: @color !important;
+				
+				&:hover { background-color: lighten(@color, 6%) !important; }
+			}
+			div.navigation-bar.color {
+				div.button {
+					background-color: @color;
+					&:active { background-color: lighten(@color, 12%); }
+				}
+			}
+			div.application-bar.color {
+				background-color: @color;
+				div.icon:not(.disabled):hover { background-color: lighten(@color, 6%); }
+				div.icon:active:after { color: @color; }
+			}
+		}
+	}
+	@media all and (min-width: 597px) {
+		body[data-theme="dark"][data-color="@{colorName}"] {
+			div.switch {
+				div.switch-inner {
+					background: -webkit-linear-gradient(left, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.4) 50%, rgba(red(@color),green(@color),blue(@color),1) 51%, @color 100%);
+					background-size: 84px;
+					
+					&:hover {
+						background: -webkit-linear-gradient(left, darken(rgba(255,255,255,0.4), 6%) 0%,darken(rgba(255,255,255,0.4), 6%) 50%, rgba(red(darken(@color, -6%)),green(darken(@color, -6%)),blue(darken(@color, -6%)),1) 51%, darken(@color, -6%) 100%);
+						background-size: 84px;
+					}
+					&:active {
+						background: -webkit-linear-gradient(left, darken(rgba(255,255,255,0.4), 12%) 0%,darken(rgba(255,255,255,0.4), 12%) 50%, rgba(red(darken(@color, -12%)),green(darken(@color, -12%)),blue(darken(@color, -12%)),1) 51%, darken(@color, -12%) 100%);
+						background-size: 84px;
+					}
+				}
+			}
+			div.switch.disabled {
+				div.switch-inner {
+					background: -webkit-linear-gradient(left, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 51%, rgba(255,255,255,0.4) 100%);
+				}
+			}
+		}
+		body[data-theme="light"][data-color="@{colorName}"] {
+			button.color:not(.disabled) {
+				border-color: @color;
+				
+				&:hover {
+					border-color: darken(@color, -6%);
+				}
+			}
+			div.switch {
+				div.switch-inner {
+					background: -webkit-linear-gradient(left, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 50%,@color 51%,@color 100%);
+					background-size: 84px;
+				}
+				&.disabled {
+					div.switch-inner {
+						background: -webkit-linear-gradient(left, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.4) 51%,rgba(0,0,0,0.4) 100%);
+					}
+				}
+			}
+		}
+	}
+}

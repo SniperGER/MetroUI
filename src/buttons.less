@@ -1,0 +1,56 @@
+/* Buttons */
+@media all and (max-width: 596px) {
+	button {
+		background-color: transparent;
+		border: 2px solid #000;
+		cursor: pointer;
+		display: block;
+		font-weight: 600;
+		font-size: 14px;
+		height: 34px;
+		margin: 5px 0;
+		margin-right: 2px;
+		min-width: calc(~"33.3333333336% - 2px");
+		min-width: -webkit-calc(~"33.3333333336% - 2px");
+	}
+	button.disabled {
+		cursor: default;
+		opacity: 0.3;
+	}
+	button.no-break {
+		display: inline-block;
+		float: left;
+	}
+	button.no-margin {
+		margin-right: 0;
+	}
+}
+@media all and (min-width: 597px) {
+	button {
+		background-color: transparent;
+		border: 2px solid #000;
+		cursor: pointer;
+		display: block;
+		font-weight: 600;
+		font-size: 14px;
+		height: 28px;
+		margin: 5px 0;
+		margin-right: 2px;
+		padding: 0 10px;
+		min-width: 86px;
+	}
+	button.color {
+		background-color: #1ba1e2;
+	}
+	button.disabled {
+		cursor: default;
+		opacity: 0.3;
+	}
+	button.no-break {
+		display: inline-block;
+		float: left;
+	}
+	button.no-margin {
+		margin-right: 0;
+	}
+}

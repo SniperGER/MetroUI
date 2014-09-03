@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MetroUI</title>
+		<link href='css/OpenSans.css' rel='stylesheet' type='text/css'>
+<!--
+ 		<link rel="stylesheet" type="text/css" href="css/metroui.css" />
+ 		<link rel="stylesheet" type="text/css" href="css/metroui.themes.css" />
+-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+		
+		<!-- LESS Development -->
+		<script type="text/javascript"> localStorage.clear();</script>
+		<link rel="stylesheet/less" type="text/css" href="src/metroui.less" />
+		<link rel="stylesheet/less" type="text/css" href="src/themes.less" />
+		
+		<script>
+			less = {
+				logLevel: 0
+			}
+		</script>
+		<script src="js/lib/less-1.7.4.min.js"></script>
+		<script src="js/lib/wrapper.js"></script>
+		<script src="js/lib/jquery.js"></script>
+		<script src="js/lib/fastclick.js"></script>
+		<script src="js/MetroUI.js"></script>
+	</head>
+	<body class="toolbar" data-theme="dark" data-color="cyan" ontouchstart="">
+		
+		<!-- Navigation Bar -->
+		<div class="navigation-bar">
+			<div class="content">
+				<div class="button selected">
+					<div class="label">Home</div>
+				</div>
+				<div class="button">
+					<div class="label">Bars</div>
+				</div>
+				<div class="button">
+					<div class="label">Forms</div>
+				</div>
+				<div class="button">
+					<div class="label">Inputs</div>
+				</div>
+				<div class="button">
+					<div class="label">Select Lists</div>
+				</div>
+				<div class="button">
+					<div class="label">Modals</div>
+				</div>
+				<div class="button">
+					<div class="label">Transitions</div>
+				</div>
+				<div class="button">
+					<div class="label">Grid View</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Application Bar -->
+		<div class="application-bar minimal">
+			<div class="icon-more"></div>
+			
+			<div class="left">
+				<div class="icon icon-help">
+					<div class="label">Info</div>
+				</div>
+			</div>
+			
+			<div class="center">
+				<div class="icon icon-help">
+					<div class="label">Info</div>
+				</div>
+				<div class="icon">
+					<div class="label">Empty</div>
+				</div>
+				<div class="icon disabled">
+					<div class="label">Disabled</div>
+				</div>
+			</div>
+			
+			<div class="right">
+				<div class="icon">
+					<div class="label">Empty</div>
+				</div>
+				<div class="icon disabled">
+					<div class="label">Disabled</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="pages">
+			<div class="page current" data-page="main">
+				<div class="page-header">
+					<div class="pivot-title">Developer Preview</div>
+					<div class="pivot-header">MetroUI</div>
+				</div>
+			
+				<div class="page-content">
+				<!-- Buttons -->
+					<div class="content-title">Buttons</div>
+					<button class="color">Button</button>
+					<button class="color disabled">Disabled</button>
+					
+					<!-- Switches -->
+					<div class="content-title">Switches</div>
+					<div class="switch">
+<!-- 						<div class="switch-label">Label</div> -->
+						<div class="switch-content">
+							<input type="checkbox">
+							<div class="switch-inner"></div>
+							<div class="switch-button"></div>
+						</div>
+					</div>
+					<div class="switch disabled">
+						<div class="switch-content">
+							<input type="checkbox" checked>
+							<div class="switch-inner"></div>
+							<div class="switch-button"></div>
+						</div>
+					</div>
+					
+					<!-- Checkboxes -->
+					<div class="content-title">Checkboxes</div>
+					<div class="checkbox">
+						<div class="checkbox-content">
+							<input type="checkbox">
+							<div class="checkbox-inner"></div>
+						</div>
+					</div>
+					<div class="checkbox disabled">
+						<div class="checkbox-content">
+							<input type="checkbox" checked>
+							<div class="checkbox-inner"></div>
+						</div>
+					</div>
+			
+					<!-- Radio Buttons -->
+					<div class="content-title">Radio Buttons</div>
+					<div class="radio">
+						<div class="radio-content">
+							<input type="radio" name="test">
+							<div class="radio-inner"></div>
+						</div>
+					</div>
+					<div class="radio">
+						<div class="radio-content">
+							<input type="radio" name="test" checked>
+							<div class="radio-inner"></div>
+						</div>
+					</div>
+					<div class="radio disabled">
+						<div class="radio-content">
+							<input type="radio" name="test">
+							<div class="radio-inner"></div>
+						</div>
+					</div>
+					
+					<!-- Range Input -->
+					<div class="content-title">Range Input</div>
+					<div class="range">
+						<input type="range" min="0" max="100" step="0.1" value="50">
+					</div>
+					<div class="range">
+						<input type="range" min="0" max="100" step="0.1" value="50" disabled>
+					</div>
+			
+					
+					<!-- Input Fields -->
+					<div class="content-title">Input Fields</div>
+					<input type="text" placeholder="Text">
+					<input type="password" placeholder="Password">
+					<textarea placeholder="Text Area"></textarea>
+					<input type="text" placeholder="Disabled" disabled>
+					
+					<!-- Select/Options -->
+					<div class="content-title">Select Lists</div>
+					<div class="select">
+						<select>
+							<option selected>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+						</select>
+					</div>
+					<div class="select">
+						<select>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option selected>Option 6</option>
+							<option>Option 7</option>
+							<option>Option 8</option>
+							<option>Option 9</option>
+						</select>
+					</div>
+					<div class="select disabled">
+						<select>
+							<option selected>Disabled</option>
+						</select>
+					</div>
+					
+					<!-- Theme Selector -->
+					<div class="content-title">Theme Selector</div>
+					<div class="select">
+						<select onchange="$('body').attr('data-theme', this.options[this.selectedIndex].value)">
+							<option value="light">Light</option>
+							<option value="dark" selected="selected">Dark</option>
+						</select>
+					</div>
+					
+					<!-- Notifications -->
+					<div class="content-title">Modals</div>
+					<button class="trigger-notification no-break">Notification</button>
+					<button class="trigger-alert no-break">Alert</button>
+					<button class="trigger-confirm no-break">Confirm</button>
+					
+					<!-- Page Transitions -->
+					<div class="content-title">Page Transitions</div>
+					<button class="load-internal-page">Load Page inside Document</button>
+					<button class="load-external-page">Load Page from external file</button>
+				</div>
+			</div>
+		</div>
+		
+
+		<script>
+			var MetroUI = new MetroUI();
+			$('div.application-bar div.icon-help').on("click", function() {
+				MetroUI.alert("About MetroUI","MetroUI 2.0<br>Version 2.0.0001<br>Developer Preview<br><br>&copy; 2014 Janik Schmidt. All rights reserved.");
+			});
+			$('button.load-external-page').on("click", function() { MetroUI.loadPageExternal("test.html"); });
+		</script>
+	</body>
+</html>

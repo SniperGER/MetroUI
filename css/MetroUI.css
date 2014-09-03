@@ -1,370 +1,1483 @@
-/* UI Elements, dark background */
-
-button.metro {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	min-width: 100px;
-	height: 32px;
-	border: 3px solid #fff;
-	background-color: #000;
-	color: #fff;
-	font-size: 11pt;
-	cursor: pointer;
+/* ===================================== */
+/* =        MetroUI Stylesheet         = */
+/* = © 2014 Janik Schmidt (Sniper_GER) = */
+/* =       All Rights reserved.        = */
+/* ===================================== */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
-button.metro:active {
-	color: #fff;
+*:not(input):not(textarea) {
+  user-select: none;
+  -webkit-user-select: none;
 }
-button.metro:disabled, button.metro:active:disabled {
-	opacity: 0.3;
-	background-color: transparent;
-	cursor: default;
+body {
+  padding: 10px;
+  padding-bottom: 68px;
 }
-
-input.metro[type="checkbox"] {
-	position: absolute;
-	opacity: 0;
-	width: 0px;
-	height: 0px;
+@media all and (max-width: 596px) {
+  body {
+    max-width: 576px;
+    overflow-x: hidden;
+    padding-bottom: 68px;
+  }
+  body.toolbar {
+    padding-bottom: 96px;
+  }
 }
-div.metro.checkbox {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	width: 65px;
-	height: 22px;
-	border: 3px solid #fff;
-	cursor: pointer;
+div.content-title {
+  font-size: 13px;
+  margin-top: 22px;
+  color: #b8b8b8;
 }
-div.metro.checkbox.rightLabel {
-	margin-left: 160px;
+button.no-break + .content-title {
+  padding-top: 44px;
 }
-div.metro.checkbox.disabled {
-	opacity: 0.3;
-	cursor: default;
+div.pivot-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 20px;
+  text-transform: uppercase;
 }
-div.metro.checkbox .innerCheckbox {
-	position: relative;
-	margin: 4px;
-	width: 0px;
-	height: 14px;
-	-webkit-transition: width .1s ease-out;
-	transition: width .1s ease-out;
-	-moz-transition: width .1s ease-out;
+div.pivot-header {
+  font-size: 48px;
+  font-weight: 300;
+  min-width: 310px;
+  margin-top: -3px;
+  text-transform: lowercase;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
 }
-div.metro.checkbox label {
-	position: relative;
-	top: -22px;
-	left: 160px;
-	height: 100%;
+@-webkit-keyframes enter-page {
+  from {
+    -webkit-transform: translate3d(100px, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
 }
-div.metro.checkbox.rightLabel label {
-	left: -160px;
+body.enter-page div.pivot-title,
+body.enter-page div.pivot-header,
+body.enter-page div.content-title,
+body.enter-page button,
+body.enter-page div.switch,
+body.enter-page div.checkbox,
+body.enter-page div.radio,
+body.enter-page div.range,
+body.enter-page input,
+body.enter-page textarea,
+body.enter-page div.select {
+  -webkit-animation: enter-page 1000ms cubic-bezier(0.1, 0.9, 0.2, 1);
 }
-div.metro.checkbox.checked .innerCheckbox {
-	width: 57px;
+body.enter-page div.pivot-title,
+body.enter-page div.content-title {
+  -webkit-animation-delay: 83ms;
 }
-div.metro.checkbox .innerCheckbox:after {
-	content: "";
-	position: absolute;
-	left: -10px;
-	top: -14px;
-	width: 13px;
-	height: 36px;
-	background-color: #fff;
-	border: 3px solid #000;
-	-webkit-transition: left .1s ease-out;
-	transition: left .1s ease-out;
-	-moz-transition: left .1s ease-out;
-	z-index: 2;
+@media all and (max-width: 596px) {
+  div.application-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #1f1f1f;
+    width: 100%;
+    max-width: 596px;
+    height: 48px;
+    transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1000;
+  }
+  div.application-bar.minimal {
+    height: 24px;
+  }
+  div.application-bar div.icon-more {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 32px;
+    height: 58px;
+    background-image: url(../img/wp8_more.svg);
+    background-size: 17px 4px;
+    background-repeat: no-repeat;
+  }
+  div.application-bar.extended {
+    height: 68px;
+  }
 }
-div.metro.checkbox.checked .innerCheckbox:after {
-	left: 48px;
+@media all and (min-width: 597px) {
+  div.application-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #1ba1e2;
+    width: 100%;
+    height: 86px;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition: -moz-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1000;
+  }
+  div.application-bar div.icon-more {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    width: 28px;
+    height: 86px;
+    background-image: url(../img/wp8_more.svg);
+    background-size: 17px 4px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  div.application-bar div.icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    box-shadow: inset 0 0 0 2px #fff;
+    display: inline-block;
+    cursor: pointer;
+  }
+  div.application-bar div.icon:active {
+    background-color: #fff !important;
+  }
+  div.application-bar div.icon div.label {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    text-align: center;
+    font-size: 9pt;
+    font-weight: 400;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  div.application-bar div.left,
+  div.application-bar div.right {
+    display: inline-block;
+  }
+  div.application-bar div.left div.icon:nth-child(n+4),
+  div.application-bar div.right div.icon:nth-child(n+4) {
+    display: none;
+  }
+  div.application-bar div.left {
+    padding-top: 16px;
+    margin-left: 40px;
+    width: calc(50% - 40px);
+    width: -moz-calc(50% - 40px);
+    width: -webkit-calc(50% - 40px);
+    height: 100%;
+  }
+  div.application-bar div.left div.icon {
+    margin-right: 60px;
+  }
+  div.application-bar div.right {
+    padding-top: 16px;
+    float: right;
+    margin-right: 40px;
+    width: calc(50% - 40px);
+    width: -moz-calc(50% - 40px);
+    width: -webkit-calc(50% - 40px);
+    height: 100%;
+  }
+  div.application-bar div.right div.icon {
+    float: right;
+    margin-left: 60px;
+  }
+  div.application-bar.minimal {
+    transform: translate3d(0, 70px, 0);
+    -moz-transform: translate3d(0, 70px, 0);
+    -webkit-transform: translate3d(0, 70px, 0);
+  }
+  div.application-bar.extended {
+    transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  div.application-bar:not(.minimal) div.icon-more {
+    display: none;
+  }
 }
-div.notificationWrapper {
-	z-index: 999;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 40px;
-	perspective: 1000px;
-	-webkit-perspective: 1000px;
-	-moz-perspective: 1000px;
+@font-face {
+  font-family: "Metro Symbol";
+  src: url(../css/Metro-Symbol.ttf);
 }
-div.notification {
-	/* background-color: #f0a30a; */
-	height: 40px;
-	left: 0;
-	padding-left: 75px;
-	position: fixed;
-	text-align: left;
-	top: 0;
-	transform: rotateX(90deg);
-	transition: -webkit-transform .3s ease-out, opacity .2s ease-out;
-	-webkit-transform: rotateX(90deg);
-	-webkit-transition: -webkit-transform .3s ease-out. opacity .2s ease-out;
-	-moz-transform: rotateX(90deg);
-	-moz-transition: -moz-transform .3s ease-out, opacity .2s ease-out;
-	width: 100%;
-	z-index: 999;
-	color: #fff;
-	cursor: pointer;
-	opacity: 0;
+@media all and (min-width: 597px) {
+  div.application-bar div.icon {
+    /* E100 - E10F */
+    /* E120 - E12F */
+    /* E120 - E12F */
+  }
+  div.application-bar div.icon:after {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-family: "Metro Symbol";
+    font-size: 14pt;
+    color: #fff;
+  }
+  div.application-bar div.icon.icon-prev:after {
+    content: "\e100";
+  }
+  div.application-bar div.icon.icon-next:after {
+    content: "\e101";
+  }
+  div.application-bar div.icon.icon-play:after {
+    content: "\e102";
+  }
+  div.application-bar div.icon.icon-pause:after {
+    content: "\e103";
+  }
+  div.application-bar div.icon.icon-edit:after {
+    content: "\e104";
+  }
+  div.application-bar div.icon.icon-save:after {
+    content: "\e105";
+  }
+  div.application-bar div.icon.icon-clear:after {
+    content: "\e106";
+  }
+  div.application-bar div.icon.icon-trash:after {
+    content: "\e107";
+  }
+  div.application-bar div.icon.icon-remove:after {
+    content: "\e108";
+  }
+  div.application-bar div.icon.icon-add:after {
+    content: "\e109";
+  }
+  div.application-bar div.icon.icon-cancel:after {
+    content: "\e10a";
+  }
+  div.application-bar div.icon.icon-accept:after {
+    content: "\e10b";
+  }
+  div.application-bar div.icon.icon-more:after {
+    content: "\e10c";
+  }
+  div.application-bar div.icon.icon-redo:after {
+    content: "\e10d";
+  }
+  div.application-bar div.icon.icon-undo:after {
+    content: "\e10e";
+  }
+  div.application-bar div.icon.icon-home:after {
+    content: "\e10f";
+  }
+  div.application-bar div.icon.icon-up:after {
+    content: "\e110";
+  }
+  div.application-bar div.icon.icon-forward:after {
+    content: "\e111";
+  }
+  div.application-bar div.icon.icon-back:after {
+    content: "\e112";
+  }
+  div.application-bar div.icon.icon-favorite:after {
+    content: "\e113";
+  }
+  div.application-bar div.icon.icon-camera:after {
+    content: "\e114";
+  }
+  div.application-bar div.icon.icon-settings:after {
+    content: "\e115";
+  }
+  div.application-bar div.icon.icon-video:after {
+    content: "\e116";
+  }
+  div.application-bar div.icon.icon-sync:after {
+    content: "\e117";
+  }
+  div.application-bar div.icon.icon-download:after {
+    content: "\e118";
+  }
+  div.application-bar div.icon.icon-mail:after {
+    content: "\e119";
+  }
+  div.application-bar div.icon.icon-find:after {
+    content: "\e11a";
+  }
+  div.application-bar div.icon.icon-help:after {
+    content: "\e11b";
+  }
+  div.application-bar div.icon.icon-upload:after {
+    content: "\e11c";
+  }
+  div.application-bar div.icon.icon-emoticon:after {
+    content: "\e11d";
+  }
+  div.application-bar div.icon.icon-layout:after {
+    content: "\e11e";
+  }
+  div.application-bar div.icon.icon-leave:after {
+    content: "\e11f";
+  }
+  div.application-bar div.icon.icon-forward-mail:after {
+    content: "\e120";
+  }
+  div.application-bar div.icon.icon-timer:after {
+    content: "\e121";
+  }
+  div.application-bar div.icon.icon-send:after {
+    content: "\e122";
+  }
+  div.application-bar div.icon.icon-crop:after {
+    content: "\e123";
+  }
+  div.application-bar div.icon.icon-rotate-camera:after {
+    content: "\e124";
+  }
+  div.application-bar div.icon.icon-people:after {
+    content: "\e125";
+  }
+  div.application-bar div.icon.icon-close-meta:after {
+    content: "\e126";
+  }
+  div.application-bar div.icon.icon-open-meta:after {
+    content: "\e127";
+  }
+  div.application-bar div.icon.icon-open-web:after {
+    content: "\e128";
+  }
+  div.application-bar div.icon.icon-view-notifications:after {
+    content: "\e129";
+  }
+  div.application-bar div.icon.icon-preview-link:after {
+    content: "\e12a";
+  }
+  div.application-bar div.icon.icon-category-common:after {
+    content: "\e12b";
+  }
+  div.application-bar div.icon.icon-trim:after {
+    content: "\e12c";
+  }
+  div.application-bar div.icon.icon-camera-usb:after {
+    content: "\e12d";
+  }
+  div.application-bar div.icon.icon-zoom:after {
+    content: "\e12e";
+  }
+  div.application-bar div.icon.icon-bookmark:after {
+    content: "\e12f";
+  }
 }
-div.notification img.notifyImage {
-	position: absolute;
-	bottom: 6px;
-	left: 15px;
-	width: 20px;
-	height: 20px;
+/* Buttons */
+@media all and (max-width: 596px) {
+  button {
+    background-color: transparent;
+    border: 2px solid #000;
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    height: 34px;
+    margin: 5px 0;
+    margin-right: 2px;
+    min-width: calc(33.3333333336% - 2px);
+    min-width: -webkit-calc(33.3333333336% - 2px);
+  }
+  button.disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+  button.no-break {
+    display: inline-block;
+    float: left;
+  }
+  button.no-margin {
+    margin-right: 0;
+  }
 }
-div.notification.slideIn {
-	transform: rotateX(0deg);
-	-webkit-transform: rotateX(0deg);
-	-moz-transform: rotateX(0deg);
-	opacity: 1;
+@media all and (min-width: 597px) {
+  button {
+    background-color: transparent;
+    border: 2px solid #000;
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    height: 28px;
+    margin: 5px 0;
+    margin-right: 2px;
+    padding: 0 10px;
+    min-width: 86px;
+  }
+  button.color {
+    background-color: #1ba1e2;
+  }
+  button.disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+  button.no-break {
+    display: inline-block;
+    float: left;
+  }
+  button.no-margin {
+    margin-right: 0;
+  }
 }
-div.notification.slideOut {
-	transition: -webkit-transform .2s ease-in, opacity .2s ease-in;
-	-webkit-transition: -webkit-transform .2s ease-in. opacity .2s ease-in;
-	-moz-transition: -moz-transform .2s ease-in, opacity .2s ease-in;
-	transform: rotateX(-90deg);
-	-webkit-transform: rotateX(-90deg);
-	-moz-transform: rotateX(-90deg);
-	opacity: 1;
+/* Switches */
+@media all and (max-width: 596px) {
+  div.switch {
+    cursor: pointer;
+    margin: 20px 0;
+    max-width: 60px;
+  }
+  div.switch.disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  div.switch div.switch-content {
+    width: 60px;
+    height: 22px;
+    box-shadow: inset 0 0 0 2px #fff;
+    position: relative;
+  }
+  div.switch div.switch-content input[type="checkbox"] {
+    display: none;
+  }
+  div.switch div.switch-content div.switch-inner {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 51px;
+    height: 14px;
+    background-size: 102px;
+    background-position-x: 0;
+  }
+  div.switch div.switch-content div.switch-inner.transitioning {
+    transition: background-position-x 0.1s ease-out;
+    -webkit-transition: background-position-x 0.1s ease-out;
+    -moz-transition: background-position-x 0.1s ease-out;
+  }
+  div.switch div.switch-content div.switch-button {
+    position: absolute;
+    width: 13px;
+    height: 26px;
+    top: -2px;
+    left: 0;
+  }
+  div.switch div.switch-content div.switch-button:after {
+    content: '';
+    width: 13px;
+    height: 26px;
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
+    position: absolute;
+    left: -3px;
+    transition: left 0.1s ease-out;
+    -webkit-transition: left 0.1s ease-out;
+    -moz-transition: left 0.1s ease-out;
+  }
+  div.switch div.switch-content div.switch-button.transitioning {
+    transition: left 0.1s ease-out;
+    -webkit-transition: left 0.1s ease-out;
+    -moz-transition: left 0.1s ease-out;
+  }
+  div.switch div.switch-content input[type="checkbox"]:checked + div.switch-inner {
+    background-position-x: 47px;
+  }
+  div.switch div.switch-content input[type="checkbox"]:checked + div + div.switch-button {
+    left: 47px;
+  }
 }
-div.notification span {
-	font-size: 10pt;
+@media all and (min-width: 597px) {
+  div.switch {
+    cursor: pointer;
+    margin: 10px 0;
+    max-width: 50px;
+  }
+  div.switch.disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  div.switch div.switch-content {
+    width: 50px;
+    height: 19px;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+  div.switch div.switch-content input[type="checkbox"] {
+    display: none;
+  }
+  div.switch div.switch-content div.switch-button {
+    width: 13px;
+    height: 19px;
+    background-color: #fff;
+    position: relative;
+  }
+  div.switch div.switch-content div.switch-button.transitioning {
+    transition: left 0.1s ease-out;
+    -webkit-transition: left 0.1s ease-out;
+    -moz-transition: left 0.1s ease-out;
+  }
+  div.switch div.switch-content div.switch-inner {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 0;
+    width: 42px;
+    height: 11px;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 50%, #1ba1e2 51%, #1ba1e2 100%);
+    background-size: 84px;
+    background-position-x: 0;
+    z-index: -1;
+  }
+  div.switch div.switch-content div.switch-inner.transitioning {
+    transition: background-position-x 0.1s ease-out;
+    -webkit-transition: background-position-x 0.1s ease-out;
+    -moz-transition: background-position-x 0.1s ease-out;
+  }
+  div.switch div.switch-content input[type="checkbox"]:checked + div + div.switch-button {
+    left: 37px;
+  }
+  div.switch div.switch-content input[type="checkbox"]:checked + div.switch-inner {
+    background-position-x: 37px;
+  }
 }
-div.notification span.sender {
-	font-weight: 600;
-	line-height: 50px;
-	margin-right: 10px;
-	margin-left: -25px;
-	max-width: 250px;
+/* Input Fields */
+@media all and (max-width: 596px) {
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="url"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    height: 28px;
+    margin: 10px 0;
+    outline: none;
+    padding: 0 5px;
+    width: calc(100% - 14px);
+    width: -webkit-calc(100% - 14px);
+    max-width: 566px;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="text"]:focus,
+  input[type="url"]:focus,
+  textarea:focus {
+    background-color: #fff;
+    box-shadow: none;
+    -moz-box-shoadow: none;
+    -webkit-box-shadow: none;
+    color: #000;
+  }
+  input[type="email"]:disabled,
+  input[type="number"]:disabled,
+  input[type="password"]:disabled,
+  input[type="search"]:disabled,
+  input[type="tel"]:disabled,
+  input[type="text"]:disabled,
+  input[type="url"]:disabled,
+  textarea:disabled {
+    opacity: 0.3;
+  }
+  ::-webkit-input-placeholder {
+    font-weight: 400;
+  }
+  ::moz-input-placeholder {
+    font-weight: 400;
+  }
+  textarea {
+    appearance: none;
+    moz-apprearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    min-height: 112px;
+    margin: 10px 0;
+    outline: none;
+    padding: 0 5px;
+    resize: none;
+    width: calc(100% - 14px);
+    width: -webkit-calc(100% - 14px);
+    max-width: 566px;
+  }
 }
-div.notifcation span.message {
-	font-weight: 300;
-	line-height: 50px;
-	margin-right: 15px;
+@media all and (min-width: 597px) {
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="url"],
+  textarea {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: #d2d2d2;
+    border-radius: 0px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #000;
+    display: block;
+    font-size: 11pt;
+    font-weight: 400;
+    height: 32px;
+    margin: 10px 0;
+    outline: none;
+    padding: 0 12px;
+    width: 280px;
+  }
+  input[type="email"]::-webkit-input-placeholder,
+  input[type="number"]::-webkit-input-placeholder,
+  input[type="password"]::-webkit-input-placeholder,
+  input[type="search"]::-webkit-input-placeholder,
+  input[type="tel"]::-webkit-input-placeholder,
+  input[type="text"]::-webkit-input-placeholder,
+  input[type="url"]::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #545454;
+  }
+  input[type="email"]::moz-input-placeholder,
+  input[type="number"]::moz-input-placeholder,
+  input[type="password"]::moz-input-placeholder,
+  input[type="search"]::moz-input-placeholder,
+  input[type="tel"]::moz-input-placeholder,
+  input[type="text"]::moz-input-placeholder,
+  input[type="url"]::moz-input-placeholder,
+  textarea::moz-input-placeholder {
+    color: #545454;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="text"]:focus,
+  input[type="url"]:focus,
+  textarea:focus,
+  input[type="email"]:active,
+  input[type="number"]:active,
+  input[type="password"]:active,
+  input[type="search"]:active,
+  input[type="tel"]:active,
+  input[type="text"]:active,
+  input[type="url"]:active,
+  textarea:active {
+    background-color: #fff;
+  }
+  input[type="email"]:disabled,
+  input[type="number"]:disabled,
+  input[type="password"]:disabled,
+  input[type="search"]:disabled,
+  input[type="tel"]:disabled,
+  input[type="text"]:disabled,
+  input[type="url"]:disabled,
+  textarea:disabled {
+    color: #fff;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px #fff;
+    opacity: 0.3;
+  }
+  input[type="email"]:disabled::-webkit-input-placeholder,
+  input[type="number"]:disabled::-webkit-input-placeholder,
+  input[type="password"]:disabled::-webkit-input-placeholder,
+  input[type="search"]:disabled::-webkit-input-placeholder,
+  input[type="tel"]:disabled::-webkit-input-placeholder,
+  input[type="text"]:disabled::-webkit-input-placeholder,
+  input[type="url"]:disabled::-webkit-input-placeholder,
+  textarea:disabled::-webkit-input-placeholder {
+    color: #fff;
+  }
+  input[type="email"]:disabled::moz-input-placeholder,
+  input[type="number"]:disabled::moz-input-placeholder,
+  input[type="password"]:disabled::moz-input-placeholder,
+  input[type="search"]:disabled::moz-input-placeholder,
+  input[type="tel"]:disabled::moz-input-placeholder,
+  input[type="text"]:disabled::moz-input-placeholder,
+  input[type="url"]:disabled::moz-input-placeholder,
+  textarea:disabled::moz-input-placeholder {
+    color: #fff;
+  }
+  textarea {
+    height: 86px;
+    padding: 10px 12px;
+  }
 }
-
-div.alertWrapper {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	perspective: 1000px;
-	-moz-perspective: 1000px;
-	-webkit-perspective: 1000px;
-	min-height: 200px;
-	z-index: 998;
+/* Checkbox */
+@media all and (max-width: 596px) {
+  div.checkbox {
+    position: relative;
+    border: 2px solid #fff;
+    cursor: pointer;
+    height: 19px;
+    margin: 10px 0;
+    width: 19px;
+  }
+  div.checkbox div.checkbox-inner {
+    position: absolute;
+    top: 0;
+    height: 19px;
+    width: 19px;
+  }
+  div.checkbox input[type="checkbox"] {
+    visibility: hidden;
+  }
+  div.checkbox input[type="checkbox"]:checked + div.checkbox-inner:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    background-image: url("../img/wp8_check_light.svg");
+    height: 15px;
+    width: 16px;
+  }
+  div.checkbox:active input[type="checkbox"]:checked + div.checkbox-inner:after {
+    background-image: url("../img/wp8_check_dark.svg") !important;
+  }
+  div.checkbox.disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
 }
-div.alert {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	min-height: 62px;
-	background-color: #212021;
-	opacity: 0;
-	transform: rotateX(90deg);
-	transition: transform .2s ease-out, opacity .2s ease-out;
-	-moz-transform: rotateX(90deg);
-	-moz-transition: -moz-transform .2s ease-out, opacity .2s ease-out;
-	-webkit-transform: rotateX(90deg);
-	-webkit-transition: -webkit-transform .2s ease-out, opacity .2s ease-out;
+@media all and (min-width: 597px) {
+  div.checkbox {
+    position: relative;
+    background-color: #d1d1d1;
+    cursor: pointer;
+    height: 21px;
+    width: 21px;
+    margin: 14px 0;
+  }
+  div.checkbox input[type="checkbox"] {
+    visibility: hidden;
+  }
+  div.checkbox input[type="checkbox"]:checked + div.checkbox-inner:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    background-image: url("../img/wp8_check_light.svg");
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    height: 21px;
+    width: 21px;
+  }
+  div.checkbox:active {
+    background-color: #fff;
+  }
+  div.checkbox.disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
 }
-div.alert.rotateIn {
-	transform: rotateX(0deg);
-	-moz-transform: rotateX(0deg);
-	-webkit-transform: rotateX(0deg);
-	opacity: 1;
+/* Radio Buttons */
+@media all and (max-width: 596px) {
+  div.radio {
+    position: relative;
+    border: 2px solid #fff;
+    border-radius: 19px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 19px;
+    width: 19px;
+  }
+  div.radio div.radio-inner {
+    position: absolute;
+    top: 0;
+    height: 15px;
+    width: 15px;
+  }
+  div.radio input[type="radio"] {
+    visibility: hidden;
+  }
+  div.radio input[type="radio"]:checked + div.radio-inner:after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 11px;
+    width: 11px;
+  }
+  div.radio:active input[type="radio"]:checked + div.radio-inner:after {
+    background-color: #fff !important;
+  }
+  div.radio.disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
 }
-div.alert.rotateOut {
-	transition: -webkit-transform .2s ease-in, opacity .2s ease-in;
-	-webkit-transition: -webkit-transform .2s ease-in. opacity .2s ease-in;
-	-moz-transition: -moz-transform .2s ease-in, opacity .2s ease-in;
-	transform: rotateX(-90deg);
-	-moz-transform: rotateX(-90deg);
-	-webkit-transform: rotateX(-90deg);
-	opacity: 1;
+@media all and (min-width: 597px) {
+  div.radio {
+    position: relative;
+    background-color: #cfcfcf;
+    border-radius: 19px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 23px;
+    width: 23px;
+  }
+  div.radio div.radio-inner {
+    position: absolute;
+    top: 0;
+    height: 15px;
+    width: 15px;
+  }
+  div.radio input[type="radio"] {
+    visibility: hidden;
+  }
+  div.radio input[type="radio"]:checked + div.radio-inner:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    background-color: #212121;
+    border-radius: 13px;
+    height: 13px;
+    width: 13px;
+  }
+  div.radio.disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
 }
-div.alert button.metro {
-	margin-top: 0;
-	margin-left: 10px;
-	padding: 0;
-	width: 140px;
-	background: transparent;
+/* Range Input */
+@media all and (max-width: 596px) {
+  div.range {
+    position: relative;
+    height: 10px;
+    margin: 15px 4px;
+    overflow: hidden;
+    width: 100%;
+    max-width: calc(576px - 8px);
+    max-width: -webkit-calc(576px - 8px);
+  }
+  div.range input[type="range"] {
+    position: absolute;
+    top: 0px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #1f1f1f;
+    border-radius: 0px;
+    width: calc(100% - 8px);
+    width: -webkit-calc(100% - 8px);
+    height: 10px;
+    margin-bottom: 10px;
+  }
+  div.range input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    z-index: 10;
+  }
+  div.range input[type="range"]::-webkit-slider-thumb:after {
+    content: ' ';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    background: #fff;
+    border-radius: 0px;
+    height: 10px;
+    width: 10px;
+    z-index: 9;
+  }
+  div.range input[type="range"]::-webkit-slider-thumb:before {
+    content: ' ';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    background: #1ba1e2;
+    cursor: default;
+    height: 10px;
+    margin-top: -5px;
+    width: 600px;
+    z-index: 5;
+  }
+  div.range input[type="range"]:disabled {
+    cursor: default !important;
+    opacity: 0.3;
+  }
+  div.range input[type="range"]:disabled::-webkit-slider-thumb {
+    cursor: default;
+  }
 }
-div.alert p.alertTitle {
-	padding-top: 20px;
-	padding-left: 15px;
-	font-size: 15pt;
-	font-weight: 600;
+@media all and (min-width: 597px) {
+  div.range {
+    position: relative;
+    height: 10px;
+    margin: 15px 4px;
+    overflow: hidden;
+    width: 280px;
+  }
+  div.range input[type="range"] {
+    position: absolute;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #6b6b6b;
+    border-radius: 0px;
+    width: calc(100% - 8px);
+    width: -webkit-calc(100% - 8px);
+    height: 10px;
+    margin-bottom: 10px;
+  }
+  div.range input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    z-index: 10;
+  }
+  div.range input[type="range"]::-webkit-slider-thumb:after {
+    content: ' ';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    background: #fff;
+    border-radius: 0px;
+    height: 10px;
+    width: 10px;
+    z-index: 9;
+  }
+  div.range input[type="range"]::-webkit-slider-thumb:before {
+    content: ' ';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    background: #1ba1e2;
+    cursor: default;
+    height: 10px;
+    width: 600px;
+    z-index: 5;
+  }
+  div.range input[type="range"]:disabled {
+    cursor: default !important;
+    opacity: 0.3;
+  }
+  div.range input[type="range"]:disabled::-webkit-slider-thumb {
+    cursor: default;
+  }
 }
-div.alert p.alertContent {
-	padding-top: 20px;
-	padding-left: 15px;
-	padding-right: 15px;
-	font-size: 11pt;
-	font-weight: 400;
+/* Select Lists */
+@media all and (max-width: 596px) {
+  div.select {
+    width: calc(100% - 4px);
+    width: -webkit-calc(100% - 4px);
+    max-width: 572px;
+    height: 28px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    margin: 10px 0;
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-weight: 400;
+  }
+  div.select select {
+    display: none;
+  }
+  div.select ul {
+    width: 100%;
+    min-height: 28px;
+    list-style: none;
+    padding: 0 5px;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  div.select ul li {
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    transition: line-height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), line-height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  div.select:not(.disabled):active,
+  div.select.open {
+    background-color: #fff;
+    color: #000;
+  }
+  div.select.open ul li {
+    height: 40px;
+    line-height: 40px;
+  }
+  div.select.disabled {
+    opacity: 0.3;
+  }
 }
-div.alert div.buttons {
-	float: right;
-	margin-top: 30px;
-	margin-right: 15px;
-	margin-bottom: 10px;
+@media all and (min-width: 597px) {
+  div.select {
+    position: relative;
+    width: 176px;
+    height: 28px;
+    max-height: 28px;
+    border: 2px solid #bdbdbd;
+    background-color: #fff;
+    color: #000;
+    margin: 10px 0;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  div.select:not(.open):not(.disabled):active {
+    background-color: #d3d3d3;
+    border-color: #5a5d5a;
+  }
+  div.select:not(.open):not(.disabled):after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 28px;
+    background-color: #fff;
+    background-image: url(../img/win8_select_more.svg);
+    background-size: 12px 9px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  div.select select {
+    display: none;
+  }
+  div.select div.select-inner-wrapper {
+    max-height: 440px;
+  }
+  div.select ul.select-inner {
+    position: absolute;
+    top: 0;
+    line-height: 28px;
+    list-style: none;
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  div.select ul.select-inner li {
+    padding: 0 8px;
+  }
+  div.select.open {
+    overflow: visible;
+    border-color: #5a5d5a;
+  }
+  div.select.open div.select-inner-wrapper {
+    position: relative;
+    z-index: 20;
+    min-height: 40px;
+    width: calc(100% + 4px);
+    width: -webkit-calc(100% + 4px);
+    margin-left: -2px;
+    overflow: hidden;
+    margin-top: -6px;
+    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  div.select.open div.select-inner-wrapper ul.select-inner {
+    position: relative;
+    line-height: 40px;
+    width: calc(100% - 4px);
+    width: -webkit-calc(100% - 4px);
+    margin-left: 2px;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 0 2px #5a5d5a;
+    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  div.select.open div.select-inner-wrapper ul.select-inner li:not(.checked):hover {
+    background-color: #dedede;
+  }
+  div.select.open div.select-inner-wrapper ul.select-inner li.checked {
+    background-color: #1ba1e2;
+    color: #fff;
+  }
+  div.select.open div.select-inner-wrapper ul.select-inner li.checked:hover {
+    background-color: #35ade7;
+  }
+  div.select.open div.select-inner-wrapper ul.select-inner li:active,
+  div.select.open div.select-inner-wrapper ul.select-inner li.checked:active {
+    background-color: #cdcdcd !important;
+    color: #000;
+  }
+  div.select.disabled {
+    opacity: 0.3;
+  }
 }
-div.alertBG {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #000;
-	z-index: 900;
-	opacity: 0.5;
+@media all and (max-width: 596px) {
+  div.notification-center {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: calc(596px);
+    min-height: 42px;
+    -webkit-perspective: 500px;
+    color: #fff;
+    z-index: 1500;
+  }
+  div.notification-center div.notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 596px;
+    height: 42px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  div.notification-center div.notification div.icon {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-image: url(../img/wp8_message.svg);
+    background-size: 14px 14px;
+    top: 26px;
+    left: 16px;
+  }
+  div.notification-center div.notification div.title {
+    font-weight: 700;
+    float: left;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 22px;
+    white-space: nowrap;
+    margin-left: 40px;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  div.notification-center div.notification div.content {
+    font-weight: 600;
+    float: left;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 22px;
+    white-space: nowrap;
+    margin-left: 8px;
+    max-width: calc(100% - 150px);
+    max-width: -webkit-calc(100% - 150px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  div.notification-center div.alert {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 596px;
+    min-height: 170px;
+    max-height: 233px;
+    background-color: #1f1f1f;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  div.notification-center div.alert div.title {
+    position: absolute;
+    top: 28px;
+    left: 16px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  div.notification-center div.alert div.content {
+    position: absolute;
+    top: 73px;
+    left: 16px;
+    right: 16px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  div.notification-center div.alert button {
+    position: absolute;
+    width: calc(50% - 20px);
+    width: -webkit-calc(50% - 20px);
+    height: 34px;
+    border-width: 3px;
+    bottom: 15px;
+    left: 16px;
+    margin-right: 8px;
+    float: right;
+  }
+  div.notification-center div.alert button:first-child:last-child {
+    left: auto;
+    right: 16px;
+    margin-right: 0;
+  }
+  div.notification-center div.alert button:not(:first-child):last-child {
+    left: auto;
+    right: 16px;
+    margin-right: 0;
+  }
+  div.notification-center div.notification.slide-in,
+  div.notification-center div.alert.slide-in {
+    -webkit-animation: slide-in 0.2s ease-out;
+  }
+  div.notification-center div.notification.slide-out,
+  div.notification-center div.notification.fade-out,
+  div.notification-center div.alert.slide-out,
+  div.notification-center div.alert.fade-out {
+    -webkit-animation: slide-out 0.2s ease-in;
+    -webkit-animation-fill-mode: forwards;
+  }
+  div.notification-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 596px;
+    height: 2000px;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1500;
+  }
+  @-webkit-keyframes slide-in {
+    from {
+      -webkit-transform: rotateX(90deg);
+    }
+    to {
+      -webkit-transform: rotateX(0deg);
+    }
+  }
+  @-webkit-keyframes slide-out {
+    from {
+      -webkit-transform: rotateX(0deg);
+    }
+    to {
+      -webkit-transform: rotateX(-90deg);
+    }
+  }
 }
-div.closeBox {
-	cursor: pointer;
-	background-repeat: no-repeat;
-	position: absolute;
-	top: 22px;
-	right: 15px;
-	width: 30px;
-	height: 30px;
-	border: 2px solid #fff;
-	border-radius: 30px;
-	background-color: #000;
-}
-div.accentColorPickerUI {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 998;
-}
-div.tilesWrapper {
-	position: absolute;
-	left: 50%;
-	margin-left: -160px;
-	width: 320px;
-	height: 100%;
-	background-color: #212021;
-	z-index: 998;
-	padding-top: 20px;
-}
-div.tile {
-	position: absolute;
-	width: 65px;
-	height: 65px;
-	opacity: 0;
-	cursor: pointer;
-	transform: rotateX(90deg);
-	transition: transform .2s ease-out, opacity .15s ease-out;
-	-moz-transform: rotateX(90deg);
-	-moz-transition: transform .2s ease-out, opacity .15s ease-out;
-	-webkit-transform: rotateX(90deg);
-	-webkit-transition: -webkit-transform .2s ease-out, opacity .15s ease-out;
-}
-div.tilesWrapper.rotateIn .tile {
-	opacity: 1;
-	-webkit-transform: rotateX(0deg);
-	transform: rotateX(0deg);
-	-moz-transform: rotateX(0deg);
-}
-div.tilesWrapper.rotateOut .tile {
-	transition: -webkit-transform .2s ease-in, opacity .15s ease-in;
-	-webkit-transition: -webkit-transform .2s ease-in. opacity .15s ease-in;
-	-moz-transition: -moz-transform .2s ease-in, opacity .15s ease-in;
-	opacity: 0;
-	-webkit-transform: rotateX(-90deg);
-	transform: rotateX(-90deg);
-	-moz-transform: rotateX(-90deg);
-}
-div.metro.list {
-	position: relative;
-	width: 290px;
-	height: 32px;
-	border: 3px solid #fff;
-	margin-top: 5px;
-	overflow: hidden;
-	-webkit-transition: height .2s ease-in-out;
-	cursor: pointer;
-}
-div.metro.list .currentAccent {
-	margin-top: 9px;
-	margin-left: 5px;
-	width: 15px;
-	height: 15px;
-	cursor: default;
-}
-div.metro.list p {
-	height: 32px;
-	line-height: 32px;
-	padding-left: 5px;
-	cursor: pointer;
-	transition: height .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
-	-moz-transition:  height .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
-	-webkit-transition: height .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
-}
-div.metro.list.extended p {
-	height: 42px;
-	line-height: 42px;
-}
-div.metro.list.accent p {
-	color: #fff;
-}
-div.metro.list.accentBorder {
-	background-color: #fff;
-	color: #000;
-}
-div.metro.list p.currentAccentColor {
-	font-weight: 400;
-	height: 32px;
-	line-height: 32px;
-	padding-left: 30px;
-	float: left;
-}
-
-/* UI Elements, light background */
-
-.lightBG button.metro {
-	background-color: #fff;
-	border: 3px solid #000;
-	color: #000;
-}
-.lightBG button.metro:active {
-	color: #fff;
-}
-
-.lightBG div.metro.checkbox {
-	border: 3px solid #000;
-}
-.lightBG div.metro.checkbox .innerCheckbox:after {
-	background-color: #000;
-	border-color: #fff;
-}
-
-.lightBG div.alert {
-	background-color: #dedfde;
-}
-.lightBG div.alert p {
-	color: #000;
-}
-
-.lightBG div.tilesWrapper {
-	background-color: #dedfde;
-}
-.lightBG div.closeBox {
-	filter: invert(100%);
-	-webkit-filter: invert(100%);
-	-moz-filter: invert(100%);
-}
-.lightBG div.metro.list {
-	border-color: #000;
-	color: #000;
+@media all and (min-width: 597px) {
+  div.notification-center {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  div.notification-center div.notification {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    width: 384px;
+    height: 97px;
+    max-height: 90px;
+    background-color: #1ba1e2;
+    box-shadow: inset 0 0 0 3px #50b8ea;
+    color: #fff;
+  }
+  div.notification-center div.notification div.title {
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    max-width: 344px;
+    padding: 15px 20px 0 20px;
+    height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  div.notification-center div.notification div.content {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    max-width: 344px;
+    max-height: 38px;
+    line-height: 19px;
+  }
+  div.notification-center div.notification.icon div.title {
+    padding: 15px 60px 0 20px;
+    max-width: 304px;
+  }
+  div.notification-center div.notification.icon div.content {
+    padding: 0 60px 0 20px;
+    max-width: 304px;
+  }
+  div.notification-center div.notification.slide-in {
+    animation: slide-in 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation: slide-in 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  div.notification-center div.notification.slide-out {
+    animation: slide-out 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: forwards;
+    -webkit-animation: slide-out 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation-fill-mode: forwards;
+  }
+  div.notification-center div.notification.fade-out {
+    animation: fade-out 3s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation: fade-out 3s linear;
+    -webkit-animation-fill-mode: forwards;
+  }
+  div.notification-center div.alert {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    margin-top: -107px;
+    width: 100%;
+    min-height: 148px;
+    background-color: #fff;
+    font-size: 11pt;
+    z-index: 2500;
+  }
+  div.notification-center div.alert div.title {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 680px;
+    font-size: 20pt;
+    color: #000;
+    text-align: left;
+    font-weight: 300;
+    padding-top: 22px;
+  }
+  div.notification-center div.alert div.content {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 680px;
+    font-size: 11pt;
+    font-weight: 400;
+    color: #000;
+  }
+  div.notification-center div.alert div.button-container {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    left: 0;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 680px;
+    height: 32px;
+  }
+  div.notification-center div.alert div.button-container button {
+    min-width: 90px;
+    height: 32px;
+    border: none;
+    margin: 0;
+    float: right;
+    margin-left: 20px;
+  }
+  div.notification-center div.alert div.button-container button:not(.color) {
+    background-color: #ccc;
+    color: #000;
+  }
+  div.notification-center div.alert div.button-container button:active {
+    background-color: #000 !important;
+    color: #fff;
+  }
+  div.notification-center div.alert.slide-in {
+    animation: fade-in 0.2s ease-out;
+    -webkit-animation: fade-in 0.2s ease-out;
+  }
+  div.notification-center div.alert.slide-out {
+    animation: fade-out 0.2s ease-out;
+    animation-fill-mode: forwards;
+    -webkit-animation: fade-out 0.2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+  }
+  div.notification-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2000px;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 2000;
+  }
+  div.notification-background.slide-in {
+    animation: fade-in-half 0.2s ease-out;
+    -webkit-animation: fade-in-half 0.2s ease-out;
+  }
+  div.notification-background.slide-out {
+    animation: fade-out-half 0.2s ease-out;
+    animation-fill-mode: forwards;
+    -webkit-animation: fade-out-half 0.2s ease-out;
+    -webkit-animation-fill-mode: forwards;
+  }
+  @-webkit-keyframes slide-in {
+    from {
+      -webkit-transform: translate3d(384px, 0, 0);
+    }
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+  }
+  @-webkit-keyframes slide-out {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+    to {
+      -webkit-transform: translate3d(384px, 0, 0);
+    }
+  }
+  @-webkit-keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes fade-in-half {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.5;
+    }
+  }
+  @-webkit-keyframes fade-out-half {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 }
