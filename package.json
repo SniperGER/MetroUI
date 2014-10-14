@@ -1,0 +1,38 @@
+{
+  "name": "MetroUI",
+  "version": "2.0.0",
+  "description": "CSS definitions to create Metro (Windows Phone 8) UI Elements in HTML",
+  "main": "MetroUI.new.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SniperGER/MetroUI.git"
+  },
+  "keywords": [
+    "MetroUI"
+  ],
+  "author": "SniperGER",
+  "license": "GNU GPLv2",
+  "bugs": {
+    "url": "https://github.com/SniperGER/MetroUI/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-banner": "^0.2.3",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-connect": "~0.8.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jade": "~0.12.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.0",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-open": "~0.2.3",
+    "jshint": "~2.5.2",
+    "jshint-stylish": "~0.4.0",
+    "load-grunt-tasks": "~0.6.0",
+    "time-grunt": "~0.4.0"
+  }
+}

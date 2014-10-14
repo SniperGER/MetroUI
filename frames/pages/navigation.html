@@ -1,0 +1,65 @@
+<div class="page page-transition-in navbar-back" data-page="pages" data-category="pages">
+	<div class="page-header">
+		<div class="navigation-back"></div>
+		<div class="pivot-header">Navigation</div>
+	</div>
+	<div class="page-content">
+		<div class="page-content-wrapper">
+			<div class="scroll-content">
+				<div class="grid">
+					<div class="section">
+						<div class="section-title">Information</div>
+						<p class="content-block subtitle">Type</p>
+						<p class="content-block">HTML, JavaScript</p>
+						<p class="content-block subtitle">Available in</p>
+						<p class="content-block">Windows<br>Windows Phone</p>
+						<p class="content-block subtitle">Theming Support</p>
+						<p class="content-block">No</p>
+						<p class="content-block subtitle">Accent Color Support</p>
+						<p class="content-block">No</p>
+					</div>
+					<div class="section width-2">
+						<div class="section-title">Description</div>
+						<p class="content-block">Navigation is that thing that happens between Page A and Page B. Without Navigation you wouldn't be able to transition through pages.<br><br>Navigation is done through JavaScript. It intercepts links to pages (<code>&lt;a href=""&gt;...&lt;/a&gt;</code>) and loads their content in the current DOM, without clustering the history. It also enables smooth transition between pages and allows you to apply minimal code layout.<br><br>Links that have an <code>external</code> class are loaded in the default way, bringing you directly to the new page (e.g. if you want to navigate to Google or any other website that is not yours). A JavaScript method also allows you to load a page manually, either being in the current DOM, using the page identification string, or from an external file.</p>
+					</div>
+					<div class="section">
+						<div class="section-title">Attributes &amp; Classes</div>
+						<table class="params-table">
+							<thead>
+								<tr>
+									<th>Attribute</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>page</td>
+									<td>Identification string of a page that exists in the current DOM</td>
+								</tr>
+								<tr>
+									<td>url</td>
+									<td>URL of a file with minimal layout to load in the current DOM</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="section-title">Code</div>
+<pre class="prettyprint lang-js">
+var app = new MetroUI();
+app.loadPage(page);
+// Loads page from current DOM
+
+app.loadPageExternal(url);
+// Loads external page from specified URL
+</pre>
+<br>
+<pre class="prettyprint lang-html">
+&lt;a href="page-demo"&gt;Load internal page&lt;/a&gt;
+
+&lt;a href="http://github.com/SniperGER/"&gt;Load external page&lt;/a&gt;
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

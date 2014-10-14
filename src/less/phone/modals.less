@@ -1,0 +1,173 @@
+div.notification-center {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	max-width: calc(576px + 20px);
+	min-height: 42px;
+	-webkit-perspective: 500px;
+	color: #fff;
+	z-index: 2000;
+	&.prompt {
+		height: 100%;
+		
+		div.alert {
+			height: 100% !important;
+			max-height: 100%;
+		}
+	}
+	
+	div.notification {
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%;
+		max-width: 596px;
+		height: 42px;
+		font-size: 12px;
+		cursor: pointer;
+
+		div.icon {
+			position: absolute;
+			width: 14px;
+			height: 14px;
+			background-image: url(../img/wp8_message.svg);
+			background-size: 14px 14px;
+			top: 26px; left: 16px;
+		}
+		div.title {
+			font-weight: 700;
+			float: left;
+			display: inline-block;
+			height: 22px;
+			line-height: 22px;
+			margin-top: 22px;
+			white-space: nowrap;
+			margin-left: 40px;
+			max-width: 100px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		div.content {
+			font-weight: 600;
+			float: left;
+			display: inline-block;
+			height: 22px;
+			line-height: 22px;
+			margin-top: 22px;
+			white-space: nowrap;
+			margin-left: 8px;
+			max-width: calc(~"100% - 150px");
+			max-width: -webkit-calc(~"100% - 150px");
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	
+	div.alert {
+		position: relative;
+		top: 0; left: 0;
+		width: 100%;
+		max-width: 596px;
+		min-height: 170px;
+		max-height: 233px;
+		background-color: #1f1f1f;
+		font-size: 12px;
+		cursor: pointer;
+		z-index: 2;
+
+		div.title {
+			position: absolute;
+			top: 28px;
+			left: 16px;
+			font-size: 20px;
+			font-weight: 600;
+		}
+		div.content {
+			position: absolute;
+			top: 73px;
+			left: 16px;
+			right: 16px;
+			font-size: 15px;
+			font-weight: 500;
+
+		}
+		button {
+			position: absolute;
+			width: calc(~"50% - 20px");
+			width: -webkit-calc(~"50% - 20px");
+			height: 34px;
+			border-width: 3px;
+			bottom: 15px;
+			left: 16px;
+			margin-right: 8px;
+			float: right;
+			
+			&:first-child:last-child {
+				left: auto;
+				right: 16px;
+				margin-right: 0;
+			}
+			&:not(:first-child):last-child {
+				left: auto;
+				right: 16px;
+				margin-right: 0;
+			}
+		}
+	}
+	
+	div.notification.slide-in,
+	div.alert.slide-in {
+		-webkit-animation: slide-in .3s cubic-bezier(0.1,0.9,0.2,1);
+	}
+	div.notification.slide-out,
+	div.notification.fade-out,
+	div.alert.slide-out,
+	div.alert.fade-out {
+		-webkit-animation: slide-out .25s cubic-bezier(0.65,0.1,0.75,0.2);
+		-webkit-animation-fill-mode: forwards;
+	}
+}
+div.notification-background {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	max-width: 596px;
+	height: 2000px;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: 1500;
+}
+
+@-webkit-keyframes slide-in {
+	from { -webkit-transform: rotateX(90deg) }
+	to { -webkit-transform: rotateX(0deg) }
+}
+@-webkit-keyframes slide-out {
+	from { -webkit-transform: rotateX(0deg) }
+	to { -webkit-transform: rotateX(-90deg) }
+}
+div.accent-picker {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-height: 100%;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: 100%;
+	background-color: #1f1f1f;
+	z-index: 2000;
+	padding: 0 10px;
+	
+	div.pivot-title {
+		margin-bottom: 25px;
+	}
+	
+	div.accent-tile {
+		float: left;
+		width: 72px;
+		height: 72px;
+		margin-bottom: 4px;
+		margin-right: 4px;
+		background-color: #000;
+	}
+}

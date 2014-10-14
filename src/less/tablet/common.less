@@ -1,0 +1,34 @@
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 600px;
+	font-size: 13px;
+	margin-top: 10px;
+	
+	th, td {
+		padding: 5px;
+		border: 1px solid #ccc;
+		white-space: normal;
+	}
+	th { font-weight: 400; }
+	th[colspan="4"] {
+		background-color: #3a3a3a;
+		font-weight: 400;
+	}
+	tr td:not(:last-child) {
+		font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+		font-size: 12px;
+	}
+	tr th:last-child, tr td:last-child {
+		max-width: 400px;
+	}
+}
+div.section.scrollable table {
+	margin-bottom: 20px;
+}
+p {
+	font-weight: 300;
+	font-size: 11pt;
+	color: #fff;
+	white-space: normal;
+}

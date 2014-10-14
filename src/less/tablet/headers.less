@@ -1,0 +1,35 @@
+div.content-title {
+	font-size: 20px;
+	font-weight: 300;
+	margin-top: 44px;
+	color: #fff;
+}
+button.no-break + .content-title {
+	padding-top: 44px;
+}
+div.pivot-title {
+	display: none;
+}
+div.pivot-header {
+	font-size: 42pt;
+	font-weight: 300;
+	min-width: 310px;
+	overflow: hidden;
+	text-overflow: clip;
+	white-space: nowrap;
+	padding-top: 40px;
+	padding-left: 80px;
+}
+div.navbar-back {
+	div.pivot-header {
+		padding-left: 120px;
+	}
+	div.page-content div.grid {
+		padding-left: 40px;
+	}
+}	
+body[data-theme="light"] {
+	div.content-title {
+		color: #000;
+	}
+}

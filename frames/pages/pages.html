@@ -1,0 +1,68 @@
+<div class="page page-transition-in navbar-back" data-page="pages" data-category="pages">
+	<div class="page-header">
+		<div class="navigation-back"></div>
+		<div class="pivot-header">Pages</div>
+	</div>
+	<div class="page-content">
+		<div class="page-content-wrapper">
+			<div class="scroll-content">
+				<div class="grid">
+					<div class="section">
+						<div class="section-title">Information</div>
+						<p class="content-block subtitle">Type</p>
+						<p class="content-block">HTML</p>
+						<p class="content-block subtitle">Available in</p>
+						<p class="content-block">Windows<br>Windows Phone</p>
+						<p class="content-block subtitle">Theming Support</p>
+						<p class="content-block">Yes (inherited)</p>
+						<p class="content-block subtitle">Accent Color Support</p>
+						<p class="content-block">Children only</p>
+					</div>
+					<div class="section width-2">
+						<div class="section-title">Description</div>
+						<p class="content-block">Pages are the most substantial part in MetroUI. They contain everything, from simple Form elements to more advanced things like Grids and Hubs.<br><br>In MetroUI, Pages have a name for identification (eg. in Callbacks) and a category, that is shown in the Navigation Bar (if available).<br><br>When changing to another page, the new page is made the current page that replaces the old page. They can also be loaded from external files, which happens automatically when adding a link to the content.<br><br>Pages are stored in a single Page container, so for external files a minimal layout is required (shown in the Code section).</p>
+					</div>
+					<div class="section">
+						<div class="section-title">Attributes &amp; Classes</div>
+						<table class="params-table">
+							<thead>
+								<tr>
+									<th>Attribute</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>data-page</td>
+									<td>Specifies the page title. - Required for Navigation and Page Callbacks</td>
+								</tr>
+								<tr>
+									<td>data-category</td>
+									<td>Specifies the page category. - Required for Navigation Bar (if available)</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="section-title">Code</div>
+<pre class="prettyprint lang-html">
+&lt;...&gt;
+  &lt;div class="page" data-page="page1" data-category="demo"&gt;
+    &lt;div class="page-header"&gt;
+      &lt;div class="navigation-back"&gt;&lt;/div&gt;
+      &lt;div class="pivot-header"&gt;Page Title&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="page-content"&gt;
+      &lt;div class="page-content-wrapper"&gt;
+        &lt;div class="scroll-content"&gt;
+          &lt;!-- Add components here --&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;...&gt;
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

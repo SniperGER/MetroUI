@@ -1,0 +1,72 @@
+@keyframes enter-page {
+	from { transform: translate3d(100px,0,0); }
+	to { transform: translate3d(0,0,0) }
+}
+@keyframes page-transition-out {
+	0% { opacity: 1; transform: translate3d(0,0,0); }
+	99% { opacity: 0; transform: translate3d(0,0,0); }
+	100% { opacity: 0; transform: translate3d(0,-200%,0); }
+}
+@-moz-keyframes enter-page {
+	from { -moz-transform: translate3d(100px,0,0); }
+	to { -moz-transform: translate3d(0,0,0) }
+}
+@-moz-keyframes page-transition-out {
+	0% { opacity: 1; -moz-transform: translate3d(0,0,0); }
+	99% { opacity: 0; -moz-transform: translate3d(0,0,0); }
+	100% { opacity: 0; -moz-transform: translate3d(0,-200%,0); }
+}
+@-webkit-keyframes enter-page {
+	from { -webkit-transform: translate3d(100px,0,0); }
+	to { -webkit-transform: translate3d(0,0,0) }
+}
+@-webkit-keyframes page-transition-out {
+	0% { opacity: 1; -webkit-transform: translate3d(0,0,0); }
+	99% { opacity: 0; -webkit-transform: translate3d(0,0,0); }
+	100% { opacity: 0; -webkit-transform: translate3d(0,-200%,0); }
+}
+
+div.navigation-bar.extended {
+	div.button {
+		animation: enter-page 1000ms cubic-bezier(0.1,0.9,0.2,1);
+		-moz-animation: enter-page 1000ms cubic-bezier(0.1,0.9,0.2,1);
+		-webkit-animation: enter-page 1000ms cubic-bezier(0.1,0.9,0.2,1);
+	}
+}
+
+div.page.page-transition-out {
+	animation: page-transition-out 200ms ease-out;
+	animation-fill-mode: forwards;
+	backface-visibility: hidden;
+	-moz-animation: page-transition-out 200ms ease-out;
+	-moz-animation-fill-mode: forwards;
+	-moz-backface-visibility: hidden;
+	-webkit-animation: page-transition-out 200ms ease-out;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-backface-visibility: hidden;
+}
+div.page.page-transition-out-done {
+	opacity: 0;
+	display: none;
+	visibility: hidden;
+}
+div.page.page-transition-in {
+	animation: enter-page 750ms cubic-bezier(0.1,0.9,0.2,1);
+	animation-fill-mode: forwards;
+	-moz-animation: enter-page 750ms cubic-bezier(0.1,0.9,0.2,1);
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation: enter-page 750ms cubic-bezier(0.1,0.9,0.2,1);
+	-webkit-animation-fill-mode: forwards;
+}
+div.page.page-transition-in-done {
+	transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
+	
+	div.iScrollHorizontalScrollbar {
+		transition: opacity .3s ease-out;
+		-moz-transition: opacity .3s ease-out;
+		-webkit-transition: opacity .3s ease-out;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,107 @@
+/* ===================================== */
+/* =        MetroUI Stylesheet         = */
+/* = © 2014 Janik Schmidt (Sniper_GER) = */
+/* =       All Rights reserved.        = */
+/* ===================================== */
+@font-face {
+	font-family: "Metro Symbol";
+	src: url(fonts/Metro-Symbol.ttf);
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(fonts/OpenSans-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(fonts/OpenSans-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(fonts/OpenSans-Semibold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(fonts/OpenSans-Bold.ttf) format('truetype');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	
+	&:not(input):not(textarea) {
+		user-select: none;
+		-webkit-user-select: none;
+	}
+}
+html, body {
+	height: 100%;
+}
+a:not(.external) {
+	text-decoration: none;
+	color: #fff;
+}
+a { cursor: pointer !important; }
+code {
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	background-color: #3a3a3a;
+	font-size: 10pt;
+}
+@media all and (max-width: 767px) {
+	p {
+		font-weight: 300;
+		font-size: 12pt;
+		color: #fff;
+		white-space: normal;
+	}
+}
+@media (orientation:landscape) {
+	html.ipad.ios7 > body {
+		position: fixed;
+		bottom: 0;
+		width:100%;
+		height: 672px !important;
+		overflow: hidden;
+		
+		div.popover { margin-top: 0px; }
+	}
+}
+
+@media all and (max-width: 767px) {
+	@import "phone/animations.less";
+	@import "phone/bars.less";
+	@import "phone/common.less";
+	@import "phone/forms.less";
+	@import "phone/headers.less";
+	@import "phone/modals.less";
+	@import "phone/popovers.less";
+	@import "phone/select.less";
+	@import "phone/themes.less";
+}
+@media all and (min-width: 768px) {
+	@import "tablet/animations.less";
+	@import "tablet/bars.less";
+	@import "tablet/common.less";
+	@import "tablet/forms.less";
+	@import "tablet/grid.less";
+	@import "tablet/headers.less";
+	@import "tablet/modals.less";
+	@import "tablet/pages.less";
+	@import "tablet/popovers.less";
+	@import "tablet/scrollbars.less";
+	@import "tablet/select.less";
+	@import "tablet/theme-selector.less";
+	@import "tablet/themes.less";
+}
+@import "icons.less";

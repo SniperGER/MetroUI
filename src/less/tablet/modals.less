@@ -1,0 +1,182 @@
+div.notification-center {
+	position: absolute;
+	top: 0;
+	right: 0;
+	
+	div.notification {
+		position: fixed;
+		top: 0;
+		right: 0;
+		margin-top: 20px;
+		width: 384px;
+		height: 97px;
+		max-height: 90px;
+		background-color: #000;
+		box-shadow: inset 0 0 0 3px darken(#000, -12%);
+		color: #fff;
+		z-index: 2500;
+		cursor: pointer;
+		
+		div.title {
+			font-size: 14px;
+			font-weight: 600;
+			width: 100%;
+			max-width: 344px;
+			padding: 15px 20px 0 20px;
+			height: 19px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		div.content {
+			font-size: 14px;
+			font-weight: 400;
+			padding: 0 20px 0 20px;
+			width: 100%;
+			max-width: 344px;
+			max-height: 38px;
+			line-height: 19px;
+			p {
+				color: #fff !important;
+			}
+		}
+		&.icon {
+			div.title {
+				padding: 15px 60px 0 20px;
+				max-width: 304px;
+			}
+			div.content {
+				padding: 0 60px 0 20px;
+				max-width: 304px;
+			}
+		}
+		&.slide-in {
+			animation: slide-in .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+			-webkit-animation: slide-in .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+		}
+		&.slide-out {
+			animation: slide-out .2s ease-out;
+			animation-fill-mode: forwards;
+			-webkit-animation: slide-out .2s ease-out;
+			-webkit-animation-fill-mode: forwards;
+		}
+		&.fade-out {
+			animation: fade-out 3s linear;
+			animation-fill-mode: forwards;
+			-webkit-animation: fade-out 3s linear;
+			-webkit-animation-fill-mode: forwards;
+		}
+	}
+	div.alert {
+		position: fixed;
+		top: 50%; left: 0;
+		margin-top: -107px;
+		width: 100%;
+		min-height: 148px;
+		background-color: #fff;
+		font-size: 11pt;
+		z-index: 2500;
+
+		div.title {
+			margin: 0px auto;
+			width: 100%;
+			max-width: 680px;
+			font-size: 20pt;
+			color: #000;
+			text-align: left;
+			font-weight: 300;
+			padding-top: 22px;
+		}
+		div.content {
+			margin: 0px auto;
+			width: 100%;
+			max-width: 680px;
+			font-size: 11pt;
+			font-weight: 400;
+			color: #000;
+		}
+		div.button-container {
+			position: absolute;
+			bottom: 30px;
+			right: 0;
+			left: 0;
+			margin: 0px auto;
+			width: 100%;
+			max-width: 680px;
+			height: 32px;
+			
+			button {
+				min-width: 90px;
+				height: 32px;
+				border: none;
+				margin: 0;
+				float: right;
+				margin-left: 20px;
+				color: #fff;
+				
+				&:not(.color) {
+					background-color: #ccc;
+					color: #000;
+				}
+				&:active {
+					background-color: #000 !important;
+					color: #fff;
+				}
+			}
+		}
+		&.slide-in {
+			animation: fade-in .2s ease-out;
+			-webkit-animation: fade-in .2s ease-out;
+		}
+		&.slide-out {
+			animation: fade-out .2s ease-out;
+			animation-fill-mode: forwards;
+			-webkit-animation: fade-out .2s ease-out;
+			-webkit-animation-fill-mode: forwards;
+		}
+	}
+}
+div.notification-background {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 2000px;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: 2000;
+	
+	&.slide-in {
+		animation: fade-in-half .2s ease-out;
+		-webkit-animation: fade-in-half .2s ease-out;
+	}
+	&.slide-out {
+		animation: fade-out-half .2s ease-out;
+		animation-fill-mode: forwards;
+		-webkit-animation: fade-out-half .2s ease-out;
+		-webkit-animation-fill-mode: forwards;
+	}
+}
+@-webkit-keyframes slide-in {
+	from { -webkit-transform: translate3d(384px,0,0); }
+	to { -webkit-transform: translate3d(0,0,0); }
+}
+@-webkit-keyframes slide-out {
+	from { -webkit-transform: translate3d(0,0,0); }
+	to { -webkit-transform: translate3d(384px,0,0); }
+}
+@-webkit-keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@-webkit-keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+@-webkit-keyframes fade-in-half {
+	from { opacity: 0; }
+	to { opacity: 0.5; }
+}
+@-webkit-keyframes fade-out-half {
+	from { opacity: 0.5; }
+	to { opacity: 0; }
+}
