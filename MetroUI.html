@@ -1,31 +1,17 @@
-<!DOCTYPE html>
-<html>
+<html>	
 	<head>
 		<title>MetroUI Developer Preview</title>
 		<link href='css/OpenSans.css' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
-		
-		<!-- CSS Final Build -->
- 		<link rel="stylesheet" type="text/css" href="dist/css/MetroUI.css" />
-		<!-- LESS Development -->
-<!-- 		<script type="text/javascript"> localStorage.clear();</script> -->
-<!-- 		<link rel="stylesheet/less" type="text/css" href="src/metroui.less" /> -->
-<!--		<link rel="stylesheet/less" type="text/css" href="src/themes.less" /> -->
-		
+ 		<link rel="stylesheet" type="text/css" href="build/css/MetroUI.css" />
 		<link rel="stylesheet" href="css/prettify.css" />
 		<script src="js/prettify.js"></script>
 		
-		<script>
-			less = {
-				logLevel: 0
-			}
-		</script>
-<!-- 		<script src="js/lib/less-1.7.4.min.js"></script> -->
 		<script src="js/lib/jquery.js"></script>
 		<script src="js/lib/fastclick.js"></script>
 		<script src="js/lib/iscroll.js"></script>
 		<script src="js/lib/wrapper.js"></script>
-		<script src="dist/js/MetroUI.js"></script>
+		<script src="build/js/MetroUI.js"></script>
 	</head>
 	<body class="toolbar" data-theme="dark" data-color="steel" ontouchstart="" onload="prettyPrint()">
 		
@@ -103,14 +89,13 @@
 				</div>
 			</div>
 		</div>
-
-
+		
+		<!-- Pages -->
 		<div class="pages">
-			<div class="page" data-page="main" data-category="home">
+			<div class="page" data-page="start" data-category="start">
 				<div class="page-header">
 					<div class="pivot-header">MetroUI</div>
 				</div>
-			
 				<div class="page-content">
 					<div class="page-content-wrapper">
 						<div class="scroll-content">
@@ -310,17 +295,27 @@
 											</div>
 										</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-
 		<script>
 			var MetroUI = new MetroUI({
 				optimizeIpad: true
+			});
+			$(document.body).on("beforeAnim", ".page", function() { prettyPrint() });
+			var theScroll = new IScroll('.page-content-wrapper', {
+				scrollX: true,
+				scrollY: false,
+				mouseWheel: true,
+				disableMouse: true,
+				scrollbars: 'custom',
+				interactiveScrollbars: true,
+				fadeScrollbars: true,
+				shrinkScrollbars: 'clip',
 			});
 			$('div.application-bar div.icon-help').on("click", function() {
 				//MetroUI.alert("About MetroUI","MetroUI 2.0<br>Version 2.0.0002<br>Developer Preview 2<br><br>&copy; 2014 Janik Schmidt. All rights reserved.");
@@ -342,21 +337,8 @@
 					]
 				});
 			});
-			
-			$(document.body).on("beforeAnim", ".page", function() { prettyPrint() });
-			
-			var theScroll = new IScroll('.page-content-wrapper', {
-				scrollX: true,
-				scrollY: false,
-				mouseWheel: true,
-				disableMouse: true,
-				scrollbars: 'custom',
-				interactiveScrollbars: true,
-				fadeScrollbars: true,
-				shrinkScrollbars: 'clip',
-			});
+
 			$('.application-bar .right .icon#test').on("click", function() {
-				//alert("Element: x=" + $(this).offset().left + ", y=" + $(this).offset().top + "\nWindow: w=" + window.innerWidth + ", h=" + window.innerHeight);
 				MetroUI.contextMenu({
 					target: this,
 					buttons: [
