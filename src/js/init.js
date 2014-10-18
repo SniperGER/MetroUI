@@ -238,7 +238,7 @@
 					el.parent().append("<div class=\"select-inner-wrapper\">");
 					el.parent().children("div.select-inner-wrapper").append("<ul class=\"select-inner\">");
 					for (var i=0; i<el.children("option").length; i++) {
-						el.parent().children("div.select-inner-wrapper").children("ul.select-inner").append("<li>"+el.children("option:nth-child("+(i+1)+")").html()+"</li>");
+						el.parent().children("div.select-inner-wrapper").children("ul.select-inner").append("<li data-value='"+el.children("option:nth-child("+(i+1)+")").attr("value")+"'>"+el.children("option:nth-child("+(i+1)+")").html()+"</li>");
 						var attr = el.children("option:nth-child("+(i+1)+")").attr("selected");
 						if (typeof attr !== typeof undefined && attr !== false) {
 							el.parent().children("div.select-inner-wrapper").children("ul").children("li:nth-child("+(i+1)+")").addClass("checked");
@@ -380,18 +380,30 @@
 								$('.theme-selector').append('<div class="selector '+app.params.customThemes[i]+'" data-color="'+app.params.customThemes[i]+'"></div>');
 							}
 						}
+						var accentName = localStorage.accentColor || $('body').attr("data-color");
+						var themeName = localStorage.themeColor || $('body').attr("data-theme");
+						app.changeAccent(accentName);
+						app.changeTheme(themeName);
 						$('.theme-selector div.indicator').css({
-							left: ($('div.theme-selector div.selector[data-color="'+$('body').attr("data-color")+'"]').index()-1)*30+"px"
+							left: ($('div.theme-selector div.selector[data-color="'+accentName+'"]').index()-1)*30+"px"
 						});
 						$('.theme-selector div.selector').on("click", function() {
 							var el = $(this);
 							$('.theme-selector div.indicator').css({
 								left: (el.index()-1)*30+"px"
 							});
-							$('body').attr("data-color", el.attr("data-color"));
+							app.changeAccent(el.attr("data-color"));
 						});
 					}
 				}
+				
+				var themeName = localStorage.themeColor || $('body').attr("data-theme");
+				$('div.select.background select option[value="'+themeName+'"]').attr("selected",true);
+				$('div.select.background div ul li').removeClass("checked");
+				$('div.select.background div ul li[data-value="'+themeName+'"]').addClass("checked");
+				$('div.select.background div ul').css({
+					"margin-top": "-"+(($('div.select.background div ul').children("li.checked").index()*28))+"px"
+				});
 			}
 		};
 		app.initColorSelect = function() {

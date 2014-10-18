@@ -46,7 +46,7 @@ function capitaliseFirstLetter(string) {
 			/* Pages */
 			pageTransitions: true,
 			pageTransitionInOnStart: true,
-			pageCreateScroll: false,
+			pageCreateScroll: true,
 			/* Default iScroll Configuration */
 			scrollX: true,
 			scrollY: false,

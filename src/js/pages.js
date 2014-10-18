@@ -7,7 +7,7 @@
 					$('.pages').removeAttr("style");
 					$('.page.current').addClass("page-transition-out-done").removeClass("page-transition-out current");
 					$('.page[data-page="'+page+'"]').removeClass("page-transition-out-done").addClass("page-transition-in");
-					if (app.params.pageCreateScroll && createScroll) {
+					if (app.params.pageCreateScroll || createScroll) {
 						new IScroll('.page[data-page="'+page+'"] .page-content-wrapper', {
 							scrollX: app.params.scrollX,
 							scrollY: app.params.scrollY,
@@ -82,9 +82,9 @@
 
 			setTimeout(function() {
 				$('div.page.current').remove();
-				$('div.page.last:last-child').removeClass("page-transition-out page-transition-out-done").addClass("page-transition-in");
+				$('div.page.last').removeClass("page-transition-out page-transition-out-done").addClass("page-transition-in");
 				setTimeout(function() {
-					$('div.pages div.page.last:last-child').removeClass("page-transition-in last").addClass("page-transition-in-done current");
+					$('div.pages div.page.last').removeClass("page-transition-in last").addClass("page-transition-in-done current");
 				}, 750);
 			}, 200);
 		};
