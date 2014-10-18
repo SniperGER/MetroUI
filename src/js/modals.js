@@ -66,7 +66,7 @@
 					} else {
 						$('div.pages').append('<div class="page page-transition-out-done" data-page="prompt" data-page-back="'+$('div.pages').attr("data-page")+'" data-category=""><div class="page-header"><div class="pivot-header">'+params.title+'</div></div><div class="page-content"><div class="page-content-wrapper"><div class="scroll-content">'+params.message+'<div class="buttons-wrapper"></div></div></div></div>');
 						$.each(params.buttons, function(index, e) {
-							$('div.page[data-page="prompt"] div.buttons-wrapper').append('<button>'+params.buttons[index].text+'</button>');
+							$('div.page[data-page="prompt"] div.buttons-wrapper').append('<button class="no-break">'+params.buttons[index].text+'</button>');
 							$('div.page[data-page="prompt"] div.buttons-wrapper button:last-child').on("click", params.buttons[index].callback);
 						});
 						app.loadPage("prompt");
