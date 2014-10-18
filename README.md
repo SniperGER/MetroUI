@@ -85,8 +85,11 @@ Simple Alert that informs the user of something that requires his attention.
 app.alert(title, message, [okCallback]);
 ```
 `title`: Specifies the Alert's title
+
 `message`: The message that should be displayed
+
 `[okCallback]`: Optional callback when the user clicks OK
+
 ### Confirm
 Confirm Dialog that confirms the user's action.
 
@@ -95,9 +98,13 @@ Confirm Dialog that confirms the user's action.
 app.confirm(title, message, [okCallback], [cancelCallback])
 ```
 `title`: Specifies the Alert's title
+
 `message`: The message that should be displayed
+
 `[okCallback]`: Optional callback when the user clicks OK
+
 `[cancelCallback]`: Optional callback when the user clicks Cancel
+
 ### Text Prompt
 Prompts for an username or any other kind of text.
 
@@ -106,9 +113,13 @@ Prompts for an username or any other kind of text.
 app.prompt(title, message, [okCallback], [cancelCallback])
 ```
 `title`: Specifies the Alert's title
+
 `message`: The message that should be displayed
+
 `[okCallback]`: Optional callback when the user clicks OK
+
 `[cancelCallback]`: Optional callback when the user clicks Cancel
+
 ### Password Prompt
 Same as Text Prompt, but has an password field instead of a text field.
 
@@ -117,9 +128,13 @@ Same as Text Prompt, but has an password field instead of a text field.
 app.modalPassword(title, message, [okCallback], [cancelCallback])
 ```
 `title`: Specifies the Alert's title
+
 `message`: The message that should be displayed
+
 `[okCallback]`: Optional callback when the user clicks OK
+
 `[cancelCallback]`: Optional callback when the user clicks Cancel
+
 ### Login Prompt
 Combination of both Text Prompt and Password Prompt. Made for Login purposes.
 
@@ -128,9 +143,13 @@ Combination of both Text Prompt and Password Prompt. Made for Login purposes.
 app.modalLogin(title, message, [okCallback], [cancelCallback])
 ```
 `title`: Specifies the Alert's title
+
 `message`: The message that should be displayed
+
 `[okCallback]`: Optional callback when the user clicks OK
+
 `[cancelCallback]`: Optional callback when the user clicks Cancel
+
 ### Notifications
 Displays a notification at the screen's top.
 
@@ -139,48 +158,51 @@ Displays a notification at the screen's top.
 app.notify(title, message, [icon], [callback])
 ```
 `title`: Specifies the Notification's title
+
 `message`: The message that should be displayed
+
 `icon`: Icon file that is shown with the Notification
+
 `[okCallback]`: Optional callback when the user interacts with the Notification
 
 ## Bars
 ### Application Bar
-Open the Application Bar (if available).
+#### Open the Application Bar (if available).
 
 *Available in:* Desktop, Phone
 ```javascript
 app.openAppbar();
 ```
 
-Close the Application Bar (if available).
+#### Close the Application Bar (if available).
 
 *Available in:* Desktop, Phone
 ```javascript
 app.closeAppbar();
 ```
 
-Toggle the Application Bar (if available).
+#### Toggle the Application Bar (if available).
 
 *Available in:* Desktop, Phone
 ```javascript
 app.toggleAppbar();
 ```
 ### Navigation Bar
-Open the Navigation Bar (if available).
+#### Open the Navigation Bar (if available).
 
 *Available in:* Desktop, Phone
 ```javascript
 app.openNavbar();
 ```
 
-Close the Navigation Bar (if available).
+#### Close the Navigation Bar (if available).
 
 *Available in:* Desktop, Phone
 ```javascript
 app.closeNavbar();
 ```
 
-Toggle the Navigation Bar (if available).
+#### Toggle the Navigation Bar (if available).
 
 *Available in:* Desktop, Phone
 ```javascript
@@ -222,6 +244,7 @@ Load any page that is found in the current DOM.
 app.loadPage(page, createScroll);
 ```
 `page`: Page with specified `data-page` attribute
+
 `createScroll`: Create IScroll after loading the page (`true`, `false`)
 
 ### Load external page
