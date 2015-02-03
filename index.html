@@ -1,0 +1,262 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="dist/css/fonts.css" />
+		<link rel="stylesheet" href="dist/css/MetroUI-2.1.css" />
+		<script src="dist/js/MetroUI-2.1.min.js"></script>
+	</head>
+	<body data-bg="light" data-tint-win="very-dark-purple" data-tint-wp="cyan">
+<!--
+		<div class="bars">
+			<div class="navigation-bar minimal">
+				<a href="#">
+					<div class="link">
+						<p>Playground</p>
+					</div>
+				</a>
+				<a href="page_frames/test.html">
+					<div class="link">
+						<p>Title 2</p>
+					</div>
+				</a>
+			</div>
+			<div class="application-bar minimal">
+				<div class="icon-more"></div>
+				<div class="left">
+					<div class="icon icon-help">
+						<label>About</label>
+					</div>
+				</div>
+				<div class="right">
+					<div class="icon icon-help">
+						<label>Flyout</label>
+					</div>
+				</div>
+			</div>
+		</div>
+-->
+		<div class="menu">
+			<div class="frame" data-frame="index">
+				<label>MetroUI</label>
+				<a href="#">
+					<div class="link selected">
+						<p>Playground</p>
+					</div>
+				</a>
+				<a href="page_frames/menu_3.html">
+					<div class="link">
+						<p>Menu 2</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="pages" data-current-page="index">
+			<div class="page animate" data-page="index">
+				<header>
+					<h1>Title</h1>
+				</header>			
+				
+				<div class="content">
+					<h2 class="colored">Text Content</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<a href="page_frames/test.html">This is an example link</a>
+						
+					<h2 class="colored">Buttons</h2>
+			
+					<button>Button</button>
+					<button disabled="">Disabled</button>
+					<button class="inline">Inline Button 1</button>
+					<button>Inline Button 2</button>
+					<button class="colored inline">Colored Button</button>
+					<button class="colored" disabled="">Colored Disabled</button>
+			
+					<h2 class="colored">Switches</h2>
+					<div class="switch">
+						<input type="checkbox">
+						<div class="switch-inner"></div>
+						<label>Off</label>
+					</div>
+					<div class="switch">
+						<input type="checkbox" checked>
+						<div class="switch-inner"></div>
+						<label>On</label>
+					</div>
+					<div class="switch disabled">
+						<input type="checkbox">
+						<div class="switch-inner"></div>
+						<label>Off</label>
+					</div>
+			
+					<h2 class="colored">Checkboxes</h2>
+					<div class="checkbox">
+						<input type="checkbox">
+						<div class="checkbox-inner"></div>
+						<label>Unchecked</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" checked>
+						<div class="checkbox-inner"></div>
+						<label>Checked</label>
+					</div>
+					<div class="checkbox disabled">
+						<input type="checkbox">
+						<div class="checkbox-inner"></div>
+						<label>Disabled</label>
+					</div>
+					
+					<h2 class="colored">Radio Buttons</h2>
+					<div class="radio">
+						<input type="radio" name="demo">
+						<div class="radio-inner"></div>
+						<label>Unchecked</label>
+					</div>
+					<div class="radio">
+						<input type="radio" name="demo" checked>
+						<div class="radio-inner"></div>
+						<label>Checked</label>
+					</div>
+					<div class="radio disabled">
+						<input type="radio" name="demo">
+						<div class="radio-inner"></div>
+						<label>Disabled</label>
+					</div>
+					
+					<h2 class="colored">Sliders</h2>
+					<div class="range">
+						<input type="range" min="0" max="100" step="0.1" value="50" oninput="document.getElementById('progress').value = this.value">
+					</div>
+					<div class="range vertical">
+						<input type="range" min="0" max="100" step="0.1" value="50">
+					</div>
+					
+					<h2 class="colored">Progress</h2>
+					<div class="progress">
+						<progress max="100" value="50" id="progress"></progress>
+						
+						<p class="title">Determinate Progress</p>
+						<div class="progress-inner"></div>
+						<p class="label">Controlled with first Slider</p>
+					</div>
+					
+					<h2 class="colored">Text Boxes</h2>
+					<input type="text" placeholder="Text">
+					<input type="password" placeholder="Password">
+					<textarea placeholder="Text Area"></textarea>
+					<input type="text" disabled="" placeholder="Disabled">
+					
+					<h2 class="colored">Lists</h2>
+					<div class="list">
+						<select>
+							<option value="test" selected="">Test</option>
+							<option value="test2">Test 2</option>
+							<option value="test3">Test 3</option>
+						</select>
+					</div>
+					<div class="list">
+						<select>
+							<option value="test" selected=""></option>
+							<option value="test2"></option>
+							<option value="test3"></option>
+						</select>
+					</div>
+					<div class="list disabled">
+						<select>
+							<option selected="">Test</option>
+							<option>Test 2</option>
+							<option>Test 3</option>
+						</select>
+					</div>
+					
+					<h2 class="colored">Themes + Accent Colors</h2>
+					<a href="page_frames/themes.html">Change appearance</a>
+					
+					<h2 class="colored">Notifications & Alerts</h2>
+					<button class="colored inline" onclick="app.notify('Example notification', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')">Notification</button>
+					<button class="colored inline" onclick="app.alert()">Alert</button>
+					<button class="colored" onclick="app.confirm('Example confirm','This is an example to show the Confirm functionality')">Confirm</button>
+					
+					<h2 class="colored">Flyouts</h2>
+					<button class="colored" id="context1">Open Dropdown Menu</button>
+					<button class="colored" id="context2">Open Flyout</button>
+
+					<h2 class="colored">Preloader</h2>
+					<button class="colored" onclick="app.preloader('Lorem ipsum dolor sit amet...',5)">Show Preloader</button>
+				</div>
+			</div>
+		</div>
+		<script type="text/template" id="context-template">
+			<div class="context-content">
+				<p>All items will be permanently removed from your cart.</p>
+				<button>Empty my cart</button>
+			</div>
+		</script>
+		<script type="text/template" id="about-template">
+			<div class="context-content">
+				<p>You are using MetroUI {{version}}.</p>
+				<p>© 2015 Janik Schmidt. All Rights reserved.</p>
+			</div>
+		</script>
+
+		
+		<script>
+			var app = new MetroUI({
+				barsOnContext: true
+			});
+			document.getElementById("context1").onclick = function() {
+				app.context({
+					target: this,
+					buttons: [
+						{
+							text: "Open Internal Page",
+							type: "button",
+							href: "javascript:app.navigation.loadPage('page_frames/test.html')"
+						},
+						{
+							type: "separator"
+						},
+						{
+							text: "Open External Page",
+							type: "button",
+							href: "http://google.de"
+						},
+					]
+				});
+			};
+			document.getElementById("context2").onclick = function() {
+				app.context({
+					target: this,
+					html: document.getElementById("context-template").innerHTML
+				});
+			};
+			/*document.querySelector("div.application-bar div.left div.icon").onclick = function() {
+				app.context({
+					target: this,
+					html: document.getElementById("about-template").innerHTML.replace(/{{version}}/g, app.version)
+				});
+			}
+
+			document.querySelector("div.application-bar div.right div.icon").onclick = function() {
+				app.context({
+					target: this,
+					buttons: [
+						{
+							text: "Open Internal Page",
+							type: "button",
+							href: "javascript:app.navigation.loadPage('page_frames/test.html')"
+						},
+						{
+							type: "separator"
+						},
+						{
+							text: "Open External Page",
+							type: "button",
+							href: "http://google.de"
+						},
+					]
+				});
+			}*/
+		</script>
+	</body>
+</html>

@@ -1,4 +1,0 @@
-		/* Init application */
-		app.init();
-	}
-})();

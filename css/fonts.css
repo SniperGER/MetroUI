@@ -1,0 +1,83 @@
+@font-face {
+	font-family: "Segoe UI";
+	font-style: normal;
+	font-weight: 200;
+	src: url("fonts/segoeuil.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: italic;
+	font-weight: 200;
+	src: url("fonts/seguili.ttf");
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	font-style: normal;
+	font-weight: 300;
+	src: url("fonts/segoeuisl.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: italic;
+	font-weight: 300;
+	src: url("fonts/seguisli.ttf");
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/segoeui.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: italic;
+	font-weight: 400;
+	src: url("fonts/segoeuii.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: normal;
+	font-weight: 600;
+	src: url("fonts/seguisb.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: italic;
+	font-weight: 600;
+	src: url("fonts/seguisbi.ttf");
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	font-style: normal;
+	font-weight: 700;
+	src: url("fonts/segoeuib.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: italic;
+	font-weight: 700;
+	src: url("fonts/segoeuiz.ttf");
+}
+
+@font-face {
+	font-family: "Segoe UI";
+	font-style: normal;
+	font-weight: 800;
+	src: url("fonts/seguibl.ttf");
+}
+@font-face {
+	font-family: "Segoe UI";
+	font-style: italic;
+	font-weight: 800;
+	src: url("fonts/seguibli.ttf");
+}
+
+@font-face {
+	font-family: "Segoe UI Symbol";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/seguisym.ttf");
+}

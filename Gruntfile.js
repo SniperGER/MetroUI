@@ -1,132 +1,179 @@
 module.exports = function(grunt) {
 
 	var jsFilesList = [
-		'src/js/MetroUI.intro.js',
+		'src/js/intro.js',
 		'src/js/init.js',
 		'src/js/modals.js',
-		'src/js/pages.js',
-		'src/js/bars.js',
-		'src/js/context.js',
-		'src/js/theme.js',
-		'src/js/MetroUI.outro.js'
+		'src/js/preloader.js',
+		'src/js/flyouts.js',
+		'src/js/navigation.js',
+		'src/js/animation.js',
+		'src/js/design.js',
+		'src/js/outro.js',
+		'src/js/misc.js',
+		'src/js/fastclick.js',
+		'src/js/ellipsis.js'
+	];
+	
+	var lessFileList = [
+		'src/less/common-win8.less',
+		'src/less/menu-win8.less',
+		'src/less/pages-win8.less',
+		'src/less/forms-win8.less',
+		'src/less/lists-win8.less',
+		'src/less/theme-selector-win8.less',
+		'src/less/notifications-win8.less',
+		'src/less/flyouts-win8.less',
+		'src/less/bars-win8.less',
+		'src/less/progress-win8.less',
+		'src/less/animations-win8.less',
+		'src/less/icons-win8.less',
+		'src/less/themes-win8.less',
+		'src/less/accents-win8.less',
 	];
 	
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		banner: '/*\n' +
-					' * <%= pkg.name %> <%= pkg.version %>\n' +
-					' * <%= pkg.description %>\n' +
-					' *\n' +
-					' * Copyright <%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
-					' * Janik Schmidt (SniperGER)\n' +
-					' *\n' +
-					' * Licensed under <%= pkg.license %>\n' +
-					' *\n' +
-					' * Built: <%= grunt.template.today("mmmm d yyyy, h:MM:ss TT") %>\n' +
-					'*/\n\n',
-
-		uglify: {
-			build: {
-				src: 'src/js/MetroUI.*.js',
-				dest: 'build/MetroUI.js'
+		//banner: '/*\n' +
+		//			' * <%= pkg.name %> <%= pkg.version %>\n' +
+		//			' * <%= pkg.description %>\n' +
+		//			' *\n' +
+		//			' * Copyright <%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
+		//			' * Janik Schmidt (SniperGER)\n' +
+		//			' *\n' +
+		//			' * Licensed under <%= pkg.license %>\n' +
+		//			' *\n' +
+		//			' * Built: <%= grunt.template.today("mmmm d yyyy, h:MM:ss TT") %>\n' +
+		//			'*/\n\n',
+		connect: {
+            server: {
+                options: {
+                    port: 3000,
+                    base: ''
+                }
+            }
+        },
+        open: {
+			server: {
+				url: 'http://localhost:3000'
 			}
-		},
+        },
 		concat: {
-			options: {
-				banner: '<%= banner %>',
-				stripBanners: false,
-			},
-			js: {
+			build: {
 				src: jsFilesList,
-				dest: 'build/js/MetroUI.js',
+				dest: 'build/js/MetroUI-2.1.js',
 				sourceMap: false,
 				options: {
 					sourceMap: false
 				}
 			},
-			js_dist: {
+			dist: {
 				src: jsFilesList,
-				dest: 'dist/js/MetroUI.js',
+				dest: 'dist/js/MetroUI-2.1.js',
 				sourceMap: false,
 				options: {
 					sourceMap: false
 				}
 			},
+		},
+		jshint: {
+			build: {
+				src: ['./build/js/MetroUI-2.1.js'],
+				
+				options: {
+					shadow: true,
+					loopfunc: true,
+					elision: true,
+					laxcomma: true
+				}
+			},
+			dist: {
+				src: ['./dist/js/MetroUI-2.1.js'],
+				
+				options: {
+					shadow: true,
+					loopfunc: true,
+					elision: true,
+					laxcomma: true
+				}
+			}
+        },
+        uglify: {
+			dist: {
+				files: {
+					'dist/js/MetroUI-2.1.min.js': ['<%= concat.dist.dest %>']
+				}
+			}
 		},
 		less: {
 			build: {
-				options: {
-					paths: ['less'],
-					cleancss: false
-				},
 				files: {
-					'build/css/MetroUI.css' : ['src/less/metroui.less'],
+					'build/css/MetroUI-2.1.css': lessFileList
 				}
 			},
 			dist: {
-				options: {
-					paths: ['less'],
-					cleancss: false
-				},
 				files: {
-					'dist/css/MetroUI.css' : ['src/less/metroui.less'],
+					'dist/css/MetroUI-2.1.css': lessFileList
 				}
-			},
+			}
 		},
 		copy: {
 			build: {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/',
-						src: ['img/**.*'],
-						dest: 'build/'
-					},
-					{
-						expand: true,
-						cwd: 'css/fonts/',
-						src: ['**'],
-						dest: 'build/css/fonts/'
-					}
-				]
+				expand: true,
+				src: ['css/**'],
+				dest: 'build/',
 			},
 			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/',
-						src: ['img/**.*'],
-						dest: 'dist/'
-					},
-					{
-						expand: true,
-						cwd: 'css/fonts/',
-						src: ['**'],
-						dest: 'dist/css/fonts/'
-					}
-				]
-			},
+				expand: true,
+				src: ['css/**'],
+				dest: 'dist/',
+			}
 		},
-	});
+		watch: {
+			files: [jsFilesList, lessFileList],
+			tasks: 	['concat:build', 'jshint', 'uglify:dist', 'less:build']
+		},
+		remove: {
+			default_options: {
+				dirList: ['build/','dist/']
+			}
+		}
+    });
 
 	// Load the plugin that provides the "uglify" task.
-	grunt.loadNpmTasks('grunt-banner');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-remove');
 	
 	// Default task(s).
 	grunt.registerTask('default', ['build']);
 	this.registerTask('build', 'Builds a development version of <%= pkg.name %>', [
-		'concat:js',
+		'concat:build',
+		'jshint:build',
 		'less:build',
-		'copy:build',
+		'copy:build'
 	]);
 	this.registerTask('dist', 'Builds a production version of <%= pkg.name %>', [
-		'concat:js_dist',
+		'concat:dist',
+		'uglify:dist',
+		'jshint:dist',
 		'less:dist',
-		'copy:dist',
+		'copy:dist'
+	]);
+	this.registerTask('server','Opens a Server with <%== pkg.name %>', [
+		'connect:server',
+        'open',
+        'watch'
+	]);
+	this.registerTask('clean','Removes /build and /dist folders', [
+		'remove'
 	]);
 };
 	

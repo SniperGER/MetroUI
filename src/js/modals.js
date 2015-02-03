@@ -1,246 +1,242 @@
-		/* Modals */
-		
-		app.modal = function(params) {
-			params = params || {};
-			params.okTitle = params.okTitle || app.params.modalOkTitle;
-			params.cancelTitle = params.cancelTitle || undefined;
+		app.notify = function(title,message,callback) {
+			if (document.querySelectorAll("div.notification-center").length < 1) {
+				var notificationCenter = document.createElement("div");
+				notificationCenter.className = "notification-center";
+				document.body.appendChild(notificationCenter);
+			}
+			for (var i=0; i<document.querySelectorAll("div.notification-wrapper").length;i++) {
+				var el = document.querySelectorAll("div.notification-wrapper")[i];
+				if (el) {
+					el.style.top = 20 + ((document.querySelectorAll("div.notification-wrapper").length-i)*100) + "px";
+				}
+			}
 
-			if ($('.alert').length < 1) {
-				if ($('body').find("div.notification-center").length < 1) {
-					if (params.type != "prompt") {
-						$('button, input').blur();
-						$('body').append("<div class=\"notification-background slide-in\"></div>");
-						$('body').append("<div class=\"notification-center\"><div class=\"alert slide-in\">");
-						$('div.alert').append("<div class=\"title\">"+params.title+"</div>");
-						$('div.alert').append("<div class=\"content\">"+params.message+"</div>");
-						$('div.alert').append("<div class=\"button-container\">");
-						
-						$.each(params.buttons, function(index, e) {
-							var text = params.buttons[index].text;
-							$('div.alert div.button-container').append('<button data-type="'+params.buttons[index].type+'">'+params.buttons[index].text+'</button>');
-							if (params.buttons[index].color) {
-								$('div.alert div.button-container button:last-child').addClass("color");
-							}
-							if (params.buttons[index].callback && typeof(params.buttons[index].callback) === "function") {
-								$('div.alert div.button-container button:last-child').on("click", params.buttons[index].callback);
-							}
-						});
-						setTimeout(function() {
-							$('div.alert').removeClass("slide-in");
-						}, app.params.notifyAnimTimeout);
-	
-											
-						$('body').append("</div></div></div>");
-						
-						$('.notification-background, .notification-center, .notification-center *').on("touchstart", function(e) {
-							e.preventDefault();
-						});
-						
-						$('.alert').css({
-							"height": ($('.alert').height()-27)+$('.alert .title').height() + "px"
-						}).css({
-							"height": ($('.alert').height()-20)+$('.alert .content').height() + "px"
-						})
-						
-						if (window.innerWidth > app.params.windowSizeLimit) {					
-							$('.alert').css({
-								"margin-top": "-"+($('.alert').height() / 2)+"px"
-							});
+			var notificationWrapper = document.createElement("div");
+			notificationWrapper.className = "notification-wrapper";
+
+			var notification = document.createElement("div");
+			notification.className = ((app.params.notificationTransitions))?"notification slide-in":"notification";
+			notification.addEventListener(app.touchEventStart, function() {
+				this.style.webkitTransform = "rotateY(-7deg)";
+			});
+			notification.addEventListener("mouseover", function() {
+				clearTimeout(app.notificationTimeouts[this.id]);
+				app.notificationTimeouts[this.id] = undefined;
+				this.classList.remove("slide-in");
+				this.classList.remove("fade-out");
+			});
+			notification.addEventListener("mouseup", function() {
+				this.removeAttribute("style");
+				var parent = this.parentNode;
+				this.className = ((app.params.notificationTransitions))?"notification slide-out":"notification";
+
+				setTimeout(function() {
+					parent.parentNode.removeChild(parent);
+					for (var i=0; i<document.querySelectorAll("div.notification-wrapper").length;i++) {
+						var el = document.querySelectorAll("div.notification-wrapper")[i];
+						if (el) {
+							el.style.top = 20 + ((document.querySelectorAll("div.notification-wrapper").length-(i+1))*100) + "px";
 						}
-						
-						$('.alert .content').css({
-							"top": 28 + $('.alert .title').height() + 15 + "px"
-						});
-						
-						$('.alert').on("click", function() {
-							return false;
-						});
-						
-						$('div.alert button').on("click", function() {
-							$('.pages').removeAttr("style");
-							$('.alert, .notification-background').removeClass("slide-in").addClass("slide-out");
-							setTimeout(function() {
-								$('.notification-background, .notification-center').remove();
-							}, app.params.notifyAnimTimeout);
-						});
-					} else {
-						$('div.pages').append('<div class="page page-transition-out-done" data-page="prompt" data-page-back="'+$('div.pages').attr("data-page")+'" data-category=""><div class="page-header"><div class="pivot-header">'+params.title+'</div></div><div class="page-content"><div class="page-content-wrapper"><div class="scroll-content">'+params.message+'<div class="buttons-wrapper"></div></div></div></div>');
-						$.each(params.buttons, function(index, e) {
-							$('div.page[data-page="prompt"] div.buttons-wrapper').append('<button class="no-break">'+params.buttons[index].text+'</button>');
-							$('div.page[data-page="prompt"] div.buttons-wrapper button:last-child').on("click", params.buttons[index].callback);
-						});
-						app.loadPage("prompt");
-						$('div.page[data-page="prompt"] button').on("click", function() {
-							if (params.loadPrevious || !params.loadPrevious && params.nextPage == undefined) {
-								app.loadPage($('div.page[data-page="prompt"]').attr("data-page-back"));
-							} else {
-								app.loadPage(params.nextPage);
-							}
-							$('body').removeClass("prompt-open");
-							setTimeout(function() {
-								$('div.page[data-page="prompt"]').remove();
-								$('div.application-bar').removeClass("minimized");
-							}, 200);
+					}
+					if (typeof callback === 'function') {
+						callback();
+					}
+				}, ((app.params.notificationTransitions))?300:0);
+			});
 
-						});
-						$('.application-bar').addClass("minimized");
-						setTimeout(function() {
-							$('body').addClass("prompt-open");
-						}, 200);
+			var notificationClose = document.createElement("div");
+			notificationClose.className = "close-box";
+			notificationClose.addEventListener(app.touchEventStart, function() {
+				var el = this;
+				setTimeout(function() {
+					var top = el.parentNode.style.top;
+					el.parentNode.removeAttribute("style");
+					el.parentNode.style.top = top;
+				}, 0);
+			});
+			notificationClose.addEventListener("mouseup", function() {
+				var parent = this.parentNode.parentNode;
+				this.parentNode.className = ((app.params.notificationTransitions))?"notification slide-out":"notification";
+
+				setTimeout(function() {
+					for (var i=0; i<document.querySelectorAll("div.notification-wrapper").length;i++) {
+						var el = document.querySelectorAll("div.notification-wrapper")[i];
+						if (el) {
+							el.style.top = 20 + ((document.querySelectorAll("div.notification-wrapper").length-(i+1))*100) + "px";
+						}
 					}
-				} else { return false; }
+				}, ((app.params.notificationTransitions))?300:0);
+			});
+			notification.appendChild(notificationClose);
+
+			var notificationTitle = document.createElement("div");
+			notificationTitle.className = "title";
+			notificationTitle.innerHTML = ((typeof(title)!=="undefined"))?title:app.params.modalDefaultTitle;
+			notification.appendChild(notificationTitle);
+
+			var notificationContent = document.createElement("div");
+			notificationContent.className = "content";
+			var notificationContentText = document.createElement("p");
+			notificationContentText.innerHTML = ((typeof(message)!=="undefined"))?message:"No content";
+			notificationContent.appendChild(notificationContentText);
+			notification.appendChild(notificationContent);
+			notificationWrapper.appendChild(notification);
+
+			document.getElementsByClassName("notification-center")[0].appendChild(notificationWrapper);
+			
+			setTimeout(function() {
+				var el = document.querySelector("div.notification-center div.notification-wrapper:last-child div.content");
+				var elNot = document.querySelector("div.notification-center div.notification-wrapper:last-child div.notification");
+				var ellipsis = new Ellipsis(el);
+				
+				ellipsis.calc();
+				ellipsis.set();
+				
+				elNot.id = app.notificationTimeouts.length;
+				app.notificationTimeouts.push(setTimeout(function() {
+					elNot.classList.add("fade-out");
+					setTimeout(function() {
+						elNot.parentNode.parentNode.removeChild(elNot.parentNode);
+					}, 3000);
+				}, 5000));
+			}, 10);
+		};
+		app.alert = function(title,message,callback) {
+			if (document.querySelectorAll("div.notification-center").length < 1) {
+				var notificationCenter = document.createElement("div");
+				notificationCenter.className = "notification-center";
+				document.body.appendChild(notificationCenter);
 			}
+
+			var alertBG = document.createElement("div");
+			alertBG.className = "notification-background fade-in";
+			alertBG.addEventListener("mousewheel", function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+			});
+
+			var alertBox = document.createElement("div");
+			alertBox.className = "alert fade-in";
+			alertBox.id = "alert";
+			alertBox.addEventListener("mousewheel", function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+			});
+
+			var alertTitle = document.createElement("div");
+			alertTitle.className = "title";
+			alertTitle.innerHTML = ((typeof(title)!=="undefined"))?title:"Untitled";
+			alertBox.appendChild(alertTitle);
+
+			var alertContent = document.createElement("div");
+			alertContent.className = "content";
+			alertContent.innerHTML = ((typeof(message)!=="undefined"))?message:"No content.";
+			alertBox.appendChild(alertContent);
+
+			var alertButtonContainer = document.createElement("div");
+			alertButtonContainer.className = "button-container";
+			var okButton = document.createElement("button");
+			okButton.className = "colored";
+			okButton.innerHTML = "ok";
+			okButton.addEventListener("click", function() {
+				document.querySelector("div.notification-background.fade-in").className = "notification-background fade-out";
+				document.querySelector("div.alert.fade-in").className = "alert fade-out";
+
+				setTimeout(function() {
+					var alertBGChild = document.querySelector("div.notification-background");
+					var alertChild = document.querySelector("div.alert");
+
+					alertBGChild.parentNode.removeChild(alertBGChild);
+					alertChild.parentNode.removeChild(alertChild);
+
+					if (typeof callback === 'function') {
+						callback();
+					}
+				}, 200);
+			});
+			alertButtonContainer.appendChild(okButton);
+			alertBox.appendChild(alertButtonContainer);
+
+			document.getElementsByClassName("notification-center")[0].appendChild(alertBG);
+			document.getElementsByClassName("notification-center")[0].appendChild(alertBox);
+
+			document.getElementById("alert").style.marginTop = "-" + document.getElementById("alert").clientHeight/2;
 		};
-		app.notify = function(title, message, icon, callback) {
-			if ($('div.notification').length < 1) {
-				if (title != undefined && message != undefined) {
-					app.params.showsNotification = true;
-					if ($('body').children(".notification-center").length < 1) {
-						$('body').append("<div class=\"notification-center\">");
-					}
-					if (icon != undefined) {
-						$('div.notification-center').append("<div class=\"notification icon slide-in\">");
-					} else {
-						$('div.notification-center').append("<div class=\"notification slide-in\">");
-					}
-					
-					$('div.notification').append("<div class=\"icon\"></div>");
-					$('div.notification').append("<div class=\"title\">"+title+"</div>");
-					$('div.notification').append("<div class=\"content\" id=\"ellipsis\"><p>"+message+"</p></div>");
-					
-					$('body').append("</div></div>");
-					if (window.innerWidth > 596) {
-						var element = document.getElementById('ellipsis');
-						var ellipsis = new Ellipsis(element);
-						
-						ellipsis.calc();
-						ellipsis.set();
-					}
-					$('.notification').on("mousedown touchstart", function() {
-						app.clearTimeouts(app.timeouts);
-						$(this).removeClass("slide-out fade-out");
-					});
-					$('.notification').on("mouseup touchend", function() {
-						$(this).addClass("slide-out");
-						setTimeout(function() {
-							$('.notification-background').remove();
-							if ($('.notification-center').children().length < 2) {
-								$('.notification-center').remove();
-							}
-							if (callback && typeof(callback) === "function") {
-								callback();	
-							}
-							app.params.showsNotification = false;
-						}, app.params.notifyAnimTimeout);
-					});
-					app.timeouts.push(setTimeout(function() {
-						$('div.notification').removeClass("slide-in").addClass("fade-out");
-						setTimeout(function() {
-							$('div.notification-center').remove();
-							app.params.showsNotification = false;
-						}, app.params.notifyIgnoreAnimTimeout());
-					}, app.params.notifyDuration));
-				} else { return false; }
+		app.confirm = function(title,message,callback) {
+			if (document.querySelectorAll("div.notification-center").length < 1) {
+				var notificationCenter = document.createElement("div");
+				notificationCenter.className = "notification-center";
+				document.body.appendChild(notificationCenter);
 			}
-		};
-		app.alert = function(title, message, okCallback) {
-			app.modal({
-				title: title,
-				message: message,
-				buttons: [
-					{
-						text: app.params.modalOkTitle,
-						type: "ok-button",
-						color: true,
-						callback: okCallback
+
+			var alertBG = document.createElement("div");
+			alertBG.className = "notification-background fade-in";
+			alertBG.addEventListener("mousewheel", function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+			});
+
+			var alertBox = document.createElement("div");
+			alertBox.className = "alert fade-in";
+			alertBox.id = "alert";
+			alertBox.addEventListener("mousewheel", function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+			});
+
+			var alertTitle = document.createElement("div");
+			alertTitle.className = "title";
+			alertTitle.innerHTML = ((typeof(title)!=="undefined"))?title:"Untitled";
+			alertBox.appendChild(alertTitle);
+
+			var alertContent = document.createElement("div");
+			alertContent.className = "content";
+			alertContent.innerHTML = ((typeof(message)!=="undefined"))?message:"No content.";
+			alertBox.appendChild(alertContent);
+
+			var alertButtonContainer = document.createElement("div");
+			alertButtonContainer.className = "button-container";
+			var cancelButton = document.createElement("button");
+			cancelButton.className = "";
+			cancelButton.innerHTML = "cancel";
+			cancelButton.addEventListener("click", function() {
+				document.querySelector("div.notification-background.fade-in").className = "notification-background fade-out";
+				document.querySelector("div.alert.fade-in").className = "alert fade-out";
+
+				setTimeout(function() {
+					var alertBGChild = document.querySelector("div.notification-background");
+					var alertChild = document.querySelector("div.alert");
+
+					alertBGChild.parentNode.removeChild(alertBGChild);
+					alertChild.parentNode.removeChild(alertChild);
+				}, 200);
+			});
+			alertButtonContainer.appendChild(cancelButton);
+			var okButton = document.createElement("button");
+			okButton.className = "colored inline";
+			okButton.innerHTML = "ok";
+			okButton.addEventListener("click", function() {
+				document.querySelector("div.notification-background.fade-in").className = "notification-background fade-out";
+				document.querySelector("div.alert.fade-in").className = "alert fade-out";
+
+				setTimeout(function() {
+					var alertBGChild = document.querySelector("div.notification-background");
+					var alertChild = document.querySelector("div.alert");
+
+					alertBGChild.parentNode.removeChild(alertBGChild);
+					alertChild.parentNode.removeChild(alertChild);
+
+					if (typeof callback === 'function') {
+						callback();
 					}
-				]
+				}, 200);
 			});
-		};
-		app.confirm = function(title, message, okCallback, cancelCallback) {
-			app.modal({
-				title: title,
-				message: message,
-				buttons: [
-					{
-						text: app.params.modalCancelTitle,
-						type: "cancel-button",
-						color: false,
-						callback: cancelCallback
-					},
-					{
-						text: app.params.modalOkTitle,
-						type: "ok-button",
-						color: true,
-						callback: okCallback
-					},
-				]
-			});
-		};
-		app.prompt = function(title, message, okCallback, cancelCallback) {
-			app.modal({
-				type: "prompt",
-				title: title,
-				message: message+'<input id="modal_text" type="text" placeholder="'+app.params.promptPlaceholder+'">' || '<input id="modal_text" type="text" placeholder="'+app.params.promptPlaceholder+'">',
-				buttons: [
-					{
-						text: app.params.modalCancelTitle,
-						type: "cancel-button",
-						color: false,
-						callback: cancelCallback
-					},
-					{
-						text: app.params.modalOkTitle,
-						type: "ok-button",
-						color: true,
-						callback: okCallback
-					},
-				]
-			});
-		};
-		app.modalLogin = function(options) {
-			options = options || {};
-			options.message = options.message || "";
-			app.modal({
-				type: "prompt",
-				title: options.title,
-				message: options.message+'<input id="modal_user" type="text" placeholder="'+app.params.userPlaceholder+'"><input id="modal_pass" type="password" placeholder="'+app.params.passPlaceholder+'">' || '<input id="modal_user" type="text" placeholder="'+app.params.userPlaceholder+'"><input id="modal_pass" type="password" placeholder="'+app.params.passPlaceholder+'">',
-				loadPrevious: options.loadPrevious,
-				nextPage: options.nextPage,
-				buttons: [
-					{
-						text: app.params.modalCancelTitle,
-						type: "cancel-button",
-						color: false,
-						callback: options.cancelCallback
-					},
-					{
-						text: app.params.modalOkTitle,
-						type: "ok-button",
-						color: true,
-						callback: options.okCallback
-					},
-				]
-			});
-		};
-		app.modalPassword = function(title, message, okCallback, cancelCallback) {
-			app.modal({
-				type: "prompt",
-				title: title,
-				message: message+'<input id="modal_pass" type="password" placeholder="'+app.params.passPlaceholder+'">' || '<input id="modal_pass" type="password" placeholder="'+app.params.passPlaceholder+'">',
-				buttons: [
-					{
-						text: app.params.modalCancelTitle,
-						type: "cancel-button",
-						color: false,
-						callback: cancelCallback
-					},
-					{
-						text: app.params.modalOkTitle,
-						type: "ok-button",
-						color: true,
-						callback: okCallback
-					},
-				]
-			});
+			alertButtonContainer.appendChild(okButton);
+
+			alertBox.appendChild(alertButtonContainer);
+
+			document.getElementsByClassName("notification-center")[0].appendChild(alertBG);
+			document.getElementsByClassName("notification-center")[0].appendChild(alertBox);
+
+			document.getElementById("alert").style.marginTop = "-" + document.getElementById("alert").clientHeight/2;
 		};
