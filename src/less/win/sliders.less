@@ -1,0 +1,121 @@
+div.range {
+	position: relative;
+	height: 10px;
+	margin: 15px 0px;
+	overflow: hidden;
+	width: 280px;
+
+	input[type="range"] {
+		position: absolute;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		border-radius: 0px;
+		width: calc(~"100% - 8px");
+		width: -webkit-calc(~"100% - 8px");
+		height: 10px;
+		margin-bottom: 10px;
+		background-color: rgba(0, 0, 0, 0.19);
+	}
+	input[type="range"]::-webkit-slider-thumb {
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		background: 0 0;
+		border: none;
+		cursor: pointer;
+		height: 10px;
+		width: 10px;
+		background-color: #000;
+	}
+	input[type="range"]::-moz-range-thumb {
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		background: 0 0;
+		border: none;
+		cursor: pointer;
+		height: 10px;
+		width: 10px;
+	}
+	
+	input[type="range"]::-webkit-slider-thumb:after {
+		content: ' ';
+		position: absolute;
+		top: 0px;
+		left: 0;
+		border-radius: 0px;
+		height: 10px;
+		width: 10px;
+	}
+	input[type="range"]::-moz-range-thumb:after {
+		content: ' ';
+		position: absolute;
+		top: 0px;
+		left: 0;
+		border-radius: 0px;
+		height: 10px;
+		width: 10px;
+	}
+	
+	input[type="range"]::-webkit-slider-thumb:before {
+		content: ' ';
+		position: absolute;
+		right: 100%;
+		top: 0;
+		cursor: default;
+		height: 10px;
+		width: 600px;
+		background-color: #4617b5;
+	}
+	input[type="range"]::-moz-range-thumb:before {
+		content: ' ';
+		position: absolute;
+		right: 100%;
+		top: 0;
+		cursor: default;
+		height: 10px;
+		width: 600px;
+	}
+	
+	input[type="range"]:disabled {
+		cursor: default !important;
+		opacity: 0.3;
+	}
+	input[type="range"]:disabled::-webkit-slider-thumb {
+		cursor: default;
+	}
+	input[type="range"]:disabled::-moz-range-thumb {
+		cursor: default;
+	}
+	
+	&.disabled {
+		opacity: 0.4;
+		pointer-events: none;
+	}
+	// Vertical sliders
+	&.vertical {
+		height: 280px;
+		width: 10px;
+		display: inline-block;
+		margin-right: 16px;
+		
+		input[type="range"] {
+			appearance: none;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			width: 280px;
+			height:10px;
+			margin-top: 135px;
+			margin-left: -135px;
+			-webkit-transform:rotate(-90deg);       
+			-moz-transform:rotate(-90deg);
+			-o-transform:rotate(-90deg);
+			-ms-transform:rotate(-90deg);
+			transform:rotate(-90deg);
+			z-index: 0;
+		}
+	}
+}

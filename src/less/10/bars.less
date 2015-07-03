@@ -1,0 +1,310 @@
+div.appbar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 48px !important;
+	text-align: left;
+
+	
+	transform: none !important;
+	-moz-transform: none !important;
+	-webkit-transform: none !important;
+
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	
+	transition: height .4s cubic-bezier(0.1, 0.9, 0.2, 1);
+	-moz-transition: height .4s cubic-bezier(0.1, 0.9, 0.2, 1);
+	-webkit-transition: height .4s cubic-bezier(0.1, 0.9, 0.2, 1);
+
+	div.right {
+		margin: 0 !important;
+		padding: 0 !important;
+		width: auto !important;
+	}
+		
+	div.more {
+		width: 48px;
+		height: 60px;
+		float: right;
+		position: absolute;
+		background-image: none !important;
+		cursor: pointer;
+		opacity: 1 !important;
+		
+		&:after {
+			content: '\E10C';
+			display: block;
+			font-family: 'Segoe MDL2 Assets';
+			font-size: 24px;
+			text-align: center;
+			width: 48px;
+			line-height: 48px;
+			float: right;
+		}
+	}
+	
+	div.panel {
+		position: relative;
+		right: 48px;
+		height: 100%;
+		div.action {
+			width: 68px;
+			height: 60px;
+			float: right;
+			margin: 0 !important;
+			box-shadow: none !important;
+			cursor: pointer;
+			text-align: center;
+			
+			i {
+				font-family: 'Segoe MDL2 Assets';
+				font-size: 24px;
+				text-align: center;
+				width: 68px;
+				line-height: 48px;
+			}
+			label {
+				display: block;
+				width: 68px;
+				text-align: center;
+				font-size: 12px;
+				margin-left: 0;
+				line-height: 20px;
+				position: static;
+				transition: opacity 0 linear;
+				-moz-transition: opacity 0 linear;
+				-webkit-transition: opacity 0 linear;
+				margin-top: -6px;
+			}
+		}
+	}
+	
+	div.appbar-list {
+		position: absolute;
+		bottom: 48px;
+		right: 0;
+		width: 100%;
+		max-width: 360px;
+		height: auto;
+		z-index: -3;
+		margin-right: -48px;
+		
+		-webkit-transform: translate3d(0,100%,0);
+		
+		-webkit-transition: -webkit-transform .4s cubic-bezier(0.1, 0.9, 0.2, 1), bottom .4s cubic-bezier(0.1, 0.9, 0.2, 1);
+		
+		div.action {
+			float: left;
+			clear: both;
+			height: 44px;
+			font-size: 15px;
+			line-height: 44px;
+			padding-left: 12px;
+			
+			&:last-child {
+				padding-bottom: 24px;
+			}
+		}
+	}
+
+	&.extended {
+		height: 60px !important;
+		
+		div.appbar-list {
+			bottom: 60px;
+			-webkit-transform: translate3d(0,0,0);
+		}
+	}
+	&.hidden {
+		display: none;
+	}
+
+	
+	&:not(.extended) {
+		div.action label {
+			margin-top: -6px !important;
+			-webkit-transition-delay: 100ms;
+		}
+	}
+}
+
+body.footer {
+	div.appbar {
+		bottom: 0px !important;
+	}
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	z-index: 4100;
+	background-color: #000;
+	
+	div.navigate-back {
+		background-image: none;
+		width: 56px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		cursor: pointer;
+
+		&:before {
+			content: '\E0A6';
+			display: block;
+			font-family: "Segoe MDL2 Assets";
+			font-size: 20px;
+			color: #fff;
+			line-height: 40px;
+			width: 56px;
+			text-align: center;
+		}
+		@media all and (max-width: 504px) {
+			left: 50%;
+			margin-left: -148px;
+		}
+		@media all and (min-width: 505px) and (max-width: 960px) {
+			left: 50%;
+			margin-left: -86px;
+		}
+	}
+	div.home {
+		width: 56px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		cursor: pointer;
+		text-align: center;
+		background-image: none;
+		&:before {
+			content: '\E600';
+			display: block;
+			font-family: "Segoe MDL2 Assets";
+			font-size: 20px;
+			color: #fff;
+			line-height: 40px;
+			width: 56px;
+			text-align: center;
+		}
+		@media all and (max-width: 504px) {
+			left: 50%;
+			margin-left: -24px;
+		}
+		@media all and (min-width: 505px) and (max-width: 960px) {
+			left: 50%;
+			margin-left: -210px;
+		}
+	}
+	div.search {
+		background-image: none;
+		width: 56px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		cursor: pointer;
+		
+		&:before {
+			content: '\E094';
+			display: block;
+			font-family: "Segoe MDL2 Assets";
+			font-size: 20px;
+			color: #fff;
+			line-height: 40px;
+			width: 56px;
+			text-align: center;
+		}
+		@media all and (max-width: 504px) {
+			left: 50%;
+			margin-left: 100px;
+		}
+		@media all and (min-width: 505px) and (max-width: 960px) {
+			left: 50%;
+			margin-left: 38px;
+		}
+	}
+	div.task-view {
+		background-image: none;
+		width: 56px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		cursor: pointer;
+		
+		&:before {
+			content: '\E7C4';
+			display: block;
+			font-family: "Segoe MDL2 Assets";
+			font-size: 30px;
+			color: #fff;
+			line-height: 40px;
+			width: 56px;
+			text-align: center;
+		}
+		&.open:before {
+			content: '\EB91';
+		}
+		@media all and (max-width: 504px) {
+			display: none;
+		}
+		@media all and (min-width: 505px) and (max-width: 960px) {
+			left: 50%;
+			margin-left: 186px;
+		}
+	}
+
+	&.tablet-mode {
+		@media all and (min-width: 961px) {
+			div.navigate-back {
+				left: 90px;
+				margin-left: 0;
+			}
+			div.home {
+				width: 56px !important;
+				left: 0;
+				margin-left: 0;
+			}
+			div.search {
+				left: 180px;
+				margin-left: 0;
+			}
+			div.task-view {
+				left: 270px;
+				margin-left: 0;
+			}
+		}
+	}
+	&:not(.tablet-mode) {
+		@media all and (min-width: 961px) {
+			div.navigate-back, div.home, div.search, div.task-view {
+				&,&:before {
+					width: 48px !important;
+				}
+			}
+			div.home {
+				left: 0;
+				margin-left: 0;
+			}
+			div.navigate-back {
+				left: 48px;
+				margin-left: 0;
+			}
+			div.search {
+				left: 96px;
+				margin-left: 0;
+			}
+			div.task-view {
+				left: 144px;
+				margin-left: 0;
+			}
+		}
+	}
+}
+body:not(.touch) footer div.task-view {
+	&:not(.open):hover:before {
+		content: '\EB91';
+	}
+}

@@ -1,0 +1,196 @@
+div.notification-center {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	pointer-events: none;
+	z-index: 2000;
+	
+	div.notification-wrapper {
+		width: 100%;
+		height: 43px;
+		position: absolute;
+		top: 0px;
+		right: 0;
+		-webkit-perspective: 1000px;
+		-webkit-transition: top .3s cubic-bezier(0.1,0.9,0.2,1);
+	}
+	
+	div.notification {
+		position: fixed;
+		right: 0;
+		margin-top: 0;
+		width: 100%;
+		height: 43px;
+		max-height: 90px;
+		color: #fff;
+		z-index: 2500;
+		cursor: pointer;
+		-webkit-transform-origin: 50% 50%;
+		pointer-events: all;
+		
+		transition: transform .1s ease;
+		-moz-transition: -moz-transform .1s ease;
+		-webkit-transition: -webkit-transform .1s ease;
+		
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+				
+		div.title {
+			float: left;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 600;
+			padding: 20px 5px 0 15px;
+			height: 23px;
+			line-height: 23px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			color: #fff;
+		}
+		div.content {
+			font-size: 14px;
+			font-weight: 400;
+			padding: 20px 5px 0 15px;
+			height: 23px;
+			max-height: 23px;
+			line-height: 23px;
+			p {
+				color: #fff !important;
+				font-size: 14px;
+				text-rendering: optimizeLegibility;
+				opacity: 0.99;
+				font-weight: 400;
+			}
+		}
+		&.icon {
+			div.title {
+				padding: 15px 60px 0 20px;
+				max-width: 304px;
+			}
+			div.content {
+				padding: 0 60px 0 20px;
+				max-width: 304px;
+			}
+		}
+		&.slide-in {
+			animation: rotate-in .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+			-webkit-animation: rotate-in .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+		&.slide-out, &.fade-out {
+			animation: rotate-out .3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+			animation-fill-mode: forwards;
+			-webkit-animation: rotate-out .3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+			-webkit-animation-fill-mode: forwards;
+		}
+		&:active {
+			-webkit-transform: scale(0.98);
+		}
+	}
+	
+	div.alert-wrapper {
+		-webkit-perspective: 1000px;
+	}
+	div.alert {
+		position: fixed;
+		top: 0; left: 0;
+		width: 100%;
+		font-size: 11pt;
+		z-index: 2500;
+		padding-top: 35px;
+		padding-bottom: 77px;
+		pointer-events: all;
+
+		div.title {
+			margin: 0px auto;
+			width: 100%;
+			font-size: 18pt;
+			text-align: left;
+			font-weight: 600;
+			margin-bottom: 20px;
+			padding: 0 15px;
+		}
+		div.content {
+			margin: 0px auto;
+			width: 100%;
+			max-width: -webkit-calc(~"100% - 30px");
+			font-size: 11pt;
+			font-weight: 600;
+			padding: 0 15px;
+		}
+		div.button-container {
+			position: absolute;
+			bottom: 15px;
+			right: 0;
+			left: 0;
+			margin: 0px auto;
+			width: 100%;
+			max-width: calc(~"100% - 30px");
+			height: 32px;
+			
+			button {
+				min-width: calc(~"50% - 10px");
+				min-width: -moz-calc(~"50% - 10px");
+				min-width: -webkit-calc(~"50% - 10px");
+				height: 28px;
+				border: none;
+				margin: 0;
+				float: left;
+				font-weight: 600;
+				
+				&:first-child:not(:last-child) {
+					margin-right: 20px;
+				}
+			}
+		}
+		
+		&.preloader {
+			padding-bottom: 0;
+			
+			div.title {
+				line-height: 146px;
+				display: inline-block;
+				position: relative;
+				left: 50%;
+				padding-top: 0;
+				width: auto;
+			}
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -20px;
+			}
+		}
+		
+/*
+		&.colored {
+			div.title, div.content { color: #fff; }
+			button { box-shadow: inset 0 0 0 2px #fff !important; }
+		}
+*/
+		&.fade-in {
+			animation: rotate-in .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+			-webkit-animation: rotate-in .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+		&.fade-out {
+			animation: rotate-out .3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+			animation-fill-mode: forwards;
+			-webkit-animation: rotate-out .3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+			-webkit-animation-fill-mode: forwards;
+
+		}
+	}
+
+}
+div.notification-background {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	pointer-events: none;
+}

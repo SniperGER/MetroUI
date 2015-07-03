@@ -1,0 +1,21 @@
+div.navbar:not(.hidden) {
+	& + div.menus + div.pages, & + div.pages {
+		div.page.hub div.pivot {
+			top: 48px;
+			@media all and (max-width: 504px) {
+				top: 48px;
+				height: calc(~"100% - 88px");
+			}
+		}
+	}
+}
+@media all and (max-width: 504px) {
+	div.page.hub div.pivot {
+		div.hub-slide {
+			width: calc(~"100% - 12px");
+			&:last-child {
+				margin-right: 12px !important;
+			}
+		}
+	}
+}

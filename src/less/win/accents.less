@@ -1,0 +1,201 @@
+.tint-mixin(@colorName, @primaryColor, @secondaryColor, @buttonColor, @listHoverColor) {
+	body[data-tint-win="@{colorName}"]  {
+		::selection {
+			background: @buttonColor;
+			color: #ffffff;
+		}
+		::-moz-selection {
+			background: @buttonColor;
+			color: #ffffff;
+		}
+		div.navbar.tab-controls h1.tab-active {
+			color: @buttonColor;
+		}
+		header {
+			&.bar {
+				div.navigate-back {
+					&:active {
+						background-color: #fff;
+					}
+					&:active:after {
+						color: @secondaryColor !important;
+					}
+				}
+			}
+		}
+		div.menus, header.bar {
+			background-color: @secondaryColor;
+			
+			div.navigate-back {
+				&:active:after {
+					background-color: #fff !important;
+					color: @secondaryColor;
+				}
+			}
+			
+			div.link, div.tile:not(.tile-container) {
+				&:not(.selected):active, &:not(.selected):active { background-color: @listHoverColor; }
+				&.selected {
+					background-color: @buttonColor;
+				}
+				@media all and (min-width: 800px) {
+					&.preselected {
+						background-color: @buttonColor;
+					}
+				}
+			}
+		}
+		h2.colored, span.colored {
+			color: @buttonColor;
+		}
+		a {
+			display: inline-block;
+			color: @buttonColor;
+			text-decoration: none;
+			font-weight: 400;
+			
+			&:active {
+				color: lighten(@buttonColor, 20%);
+			}
+		}
+		button.colored:not(:active):not(:disabled) {
+			background-color: @buttonColor;
+			color: #fff;
+		}
+		div.switch {
+			input[type="checkbox"]:checked + div.switch-inner:before {
+				background-color: @buttonColor;
+			}
+			&:not(.disabled) input[type="checkbox"]:checked + div.switch-inner:active:before {
+				background-color: lighten(@buttonColor, 20%);
+			}
+		}
+		div.range {
+			input[type="range"]::-webkit-slider-thumb:before {
+				background-color: @buttonColor;
+			}
+			&:active input[type="range"]::-webkit-slider-thumb:before {
+				background-color: lighten(@buttonColor, 20%) !important;
+			}
+		}
+		div.progress {
+			div.progress-inner {
+				background-color: @buttonColor;
+			}
+		}
+		div.list.open {
+			li.checked {
+				background-color: @buttonColor;
+			}
+		}
+		div.notification-center {
+			div.notification {
+				background-color: @secondaryColor;
+				box-shadow: inset 0 0 0 2px lighten(@secondaryColor, 5%);
+				
+				div.close-box{
+					&:active {
+						background-color: lighten(@secondaryColor, 10%);
+					}
+				}
+			}
+		}
+		
+		&.colored {
+			background-color: @primaryColor;
+			div.navigation-bar {
+				background-color: @secondaryColor;
+			}
+			div.application-bar {
+				background-color: @secondaryColor;
+			}
+			
+			button:not(.colored):not(:active) {
+				&:not(:disabled) {
+					background-color: @primaryColor;
+					color: #fff;
+				}
+				&:disabled {
+					background-color: @primaryColor !important;
+				}
+			}
+		}
+		div.alert.colored {
+			background-color: @secondaryColor;
+			
+			button:not(.colored) {
+				background-color: @secondaryColor;
+			}
+		}
+		div.hub div.tile {
+			background-color: @listHoverColor;
+		}
+		div.keyboard.shift {
+			div.key.shift:before { background-color: @buttonColor !important; }
+			&.caps {
+				div.key.shift {
+					&:before {
+						background-color: #fff !important;
+					}
+					background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45 23" enable-background="new 0 0 45 23" xml:space="preserve"><g><path fill="@{buttonColor}" d="M24.4,23h-3.8V7l-6.4,6.4V8.3L22.5,0l8.3,8.3v5.1L24.4,7V23z"/></g></svg>');
+				}
+			}
+		}
+		div.launch-image {
+			background-color: @primaryColor;
+		}
+	}
+	body[data-tint-win="@{colorName}"]:not(.touch) {
+		header.bar div.navigate-back:hover { background-color: @listHoverColor; }
+		div.menu, div.navbar header, header.bar {
+			div.navigate-back:hover { background-color: @listHoverColor; }
+			div.link:not(.selected):hover, div.tile:not(.tile-container):not(.selected):hover { background-color: @listHoverColor; }
+		}
+		a:hover { color: lighten(@buttonColor, 10%); }
+		button.colored:not(:active):not(:disabled):hover{ background-color: lighten(@buttonColor, 5%); }
+		div.switch:not(.disabled) input[type="checkbox"]:checked + div.switch-inner:hover:before { background-color: lighten(@buttonColor, 5%); }
+		div.range:hover input[type="range"]::-webkit-slider-thumb:before { background-color: lighten(@buttonColor, 5%); }
+		div.notification-center div.notification div.close-box:hover { background-color: lighten(@secondaryColor, 5%); }
+		div.notification-center div.alert.colored button:not(.colored):hover { background-color: lighten(@secondaryColor, 5%); }
+		&.colored button:not(.colored):not(:active):not(.disabled):hover { background-color: lighten(@primaryColor, 5%); }
+	}
+	div.theme-selector {
+		div.theme-color[data-tint-win="@{colorName}"] {
+			background-color: @primaryColor;
+			
+			&:after {
+				background-color: @buttonColor;
+			}
+		}		
+	}
+}
+
+.tint-mixin(e('dark-gray'), #1c1c1c, #272727, #5d5d5d, #404040);
+.tint-mixin(e('light-gray'), #7c8485, #878e8f, #2f2f2f, #a2a7a8);
+.tint-mixin(e('dark-red'), #8c0018, #a2001d, #bd0021, #ca0b2d);
+.tint-mixin(e('red'), #ac0000, #c10000, #f73100, #db0b0b);
+.tint-mixin(e('orange'), #d24400, #e84b00, #ff8a2b, #f36927);
+
+.tint-mixin(e('yellow'), #ec9000, #ffa702, #ffc02d, #f4b640);
+.tint-mixin(e('bright-yellow'), #ffb417, #ffbb2d, #ffcb1a, #f7c868);
+.tint-mixin(e('bright-green'), #7b9a34, #8db62e, #8acc00, #9db95e);
+.tint-mixin(e('green'), #418800, #4a9d00, #6fb000, #64c60b);
+.tint-mixin(e('dark-green'), #1d5100, #246600, #179900, #389207);
+
+.tint-mixin(e('darker-green'), #003c00, #005100, #179900, #067d06);
+.tint-mixin(e('dark-lime'), #44a277, #3fbc84, #57cc7d, #77b79a);
+.tint-mixin(e('dark-teal'), #008b8e, #009fa4, #00d2d2, #0bc7cc);
+.tint-mixin(e('light-teal'), #00aaaa, #00bfbf, #00d2d2, #0ce7e7);
+.tint-mixin(e('cyan'), #009cf0, #06a8ff, #42c1ff, #43b7f5);
+
+.tint-mixin(e('dark-cyan'), #0069b7, #0075cc, #008de1, #0d91f2);
+.tint-mixin(e('darker-cyan'), #00529b, #005cb0, #00acff, #0c77d8);
+.tint-mixin(e('very-dark-cyan'), #091a46, #061f5e, #0077c6, #18347e);
+.tint-mixin(e('very-dark-purple'), #180053, #1f0068, #4617b5, #320794);
+.tint-mixin(e('darker-purple'), #480091, #5300a6, #6700b3, #6c0bce);
+
+.tint-mixin(e('dark-purple'), #5424c4, #561be2, #a23ac9, #805bd5);
+.tint-mixin(e('purple'), #8d37ae, #a030cb, #bd56e4, #aa6bc2);
+.tint-mixin(e('darker-pink'), #8c005b, #a20069, #bf2883, #ca0b87);
+.tint-mixin(e('dark-pink'), #aa0062, #bf006f, #f900a8, #e70c89);
+.tint-mixin(e('pink'), #ea0098, #ff00a6, #ff60db, #f43eb5);

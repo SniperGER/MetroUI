@@ -1,0 +1,87 @@
+div.navbar div.split-control {
+	cursor: pointer;
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin-right: 10px;
+	
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	
+	&:before {
+		content: '\E700';
+		display: block;
+		font-family: 'Segoe MDL2 Assets';
+		font-size: 24px;
+		width: 48px;
+		text-align: center;
+		line-height: 48px;
+	}
+	@media all and (max-width: 504px) {
+		& + h1 {
+			padding-left: 0;
+		}
+	}
+	@media all and (min-width: 505px) {
+		& + h1 {
+			margin-left: 48px;
+		}
+	}
+}
+
+div.page.split-view div.tab-control {
+	position: absolute;
+	width: 48px;
+	min-height: calc(~"100% + 54px");
+	white-space: nowrap;
+	overflow: hidden; 
+	z-index: 2;
+
+	transition: width 350ms cubic-bezier(0.1,0.9,0.2,1);
+	-moz-transition: width 350ms cubic-bezier(0.1,0.9,0.2,1);
+	-webkit-transition: width 350ms cubic-bezier(0.1,0.9,0.2,1);
+
+	div.tab-link {
+		cursor: pointer;
+		i.icon {
+			font-size: 24px;
+			width: 48px;
+			line-height: 48px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		p {
+			display: inline-block;
+			line-height: 48px;
+			padding-left: 5px;
+		}
+		-webkit-transform: translateZ(0);
+	}
+	
+	&.extended {
+		width: 300px;
+	}
+}
+@media all and (max-width: 504px) {
+	div.page.split-view div.tab-control {
+		top: -32px;
+		left: -12px;
+		& + div.content {
+			padding-left: 48px;
+		}
+	}
+}
+@media all and (min-width: 505px) {
+	div.page.split-view div.tab-control {
+		top: 0;
+		left: 0;
+	}
+}
+
+div.page div.tab:not(.tab-active) {
+	display: none;
+}
+div.view.view-footer div.page.split-view div.tab-control {
+	height: calc(~"100% - 96px") !important;
+}

@@ -1,0 +1,59 @@
+div.navbar {
+	width: 100%;
+	height: 48px;
+	padding: 0;
+	display: block;
+	position: relative;
+	z-index: 20;
+	overflow: visible;
+	margin-top: 0 !important;
+	
+	header {
+		opacity: 1 !important;
+		div.navbar-media {
+			width: 48px;
+			height: 48px;
+			float: left;
+			display: block;
+			text-align: center;
+			line-height: 48px;
+			font-size: 24px;
+		}
+		
+		h1 {
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 48px;
+			text-transform: uppercase;
+			padding: 0 12px;
+			opacity: 1;
+		}
+		&:not(.header-active) {
+			display: none;
+		}
+		
+		@media all and (max-width: 504px) {
+			&[data-hide-phone="true"] {
+				display: none;
+			}
+		}
+		&.pivot {
+			height: 89px;
+			
+			h1 {
+				font-size: 50pt;
+				text-transform: lowercase;
+				font-weight: 300;
+				line-height: normal;
+				white-space: nowrap;
+				display: inline-block;
+				//opacity: 0;
+				margin-right: 20px;
+				padding: 0;
+			}
+		}
+	}
+}
+body.app-controls div.navbar {
+	top: 28px;
+}

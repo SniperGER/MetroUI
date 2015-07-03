@@ -1,0 +1,53 @@
+div.page.hub {
+	div.tile {
+		width: calc(~"50% - 10px");
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		
+		&:before {
+			content: '';
+			padding-top: 100%;
+			display: block;
+		}
+		
+		&.detail {
+			width: calc(~"25% - 10px");
+			float: left;
+			margin-right: 75%;
+
+			&:before {
+				padding-top: 100%;
+			}
+			p.title {
+				position: absolute;
+				margin: 0;
+				margin-top: -45px;
+				margin-left: 25%;
+				width: 75%;
+				height: 20px;
+				font-size: 14pt;
+			}
+			p.description {
+				position: absolute;
+				margin: 0;
+				margin-top: -40px;
+				margin-left: 25%;
+				width: 75%;
+				height: 40px;
+			}
+		}
+	}
+	div.hub-slide.promo.wide {
+		width: calc(~"200% + 10px");
+		div.tile {
+			width: calc(~"25% - 10px");
+			&:nth-child(n+10) {
+				display: none;
+			}
+		}
+	}
+	div.hub-slide:last-child {
+		margin-right: 0 !important;
+	}
+}

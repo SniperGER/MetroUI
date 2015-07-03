@@ -1,0 +1,55 @@
+@font-face {
+	font-family: "Segoe WP";
+	font-style: normal;
+	font-weight: 200;
+	src: url("fonts/SegoeWP-Light.woff");
+}
+
+@font-face {
+	font-family: "Segoe WP";
+	font-style: normal;
+	font-weight: 300;
+	src: url("fonts/SegoeWP-Semilight.woff");
+}
+
+@font-face {
+	font-family: "Segoe WP";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/SegoeWP.woff");
+}
+
+@font-face {
+	font-family: "Segoe WP";
+	font-style: normal;
+	font-weight: 600;
+	src: url("fonts/SegoeWP-Semibold.woff");
+}
+
+@font-face {
+	font-family: "Segoe WP";
+	font-style: normal;
+	font-weight: 700;
+	src: url("fonts/SegoeWP-Bold.woff");
+}
+
+@font-face {
+	font-family: "Segoe WP";
+	font-style: normal;
+	font-weight: 800;
+	src: url("fonts/SegoeWP-Black.woff");
+}
+
+
+@font-face {
+	font-family: "Segoe UI Symbol";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/seguisym.ttf");
+}
+@font-face {
+	font-family: "Segoe MDL2 Assets";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/segmdl2.ttf");
+}

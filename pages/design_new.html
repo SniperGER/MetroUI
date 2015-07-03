@@ -1,0 +1,45 @@
+<div class="navbar">
+	<header data-page="design_new">
+		<div class="navigate-back"></div>
+		<div class="navbar-media">
+			<p style="font-family: 'Segoe MDL2 Assets'; font-size: 24px; text-align: center; line-height: 48px;">&#xE771;</p>
+		</div>
+		<h1>Colors</h1>
+	</header>
+</div>
+<div class="page" data-page="design_new">
+	<header>
+		<div class="navigate-back"></div>
+		<h1>Colors</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Preview</h2>
+		<div class="tiles-preview" style="">
+			<div class="tiles-preview-inner"></div>
+		</div>
+		
+		<p>Choose a base</p>
+		<div class="radio inline" id="theme_light">
+			<input type="radio" value="light" onchange="app.design.changeThemeByValue('light')">
+			<div class="radio-inner"></div>
+			<label>Light</label>
+		</div>
+		<div class="radio" id="theme_dark">
+			<input type="radio" checked="" value="dark" onchange="app.design.changeThemeByValue('dark')">
+			<div class="radio-inner"></div>
+			<label>Dark</label>
+		</div>
+		
+		<p>Show more tiles</p>
+		<div class="switch more-tiles">
+			<input type="checkbox" onchange="$('div.menu.menu-active').classList.toggle('more-tiles'); $('body').classList.toggle('more-tiles')">
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+
+		
+		<h2 class="colored">Choose a color</h2>
+		<p>Standard colors</p>
+		<div class="theme-selector"></div>
+	</div>
+</div>

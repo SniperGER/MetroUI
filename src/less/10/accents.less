@@ -1,0 +1,199 @@
+.tint-mixin(@colorName,@baseColor) {
+	body[data-tint-win10="@{colorName}"] {
+		background-color: @baseColor;
+		::selection {
+			background: @baseColor !important;
+		}
+		a, span.colored {
+			color: @baseColor !important;
+		}
+		div.app-controls div.navigate-back {
+			background-color: @baseColor;
+		}
+		div.navbar header div.navbar-media i:after {
+			color: @baseColor;
+		}
+		div.menus div.link.selected, div.tab-control div.tab-link.tab-active {
+			background-color: fade(@baseColor, 50%) !important;
+		}
+		
+		div.pages div.page div.content h2 {
+			color: @baseColor !important;
+		}
+		
+		div.radio {
+			input[type="radio"]:checked + div.radio-inner {
+				box-shadow: inset 0 0 0 2px @baseColor;
+				
+				&:after {
+					background-color: @baseColor;
+				}
+			}
+		}
+		
+		div.checkbox {
+			input[type="checkbox"]:checked + div.checkbox-inner {
+				background-color: @baseColor;
+			}
+		}
+		
+		div.switch {
+			input[type="checkbox"]:checked + div.switch-inner {
+				box-shadow: inset 0 0 0 2px @baseColor;
+				background-color: @baseColor;
+			}
+		}
+		
+		div.range input[type="range"] {
+			
+			&::-webkit-slider-thumb {
+				background-color: @baseColor;
+				&:before {
+					background-color: @baseColor !important;
+				}
+			}
+			&:active::-webkit-slider-thumb:before {
+				background-color: @baseColor !important;
+			}
+		}
+		
+		div.progress div.progress-inner {
+			background-color: @baseColor !important;
+		}
+
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		textarea {
+			&.active, &:focus {
+				box-shadow: inset 0 0 0 2px @baseColor !important;
+			}
+		}
+		
+		div.list.open li.checked {
+			background-color: @baseColor !important;
+		}
+
+		div.hub div.tile {
+			background-color: @baseColor;
+		}
+		
+		div.theme-tile[data-tint-win10="@{colorName}"] {
+			box-shadow: 0 0 0 2px #4617b4;
+		}
+		
+		div.notification-center {
+			div.notification {
+				background-color: @baseColor;
+
+				@media all and (max-width: 504px) {
+					border-bottom-color: darken(@baseColor, 10%);
+				}
+				@media all and (min-width: 505px) {
+					box-shadow: inset 0 0 0 2px lighten(@baseColor, 5%);
+				}
+
+				div.close-box{
+					&:hover {
+						background-color: lighten(@baseColor, 5%) !important;
+					}
+					&:active {
+						background-color: lighten(@baseColor, 10%) !important;
+					}
+				}
+			}
+			div.alert {
+				box-shadow: inset 0 0 0 2px @baseColor;
+			}
+		}
+
+		@media all and (max-width: 504px) {
+			div.tile:not(.tile-container) {
+				background-color: @baseColor;
+			}
+		}
+		
+		div.tiles-preview:before, div.tiles-preview-inner {
+			background-color: @baseColor;
+		}
+		@media all and (min-width: 961px) {
+			footer:not(.tablet-mode) {
+				background-color: darken(@baseColor, 20%);
+			}
+			&:not(.touch) {
+				footer div:hover {
+					background-color: darken(@baseColor, 15%);
+					&.home:before {
+						color: lighten(@baseColor,5%);
+					}
+				}
+			}
+		}
+	}
+	body:not(.touch) {
+		
+	}
+	.theme-tile[data-tint-win10="@{colorName}"] {
+		background-color: @baseColor;
+	}
+}
+
+.tint-mixin(e("win10-01"), #FFB900);
+.tint-mixin(e("win10-02"), #E74856);
+.tint-mixin(e("win10-03"), #0078D7);
+.tint-mixin(e("win10-04"), #0099BC);
+.tint-mixin(e("win10-05"), #7A7574);
+.tint-mixin(e("win10-06"), #767676);
+
+.tint-mixin(e("win10-07"), #FF8C00);
+.tint-mixin(e("win10-08"), #E81123);
+.tint-mixin(e("win10-09"), #0063B1);
+.tint-mixin(e("win10-10"), #2D7D9A);
+.tint-mixin(e("win10-11"), #5D5A58);
+.tint-mixin(e("win10-12"), #4C4A48);
+
+.tint-mixin(e("win10-13"), #F7630C);
+.tint-mixin(e("win10-14"), #EA005E);
+.tint-mixin(e("win10-15"), #8E8CD8);
+.tint-mixin(e("win10-16"), #00B7C3);
+.tint-mixin(e("win10-17"), #68768A);
+.tint-mixin(e("win10-18"), #69797E);
+
+.tint-mixin(e("win10-19"), #CA5010);
+.tint-mixin(e("win10-20"), #C30052);
+.tint-mixin(e("win10-21"), #6B69D6);
+.tint-mixin(e("win10-22"), #038387);
+.tint-mixin(e("win10-23"), #515C6B);
+.tint-mixin(e("win10-24"), #4A5459);
+
+.tint-mixin(e("win10-25"), #DA3B01);
+.tint-mixin(e("win10-26"), #E3008C);
+.tint-mixin(e("win10-27"), #8764B8);
+.tint-mixin(e("win10-28"), #00B294);
+.tint-mixin(e("win10-29"), #567C73);
+.tint-mixin(e("win10-30"), #647C64);
+
+.tint-mixin(e("win10-31"), #EF6950);
+.tint-mixin(e("win10-32"), #BF0077);
+.tint-mixin(e("win10-33"), #744DA9);
+.tint-mixin(e("win10-34"), #018547);
+.tint-mixin(e("win10-35"), #486860);
+.tint-mixin(e("win10-36"), #525E54);
+
+.tint-mixin(e("win10-37"), #D13438);
+.tint-mixin(e("win10-38"), #C239B3);
+.tint-mixin(e("win10-39"), #B146C2);
+.tint-mixin(e("win10-40"), #00CC6A);
+.tint-mixin(e("win10-41"), #498205);
+.tint-mixin(e("win10-42"), #847545);
+
+.tint-mixin(e("win10-43"), #FF4343);
+.tint-mixin(e("win10-44"), #9A0080);
+.tint-mixin(e("win10-45"), #881798);
+.tint-mixin(e("win10-46"), #10893E);
+.tint-mixin(e("win10-47"), #107C10);
+.tint-mixin(e("win10-48"), #7E735F);

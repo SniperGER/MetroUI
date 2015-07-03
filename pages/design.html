@@ -1,0 +1,37 @@
+<div class="page" data-page="design" data-hide-menu="true">
+	<header>
+		<div class="navigate-back"></div>
+		<h1>Design Settings</h1>
+	</header>
+	<div class="content">
+		<p>Change your device's background and <span class="colored">accent color</span> to match your mood today, this week, or all month.</p>
+		
+		<h3>Background</h3>
+		<div class="list theme">
+			<select onchange="app.design.changeTheme(this)">
+				<option value="light" selected="">Light</option>
+				<option value="dark">Dark</option>
+			</select>
+		</div>
+		
+		<h3>Accent color</h3>
+		<div class="theme-selector"></div>
+		
+		<h3 class="colored">Colored Pages (Windows only)</h3>
+		<div class="switch colored-pages">
+			<input type="checkbox" onchange="app.design.coloredPages(this)">
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+		
+		<h3 class="colored">Show more tiles (Windows Phone only)</h3>
+		<div class="switch more-tiles">
+			<input type="checkbox" onchange="$('div.menu').classList.toggle('more-tiles'); $('body').classList.toggle('more-tiles')">
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+		<div class="tiles-preview" style="">
+			<div class="tiles-preview-inner"></div>
+		</div>
+	</div>
+</div>

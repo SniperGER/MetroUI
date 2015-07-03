@@ -1,0 +1,239 @@
+@media all and (max-width: 504px) {
+	.theme-mixin("-wp");
+	body[data-bg-wp="light"] {
+		div.menus, div.pages {
+			background-color: #fff !important;
+		}
+	}
+	body[data-bg-wp="dark"] {
+		div.menus, div.pages {
+			background-color: #000 !important;
+		}
+	}
+}
+@media all and (min-width: 505px) {
+	.theme-mixin("");
+	body[data-bg="light"] {
+		div.menus {
+			background-color: #f7f4f7 !important;
+			
+			div.tile:not(.tile-container), div.link {
+				p.label:not(.tile-label) {
+					color: #000 !important;
+				}
+				
+				&:hover {
+					background-color: #dddadc !important;
+				}
+			}
+		}
+	}
+	body[data-bg="dark"] {
+		div.menus {
+			background-color: #080b08 !important;
+			
+			div.tile:not(.tile-container), div.link {
+				p.label:not(.tile-label) {
+					color: #fff !important;
+				}
+				
+				&:hover {
+					background-color: #222523 !important;
+				}
+			}
+		}
+	}
+}
+
+
+.theme-mixin(@win) {
+	@data-bg: ~'data-bg@{win}';
+
+	body[@{data-bg}="light"] {
+		div.app-controls, div.navbar, div.navbar header {
+			background-color: #d4d4d4;
+		}
+		div.navbar header.pivot {
+			background-color: #fff;
+		}
+		div.appbar {
+			div.action p, div.action label {
+				color: #000 !important;
+			}
+		}
+
+		button {
+			color: #000 !important;
+			&:not(:active) {
+				background-color: rgba(0,0,0,0.2) !important;
+			}
+			&:active {
+				background-color: rgba(0,0,0,0.4) !important;
+			}
+		}
+
+		div.radio input:not(:checked) + div.radio-inner, div.checkbox input:not(:checked) + div.checkbox-inner {
+			box-shadow: inset 0 0 0 2px #000 !important;
+			
+			&:active {
+				box-shadow: inset 0 0 0 2px #999 !important;
+			}
+		}
+		div.switch input:not(:checked) + div.switch-inner {
+			box-shadow: inset 0 0 0 2px #000 !important;
+		}
+
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		textarea {
+			&:not(:focus), &:not(.active) {
+				background-color: transparent !important;
+				box-shadow: inset 0 0 0 2px #7a7b7b;
+			}
+		}
+		
+		div.alert {
+			background-color: #f2f2f2 !important;
+			
+			div.title, div.content {
+				color: #000 !important;
+			}
+		}
+		
+		div.appbar, div.appbar div.panel, div.appbar div.more {
+			background-color: #e6e6e5;
+		}
+		div.appbar div.appbar-list {
+			background-color: #d4d4d4;
+		}
+
+		div.page.split-view div.tab-control {
+			background-color: #d4d4d4;
+		}
+		@media all and (max-width: 504px) {
+			footer {
+				background-color: rgba(255,255,255,1);
+				
+				&:not(.colored) {
+					div.left.navigate-back {
+						background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><polygon fill="#000000" points="11.8,0.2 0,12 11.8,23.8 12.9,22.7 2.9,12.7 24,12.7 24,11.2 2.9,11.2 12.9,1.3 "/></svg>');
+					}
+					div.center.home {
+						background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><g><polygon fill="#000000" points="10.9,11.5 24,11.5 24,0 10.9,1.8"/><polygon fill="#000000" points="10,11.5 10,2 0,3.4 0,11.5"/><polygon fill="#000000" points="10.9,12.5 10.9,22.2 24,24 24,12.5"/><polygon fill="#000000" points="10,12.5 0,12.5 0,20.7 10,22"/></g></svg>');
+					}
+					div.right.search {
+						background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><path fill="#000000" d="M1.2,23.9l10.5-10.5c1.3,1.1,2.9,1.7,4.7,1.7c4.1,0,7.5-3.4,7.5-7.5c0-4.1-3.4-7.5-7.5-7.5 c-4.1,0-7.5,3.4-7.5,7.5c0,1.8,0.6,3.4,1.7,4.7L0.1,22.8L1.2,23.9z M16.4,1.6c3.3,0,6,2.7,6,6c0,3.3-2.7,6-6,6c-3.3,0-6-2.7-6-6 C10.4,4.3,13.1,1.6,16.4,1.6z"/></svg>');
+					}
+				}
+			}
+		}
+		div.navbar div.split-control:active,
+		div.page.split-view div.tab-control div.tab-link:active {
+			background-color: lighten(#d4d4d4, 10%) !important;
+		}
+		&:not(.touch) {
+			div.navbar div.split-control:hover:not(:active),
+			div.page.split-view div.tab-control div.tab-link:hover:not(:active) {
+				background-color: lighten(#d4d4d4, 5%);
+			}
+		}
+	}
+	body[@{data-bg}="dark"] {
+		div.pages {
+			background-color: #000;
+		}
+
+		div.app-controls, div.navbar, div.navbar header {
+			background-color: #2b2b2b;
+		}
+		div.navbar header.pivot {
+			background-color: #000;
+		}
+		div.appbar {
+			div.action p, div.action label {
+				color: #fff !important;
+			}
+		}
+	
+		button {
+			&:not(:active) {
+				background-color: rgba(255,255,255,0.2) !important;
+			}
+			&:active {
+				background-color: rgba(255,255,255,0.4) !important;
+			}
+		}
+		div.switch div.switch-inner {
+			box-shadow: inset 0 0 0 2px #fff;
+		}
+		
+		div.radio {
+			background-color: transparent !important;
+			
+			input[type="radio"]:not(:checked) + div.radio-inner {
+				box-shadow: inset 0 0 0 2px #fff;
+			}
+		}
+		div.checkbox {
+			background-color: transparent !important;
+			
+			input[type="checkbox"]:not(:checked) + div.checkbox-inner {
+				box-shadow: inset 0 0 0 2px #fff;
+			}
+		}
+	
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		textarea {
+			&:not(:focus), &:not(.active) {
+				background-color: transparent !important;
+				box-shadow: inset 0 0 0 2px #838484;
+				&::-webkit-input-placeholder { color: rgba(255,255,255,0.6); }
+				&::moz-input-placeholder {  color: rgba(255,255,255,0.6); }
+			}
+			&:focus, &.active {
+				background-color: #fff !important;
+				&::-webkit-input-placeholder { color: rgba(0,0,0,0.6); }
+				&::moz-input-placeholder {  color: rgba(0,0,0,0.6); }
+
+			}
+
+		}
+		div.alert {
+			background-color: #2b2b2b !important;
+		}
+		div.appbar, div.appbar div.panel, div.appbar div.more {
+			background-color: #1f1e1f;
+		}
+		div.appbar div.appbar-list {
+			background-color: #2b2b2b;
+		}
+		footer {
+			background-color: rgba(0,0,0,1);
+		}
+		div.page.split-view div.tab-control {
+			background-color: #2b2b2b;
+		}
+		div.navbar div.split-control:active,
+		div.page.split-view div.tab-control div.tab-link:active {
+			background-color: lighten(#2b2b2b, 10%) !important;
+		}
+		&:not(.touch) {
+			div.navbar div.split-control:hover:not(:active),
+			div.page.split-view div.tab-control div.tab-link:hover:not(:active) {
+				background-color: lighten(#2b2b2b, 5%);
+			}
+		}
+	}
+
+}

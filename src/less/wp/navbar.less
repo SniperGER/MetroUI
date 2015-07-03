@@ -1,0 +1,35 @@
+div.navbar {
+	position: absolute;
+	padding: 15px 15px 10px;
+	width: calc(~"100% - 30px");
+	overflow-x: hidden;
+	z-index: 500;
+	-webkit-perspective: 600px;
+	-webkit-perspective-origin: 50% 100%;
+	
+	header {
+		-webkit-transform-origin: 0 50%;
+		opacity: 0;
+
+		h1 {
+			font-size: 50pt;
+			text-transform: lowercase;
+			font-weight: 300;
+			white-space: nowrap;
+			display: inline-block;
+			//opacity: 0;
+			margin-right: 20px;
+		}
+		div.navbar-media {
+			display: none;
+		}
+	}
+	
+	&.hidden, header:not(.header-active) {
+		display: none;
+	}
+	
+	&:not(.hidden) + div.menus {
+		padding-top: 114px;
+	}
+}

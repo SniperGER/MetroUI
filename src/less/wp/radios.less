@@ -1,0 +1,38 @@
+div.radio {
+	width: 22px;
+	height: 22px;
+	margin-bottom: 20px;
+	position: relative;
+	border-radius: 20px;
+
+	div.radio-inner {
+		width: 22px;
+		height: 22px;
+		border-radius: 22px;
+	}
+	
+	input[type="radio"] {
+		display: none;
+	}
+	input[type="radio"]:checked + div.radio-inner:after {
+		content: '';
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		background-repeat: no-repeat;
+		height: 12px;
+		width: 12px;
+		border-radius: 12px;
+	}
+	
+	label {
+		position: relative;
+		top: -22px;
+		left: 30px;
+		line-height: 22px;
+	}
+
+	&.disabled {
+		opacity: 0.4;
+	}
+}

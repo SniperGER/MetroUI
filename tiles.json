@@ -1,0 +1,110 @@
+{
+	"index2": [
+		{
+			"type":"bar",
+			"direction":"horizontal",
+			"tiles": [
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				},
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				},
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				},
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				}
+			]
+		},
+		{
+			"type":"square",
+			"tiles": [
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				},
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				},
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				},
+				{
+					"size":"small",
+					"href":"pages/design_new.html",
+					"label":"Colors"
+				}
+			]
+		},
+		{
+			"size":"normal",
+			"href":"pages/playground.html",
+			"label":"Playground"
+		},
+		{
+			"size":"wide",
+			"href":"pages/bars.html",
+			"label":"Application Bars"
+		},
+		{
+			"size":"large",
+			"label":"Test"
+		}
+	],
+	"index": [
+		{
+			"label":"Playground",
+			"icon":"img/tiles/playground.png",
+			"color":"default",
+			"size":"normal",
+			"href":"pages/playground.html"
+		},
+		{
+			"label":"Colors",
+			"icon":"img/tiles/settings.png",
+			"color":"default",
+			"size":"normal",
+			"href":"pages/design_new.html"
+		},
+		{
+			"label":"Application Bars",
+			"icon":"img/tiles/bars.png",
+			"color":"default",
+			"size":"wide",
+			"href":"pages/bars.html"
+		},
+		{
+			"label":"Split View",
+			"color":"default",
+			"size":"normal",
+			"href":"pages/splitview.html"
+		},
+		{
+			"label":"Pivot Controls",
+			"color":"default",
+			"size":"normal",
+			"href":"pages/pivot.html"
+		},
+		{
+			"label":"Hub",
+			"color":"default",
+			"size":"wide",
+			"href":"pages/hub.html"
+		}
+	]
+}

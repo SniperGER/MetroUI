@@ -1,0 +1,40 @@
+@media all and (max-width: 504px) {
+	div.notification-center {
+		div.notification-wrapper {
+			height: 50px;
+			
+			div.notification {
+				height: 50px;
+				border-bottom: 15px solid transparent;
+				
+				div.title {
+					height: 20px;
+					line-height: 20px;
+					padding: 5px 5px 0 15px;
+				}
+				div.content {
+					position: absolute;
+					top: 25px;
+					height: 20px;
+					max-height: 20px;
+					line-height: 20px;
+					padding: 0px 5px 0 15px;
+					
+					p {
+						font-size: 14px;
+					}
+				}
+				&.slide-in {
+					animation: slide-in-top .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+					-webkit-animation: slide-in-top .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+				}
+				&.slide-out, &.fade-out {
+					animation: slide-out-top .3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+					animation-fill-mode: forwards;
+					-webkit-animation: slide-out-top .3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+					-webkit-animation-fill-mode: forwards;
+				}
+			}
+		}
+	}
+}

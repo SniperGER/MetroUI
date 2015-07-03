@@ -1,0 +1,28 @@
+button {
+	cursor: pointer;
+	display: block;
+	font-weight: 400;
+	font-size: 14px;
+	height: 30px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	padding: 0 10px;
+	min-width: 86px;
+
+	&[disabled] {
+		cursor: default;
+		opacity: 0.4;
+	}
+	&.inline {
+		display: inline-block;
+		float: left;
+	}
+	&.no-margin {
+		margin-right: 0;
+	}
+	
+	&:active {
+		background-color: #000;
+		color: #fff;
+	}
+}

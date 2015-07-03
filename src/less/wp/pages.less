@@ -1,0 +1,121 @@
+div.pages {
+	padding: 15px;
+	padding-top: 99px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: calc(~"100% - 30px");
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+
+	-webkit-perspective-origin: 50% 50%;
+
+	
+	div.page {
+		min-height: calc(~"100% - 30px");
+		position: relative;
+
+		-webkit-perspective: 2000px;
+		-webkit-transform-origin: 0 50%;
+
+		header {
+			display: none;
+			position: -webkit-sticky;
+			top: 0;
+			padding-bottom: 10px;
+			padding-top: 15px;
+			width: 100%;
+			height: 89px;
+			z-index: 20;
+			white-space: nowrap;
+			-webkit-perspective: 900px;
+			-webkit-perspective-origin: 50% 100%;
+
+
+			h1 {
+				font-size: 50pt;
+				text-transform: lowercase;
+				font-weight: 300;
+				opacity: 0;
+
+				-webkit-transform-origin: 0 50%;
+			}
+			h2 {
+				display: none;
+			}
+		}
+		div.content {
+			opacity: 0;
+
+			-webkit-transform-origin: 0 50%;
+
+			h2 {
+				font-size: 11pt;
+				font-weight: 600;
+				text-transform: uppercase;
+				margin-top: 20px;
+				margin-bottom: 10px;
+			}
+			h3 {
+				font-size: 10pt;
+				color: #888 !important;
+				margin-bottom: 5px;
+			}
+			p {
+				font-size: 11pt;
+				font-weight: 400;
+				margin: 20px 0;
+			}
+		}
+		
+		&:not(.page-active) {
+			display: none;
+		}
+		&.slide-in {
+			header h1, div.content {
+				animation: page-slide-in 500ms cubic-bezier(0.1,0.9,0.2,1) 0ms 1 normal both;
+				-webkit-animation: page-slide-in 500ms cubic-bezier(0.1,0.9,0.2,1) 0ms 1 normal both;
+			}
+		}
+		&.slide-out {
+			header h1, div.content {
+				animation: page-slide-out 500ms cubic-bezier(0.895, 0.03, 0.685, 0.22) 0ms 1 normal both;
+				-webkit-animation: page-slide-out 500ms cubic-bezier(0.895, 0.03, 0.685, 0.22) 0ms 1 normal both;
+			}
+		}
+		&.slide-in-back {
+			animation: page-slide-in 500ms cubic-bezier(0.1,0.9,0.2,1) 0ms 1 normal both;
+			-webkit-animation: page-slide-in-back 500ms cubic-bezier(0.1,0.9,0.2,1) 0ms 1 normal both;
+
+			header {
+				position: fixed;
+			}
+			div.content {
+				padding-top: 114px;
+			}
+
+		}
+
+		&.slide-out-back {
+			header h1, div.content {
+				animation: page-slide-out-back 150ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms 1 normal both;
+				-webkit-animation: page-slide-out-back 150ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms 1 normal both;
+			}
+		}
+	}
+}
+
+div.menus:not(.hidden) + div.pages {
+	display: none;
+}
+body.appbar div.pages {
+	padding-bottom: 48px;
+}
+body.footer div.pages {
+	padding-bottom: 48px;
+}
+body.appbar.footer div.pages {
+	padding-bottom: 96px;
+}

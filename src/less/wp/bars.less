@@ -1,0 +1,266 @@
+div.bars {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 4000;
+	pointer-events: none;
+	
+	div.navigation-bar {
+		display: none;
+	}
+	div.application-bar {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		//height: 48px;
+		height: 64px;
+		pointer-events: all;
+
+		transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+		transform: translate3d(0, 16px, 0);
+		-moz-transition: -moz-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+		-moz-transform: translate3d(0, 16px, 0);
+		-webkit-transition: -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+		-webkit-transform: translate3d(0, 16px, 0);
+		
+		&.extended {
+			transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0);
+-webkit-transform: translate3d(0, 0, 0);
+		}
+		
+		div.icon-more {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 32px;
+			height: 100%;
+			background-size: 17px 4px;
+			background-position: 0 10px;
+			background-repeat: no-repeat;
+			
+			@media (orientation: landscape) {
+				right: 36px !important;
+			}
+		}
+		
+		div.left, div.right {
+			display: none;
+		}
+		div.center {
+			padding-top: 8px;
+			text-align: center;
+
+			div.icon {
+				position: relative;
+				width: 32px;
+				height: 32px;
+				border-radius: 32px;
+				display: inline-block;
+				margin-right: 24px;
+				
+				&:last-child {
+					margin-right: 0 !important;
+				}
+				&:after {
+					position: absolute;
+					width: 32px;
+					height: 32px;
+					line-height: 32px;
+					text-align: center;
+					font-family: "Segoe UI Symbol";
+					font-size: 14pt;
+					left: 0;
+				}
+				&:active:after {
+					color: #fff;
+				}
+				
+				label {
+					position: absolute;
+					font-size: 7pt;
+					top: 40px;
+					left: 50%;
+					margin-left: -21px;
+					width: 42px;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+div.appbar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 64px;
+	pointer-events: all;
+	text-align: center;
+
+
+	transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transform: translate3d(0, 16px, 0);
+	-moz-transition: -moz-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-moz-transform: translate3d(0, 16px, 0);
+	-webkit-transition: -webkit-transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-webkit-transform: translate3d(0, 16px, 0);
+	
+	&.extended {
+		transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+	div.more {
+		width: 32px;
+		height: 68px;
+		position: absolute;
+		right: 0;
+		background-size: 17px 4px;
+		background-position: 0 10px;
+		background-repeat: no-repeat;
+
+		
+		&:after {
+			content: '';
+			display: block;
+			font-family: 'Segoe UI Symbol';
+			font-size: 24px;
+			text-align: center;
+			width: 48px;
+			line-height: 48px;
+			float: right;
+		}
+	}
+	div.panel {
+		direction: rtl;
+		div.action {
+			position: relative;
+			width: 32px;
+			height: 32px;
+			border-radius: 32px;
+			display: inline-block;
+			margin-left: 24px;
+			margin-top: 8px;
+			
+			&:last-child {
+				margin-left: 0 !important;
+			}
+			&:after {
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				line-height: 32px;
+				text-align: center;
+				font-family: "Segoe UI Symbol";
+				font-size: 14pt;
+				left: 0;
+			}
+			&:active:after {
+				color: #fff;
+			}
+			
+			p {
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				line-height: 32px;
+				text-align: center;
+				font-family: "Segoe UI Symbol";
+				font-size: 16px;
+				left: 0;
+			}
+			
+			label {
+				position: absolute;
+				font-size: 7pt;
+				top: 40px;
+				left: 50%;
+				margin-left: -21px;
+				width: 42px;
+				text-align: center;
+			}
+		}
+		
+		&:not(.panel-active) {
+			display: none;
+		}
+	}
+	
+	&.hidden {
+		display: none;
+	}
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 36px;
+	background-color: #000;
+	z-index: 4100;
+
+	
+	div.navigate-back {
+		width: 33%;
+		height: 100%;
+		background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 33 25" enable-background="new 0 0 33 25" xml:space="preserve"><polygon fill="#FFFFFF" points="0,12.5 13,25 21,25 12,16 33,16 33,9 12,9 21,0 13,0 "/></svg>');
+		background-size: 18px 14px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		float: left;
+	}
+	div.home {
+		width: 34%;
+		height: 100%;
+		background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 40 39" enable-background="new 0 0 40 39" xml:space="preserve"><g><polygon fill="#FFFFFF" points="17,3 0,5 0,19 17,19 "/><polygon fill="#FFFFFF" points="40,0 18,3 18,19 40,19 "/><polygon fill="#FFFFFF" points="40,20 18,20 18,36 40,39 "/><polygon fill="#FFFFFF" points="0,20 0,34 17,36 17,20 "/></g></svg>');
+		background-size: 22px 20px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		float: left;
+	}
+	div.kb {
+		width: 33%;
+		height: 100%;
+		background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 14" enable-background="new 0 0 16 14" xml:space="preserve"><g><polygon fill="#FFFFFF" points="7.9,13.6 10.5,10.8 5.5,10.8 	"/><rect x="10.1" y="4.3" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="8.3" y="2.4" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="11.9" y="4.3" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="10.1" y="2.4" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="11.9" y="2.4" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="5" y="6.1" fill="#FFFFFF" width="6.1" height="1.4"/><rect x="11.4" y="6.1" fill="#FFFFFF" width="1.9" height="1.4"/><rect x="6.4" y="2.4" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="8.3" y="4.3" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="2.7" y="2.4" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="2.7" y="4.3" fill="#FFFFFF" width="1.4" height="1.4"/><path fill="#FFFFFF" d="M15.6,0.9c0-0.1-0.1-0.2-0.1-0.2s-0.1-0.1-0.2-0.2s-0.2,0-0.3,0H1c-0.1,0-0.2,0-0.3,0.1S0.5,0.7,0.5,0.8 S0.4,0.9,0.3,1S0.2,1.2,0.2,1.3v7.5c0,0.1,0,0.2,0.1,0.3s0.1,0.2,0.2,0.2s0.1,0.1,0.2,0.2S0.9,9.6,1,9.6h14c0.1,0,0.2,0,0.3-0.1 s0.2-0.1,0.2-0.2s0.1-0.1,0.1-0.2s0.1-0.2,0.1-0.3V1.2C15.8,1.1,15.6,1,15.6,0.9z M14.4,8H1.7V1.9h12.6V8H14.4z"/><rect x="2.7" y="6.1" fill="#FFFFFF" width="1.9" height="1.4"/><rect x="6.4" y="4.3" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="4.5" y="4.3" fill="#FFFFFF" width="1.4" height="1.4"/><rect x="4.5" y="2.4" fill="#FFFFFF" width="1.4" height="1.4"/></g></svg>');
+		background-size: auto 22px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		float: left;
+	}
+	
+	@media (orientation: landscape)  {
+		width: 36px;
+		height: 100%;
+		right: 0;
+		
+		transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		
+		div.left, div.right {
+			width: 100% !important;
+			height: 33% !important;
+			
+			transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
+		}
+		div.center {
+			width: 100% !important;
+			height: 34% !important;
+			
+			transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
+		}
+	}
+
+}
+
+body.footer div.appbar {
+	@media (orientation: portrait) {
+		bottom: 36px !important;
+	}
+}

@@ -1,0 +1,20 @@
+button {
+	display: block;
+	min-width: 90px;
+	height: 32px;
+	max-height: 32px;
+	font-size: 11pt;
+	font-weight: 600;
+	padding: 0 10px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	
+	&.inline {
+		display: inline-block;
+		float: left;
+	}
+	
+	&:not(:active) {
+		background-color: transparent;
+	}
+}

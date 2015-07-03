@@ -1,0 +1,42 @@
+div.navbar.tab-controls {
+	position: absolute;
+	padding: 15px 30px 10px;
+	width: calc(100% - 30px);
+	overflow-x: hidden;
+	z-index: 500;
+	-webkit-perspective: 600px;
+	-webkit-perspective-origin: 50% 100%;
+	display: block;
+	
+	header {
+		div.tab-control h1 {
+			font-size: 30pt;
+			font-weight: 300;
+			white-space: nowrap;
+			display: inline-block;
+			margin-right: 20px;
+		}
+		&.slide-in h1 {
+			-webkit-animation: page-slide-in 1000ms cubic-bezier(0.1, 0.9, 0.2, 1) 100ms 1 normal both;
+		}
+	}
+	
+	& + div.pages {
+		padding: 98px 30px 50px;
+		width: calc(~"100% - 60px") !important;
+		
+		header {
+			display: none;
+		}
+	}
+}
+
+div.page.tab-view {
+	div.content div.tab:not(.tab-active) {
+		display: none;
+	}
+}
+
+body.app-controls div.navbar.tab-controls + div.pages {
+	padding: 126px 30px 50px !important;
+}

@@ -1,0 +1,35 @@
+div.pages {
+	@media all and (max-width: 504px) {
+		padding: 12px !important;
+		width: calc(~"100% - 24px") !important;
+	}
+	div.page {
+		header:not([data-display-anywhere="true"]) {
+			display: none;
+		}
+		div.content {
+			p {
+				margin-top: 20px;
+			}
+		}
+
+		&.pivot {
+			margin-top: 30px;
+			min-height: calc(~"100% - 60px");
+		}
+	}
+}
+div.view.view-app-controls div.pages {
+	top: 28px;
+}
+div.view.view-navbar {
+	div.pages {
+		top: 48px;
+	}
+	&.view-app-controls div.pages {
+		top: 76px;
+	}
+}
+div.view.view-footer div.pages {
+	bottom: 0px;
+}

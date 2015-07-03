@@ -1,0 +1,59 @@
+div.navbar:not(.hidden) + div.menus {
+	@media all and (max-width: 504px) {
+		padding: 12px !important;
+		padding-top: 0 !important;
+		width: calc(~"100% - 24px") !important;
+	}
+}
+div.menus {
+	@media all and (max-width: 504px) {
+		padding: 4px !important;
+		width: calc(~"100% - 8px") !important;
+	}
+	div.menu {
+		header {
+			display: none;
+		}
+		div.link {
+			margin-bottom: 0 !important;
+			p.label {
+				@media all and (max-width: 504px) {
+					font-size: 20px !important;
+					line-height: 44px !important;
+				}
+				@media all and (min-width: 505px) {
+					font-size: 15px !important;
+					height: 48px !important;
+					line-height: 48px !important;
+				}
+				text-transform: none !important;
+			}
+		}
+		&:not(.menu-active) {
+			display: none;
+		}
+	}
+}
+
+@media all and (min-width: 505px) and (max-width: 960px) {
+	div.menus {
+		width: 100% !important;
+		&:not(.hidden) + div.pages {
+			display: none;
+		}
+	}
+}
+div.view.view-app-controls div.menus {
+	top: 28px;
+}
+div.view.view-navbar {
+	div.navbar:not(.hidden) + div.menus {
+		top: 48px;
+	}
+	&.view-app-controls div.navbar:not(.hidden) + div.menus {
+		top: 76px;
+	}
+}
+div.view.view-footer div.menus {
+	bottom: 0px;
+}

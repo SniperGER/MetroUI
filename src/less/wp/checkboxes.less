@@ -1,0 +1,37 @@
+div.checkbox {
+	width: 22px;
+	height: 22px;
+	margin-bottom: 20px;
+	position: relative;
+	
+	div.checkbox-inner {
+		width: 22px;
+		height: 22px;
+	}
+	
+	input[type="checkbox"] {
+		display: none;
+	}
+	input[type="checkbox"]:checked + div.checkbox-inner:after {
+		content: '';
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		background-size: 16px 16px;
+		background-repeat: no-repeat;
+		background-position: center center;
+		height: 18px;
+		width: 18px;
+	}
+	
+	label {
+		position: relative;
+		top: -22px;
+		left: 30px;
+		line-height: 22px;
+	}
+	
+	&.disabled {
+		opacity: 0.4;
+	}
+}

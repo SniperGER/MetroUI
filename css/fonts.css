@@ -2,77 +2,77 @@
 	font-family: "Segoe UI";
 	font-style: normal;
 	font-weight: 200;
-	src: url("fonts/segoeuil.ttf");
+	src: url("fonts/segoeuil.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: italic;
 	font-weight: 200;
-	src: url("fonts/seguili.ttf");
+	src: url("fonts/seguili.woff");
 }
 
 @font-face {
 	font-family: "Segoe UI";
 	font-style: normal;
 	font-weight: 300;
-	src: url("fonts/segoeuisl.ttf");
+	src: url("fonts/segoeuisl.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: italic;
 	font-weight: 300;
-	src: url("fonts/seguisli.ttf");
+	src: url("fonts/seguisli.woff");
 }
 
 @font-face {
 	font-family: "Segoe UI";
 	font-style: normal;
 	font-weight: 400;
-	src: url("fonts/segoeui.ttf");
+	src: url("fonts/segoeui.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: italic;
 	font-weight: 400;
-	src: url("fonts/segoeuii.ttf");
+	src: url("fonts/segoeuii.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: normal;
 	font-weight: 600;
-	src: url("fonts/seguisb.ttf");
+	src: url("fonts/seguisb.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: italic;
 	font-weight: 600;
-	src: url("fonts/seguisbi.ttf");
+	src: url("fonts/seguisbi.woff");
 }
 
 @font-face {
 	font-family: "Segoe UI";
 	font-style: normal;
 	font-weight: 700;
-	src: url("fonts/segoeuib.ttf");
+	src: url("fonts/segoeuib.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: italic;
 	font-weight: 700;
-	src: url("fonts/segoeuiz.ttf");
+	src: url("fonts/segoeuiz.woff");
 }
 
 @font-face {
 	font-family: "Segoe UI";
 	font-style: normal;
 	font-weight: 800;
-	src: url("fonts/seguibl.ttf");
+	src: url("fonts/seguibl.woff");
 }
 @font-face {
 	font-family: "Segoe UI";
 	font-style: italic;
 	font-weight: 800;
-	src: url("fonts/seguibli.ttf");
+	src: url("fonts/seguibli.woff");
 }
 
 @font-face {
@@ -80,4 +80,10 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url("fonts/seguisym.ttf");
+}
+@font-face {
+	font-family: "Segoe MDL2 Assets";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/Segoe-MDL2-Assets-MetroUI.ttf");
 }

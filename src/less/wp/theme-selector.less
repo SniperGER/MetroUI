@@ -1,0 +1,90 @@
+div.theme-selector {
+	position: relative;
+	width: 100%;
+	height: 28px;
+	box-shadow: inset 0 0 0 2px #fff;
+	margin-bottom: 10px;
+	overflow: hidden;
+	
+	div.theme-color {
+		height: 28px;
+		padding-left: 28px;
+		line-height: 28px;
+		position: relative;
+		display: none;
+		
+		&:before {
+			content: '';
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			width: 12px;
+			height: 12px;
+		}
+	}
+	&:active div.theme-color {
+		color: #fff;
+	}
+}
+
+div.theme-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #333;
+	padding-top: 16px;
+	z-index: 4000;
+	
+	div.theme-color-wrapper {
+		-webkit-perspective: 2000px;
+		width: 100%;
+		max-width: 288px;
+		height: 66px;
+		margin: auto;
+		margin-bottom: 8px;
+
+		div.theme-color {
+			width: 66px;
+			height: 66px;
+			display: inline-block;
+			opacity: 0;
+			
+			&:not(:last-child) {
+				margin-right: 8px;
+			}
+		}
+	}
+}
+
+div.tiles-preview {
+	position: relative;
+	width: 100%;
+	margin-top: 35px;
+	
+	&:before {
+		content: '';
+		padding-top: 61.603376%;
+		display: block;
+	}
+	
+	div.tiles-preview-inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url(../../img/tiles_default.png);
+		background-size: 100%;
+	}
+}
+
+body.more-tiles div.tiles-preview-inner {
+	background-image: url(../../img/tiles_small.png);
+}
+
+body:after {
+	display: none;
+	content: url(../../img/tiles_default.png) url(../../img/tiles_small.png);
+}

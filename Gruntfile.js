@@ -1,37 +1,55 @@
 module.exports = function(grunt) {
 
 	var jsFilesList = [
+		/* MetroUI Core */
 		'src/js/intro.js',
 		'src/js/init.js',
-		'src/js/modals.js',
-		'src/js/preloader.js',
+		//'src/js/bars.js',
+		//'src/js/modals.js',
+		'src/js/notifications.js',
+		//'src/js/preloader.js',
 		'src/js/flyouts.js',
+		'src/js/pages.js',
 		'src/js/navigation.js',
 		'src/js/animation.js',
 		'src/js/design.js',
+		'src/js/tiles.js',
+		'src/js/plugins.js',
 		'src/js/outro.js',
+
+		/* MetroUI Classes */
+		'src/js/class/View.js',
+		'src/js/class/Menu.js',
+		'src/js/class/Page.js',
+		'src/js/class/Modal.js',
+		'src/js/class/Notification.js',
+		'src/js/class/Pivot.js',
+		'src/js/class/Hub.js',
+		'src/js/class/TabControl.js',
+		'src/js/class/SplitControl.js',
+
+		/* MetroUI Bundled Extensions */
+		'src/js/dom.js',
 		'src/js/misc.js',
 		'src/js/fastclick.js',
-		'src/js/ellipsis.js'
+		'src/js/ellipsis.js',
+		'src/js/velocity.js'
 	];
 	
 	var lessFileList = [
-		'src/less/common-win8.less',
-		'src/less/menu-win8.less',
-		'src/less/pages-win8.less',
-		'src/less/forms-win8.less',
-		'src/less/lists-win8.less',
-		'src/less/theme-selector-win8.less',
-		'src/less/notifications-win8.less',
-		'src/less/flyouts-win8.less',
-		'src/less/bars-win8.less',
-		'src/less/progress-win8.less',
-		'src/less/animations-win8.less',
-		'src/less/icons-win8.less',
-		'src/less/themes-win8.less',
-		'src/less/accents-win8.less',
+		'src/less/MetroUI.less',
+	];
+	var lessFileList10 = [
+		'src/less/MetroUI.Win10.less',
 	];
 	
+	var watchFileList = [
+		'src/js/*',
+		'src/less/win8/*',
+		'src/less/wp8/*',
+		'src/less/MetroUI.less',
+	];
+
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -50,6 +68,7 @@ module.exports = function(grunt) {
             server: {
                 options: {
                     port: 3000,
+                    hostname: '0.0.0.0',
                     base: ''
                 }
             }
@@ -85,7 +104,8 @@ module.exports = function(grunt) {
 					shadow: true,
 					loopfunc: true,
 					elision: true,
-					laxcomma: true
+					laxcomma: true,
+					asi: true,
 				}
 			},
 			dist: {
@@ -99,17 +119,15 @@ module.exports = function(grunt) {
 				}
 			}
         },
-        uglify: {
-			dist: {
-				files: {
-					'dist/js/MetroUI-2.1.min.js': ['<%= concat.dist.dest %>']
-				}
-			}
-		},
 		less: {
 			build: {
 				files: {
 					'build/css/MetroUI-2.1.css': lessFileList
+				}
+			},
+			build_new: {
+				files: {
+					'build/css/MetroUI.Win10.css': lessFileList10
 				}
 			},
 			dist: {
@@ -124,15 +142,42 @@ module.exports = function(grunt) {
 				src: ['css/**'],
 				dest: 'build/',
 			},
+			build_new: {
+				expand: true,
+				src: ['js/**'],
+				dest: 'build/'
+			},
 			dist: {
 				expand: true,
 				src: ['css/**'],
 				dest: 'dist/',
 			}
 		},
+		replace: {
+			build: {
+				src: ["build/js/MetroUI-2.1.js"],
+				overwrite: true,
+				replacements: [
+					{
+						from: '{{app.buildNumber}}',
+						to: "<%= pkg.build %>"
+					},
+					{
+						from: '{{app.buildDate}}',
+						to: "<%= grunt.template.today('yymmdd-hhMM') %>"
+					}
+				]
+			}
+		},
+		buildnumber: {
+			options: {
+				field: 'build',
+			},
+			files: ['package.json']
+		},
 		watch: {
-			files: [jsFilesList, lessFileList],
-			tasks: 	['concat:build', 'jshint', 'uglify:dist', 'less:build']
+			files: [watchFileList],
+			tasks: 	['concat:build', 'jshint:build', 'less:build']
 		},
 		remove: {
 			default_options: {
@@ -144,13 +189,15 @@ module.exports = function(grunt) {
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-remove');
+	grunt.loadNpmTasks('grunt-text-replace');
+	grunt.loadNpmTasks('grunt-build-number');
+
 	
 	// Default task(s).
 	grunt.registerTask('default', ['build']);
@@ -158,7 +205,19 @@ module.exports = function(grunt) {
 		'concat:build',
 		'jshint:build',
 		'less:build',
-		'copy:build'
+		'less:build_new',
+		'replace:build',
+		//'buildnumber'
+	]);
+	this.registerTask('build-all', 'Builds a development version of <%= pkg.name %>', [
+		'concat:build',
+		'jshint:build',
+		'less:build',
+		'less:build_new',
+		'copy:build',
+		'copy:build_new',
+		'replace:build',
+		//'buildnumber'
 	]);
 	this.registerTask('dist', 'Builds a production version of <%= pkg.name %>', [
 		'concat:dist',
@@ -169,7 +228,6 @@ module.exports = function(grunt) {
 	]);
 	this.registerTask('server','Opens a Server with <%== pkg.name %>', [
 		'connect:server',
-        'open',
         'watch'
 	]);
 	this.registerTask('clean','Removes /build and /dist folders', [

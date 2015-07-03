@@ -1,0 +1,109 @@
+div.app-controls {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 28px;
+	background-color: #000;
+	z-index: 21;
+	
+	div.navigate-back {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 48px;
+		height: 28px;
+		
+		&:not(.hidden) + div.title {
+			left: 56px !important;
+		}
+		&.hidden {
+			display: none;
+		}
+		
+		&:before {
+			content: '\E0A6';
+			display: block;
+			font-family: 'Segoe MDL2 Assets';
+			font-size: 14px;
+			text-align: center;
+			line-height: 28px;
+			width: 48px;
+			height: 28px;
+			color: #fff;
+		}
+	}
+	div.title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		height: 28px;
+		font-size: 14px;
+		line-height: 28px;
+		color: #fff;
+	}
+	div.minimize, div.maximize {
+		position: absolute;
+		top: 0;
+		//right: 92px;
+		width: 28px;
+		height: 28px;
+		&:hover:before {
+			background-color: #3665b3;
+		}
+	}
+	div.minimize {
+		right: 56px;
+		&:before {
+			content: '';
+			display: block;
+			width: 28px;
+			height: 28px;
+			background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><rect x="9" y="17" fill="#FFFFFF" width="10" height="2"/></svg>');
+		}
+	}
+	div.maximize {
+		right: 28px;
+		&:before {
+			content: '';
+			display: block;
+			width: 28px;
+			height: 28px;
+			background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path fill="#FFFFFF" d="M9,10v8h10v-8H9z M18,17h-8v-5h8V17z"/></svg>');
+		}
+	}
+
+	div.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 28px;
+		height: 28px;
+		
+		&:before {
+			content: '\E10A';
+			display: block;
+			font-family: 'Segoe UI Symbol';
+			font-size: 13px;
+			text-align: center;
+			line-height: 28px;
+			width: 28px;
+			height: 28px;
+			color: #fff;
+		}
+		&:hover:before {
+			background-color: #e04343;
+		}
+	}
+	
+	&.hidden {
+		display: none;
+	}
+}
+@media all and (max-width: 504px) {
+	div.app-controls {
+		display: none;
+	}
+}

@@ -1,0 +1,110 @@
+.tint-mixin(@colorName,@accentColor) {
+	body[data-tint-wp="@{colorName}"] {
+		a, span.colored {
+			color: @accentColor !important;
+		}
+		footer.colored {
+			background-color: @accentColor;
+		}
+		div.application-bar div.icon:active {
+			background-color: @accentColor;
+		}
+		button:active { background-color: @accentColor; }
+		div.switch div.switch-inner:before {
+			background: linear-gradient(left, @accentColor 50%, rgba(0,0,0,0) 51%);
+			background: -moz-linear-gradient(left, @accentColor 50%, rgba(0,0,0,0) 51%);
+			background: -webkit-linear-gradient(left, @accentColor 50%, rgba(0,0,0,0) 51%);
+			background-size: 102px auto;
+			background-position-x: -50px;
+		}
+		div.checkbox:not(.disabled):active, div.radio:not(.disabled):active {
+			background-color: @accentColor;
+		}
+		div.range input[type="range"]::-webkit-slider-thumb:before {
+			background-color: @accentColor;
+		}
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		textarea {
+			&.active, &:focus {
+				box-shadow: inset 0 0 0 2px @accentColor;
+			}
+		}
+		div.progress:not(.indeterminate) div.progress-inner {
+			background-color: @accentColor;
+		}
+		div.list.open {
+			box-shadow: inset 0 0 0 2px @accentColor;
+			
+			div.select-inner-wrapper ul li.checked {
+				color: @accentColor;
+			}
+		}
+		div.notification {
+			background-color: @accentColor;
+		}
+		div.keyboard {
+			div.key:active:before, div.key-highlight {
+				background-color: @accentColor;
+			}
+			&.shift.caps {
+				div.key.shift:before { background-color: @accentColor; }
+			}
+		}
+		div.theme-selector {
+			div.theme-color {
+				&:before { background-color: @accentColor; }
+				&[data-tint-wp="@{colorName}"] {
+					display: block;
+				}
+			}
+		}
+		div.tile:not(.tile-container) {
+			background-color: @accentColor;
+		}
+		
+		div.launch-image {
+			background-color: @accentColor;
+		}
+		div.theme-selector:active {
+			background-color: @accentColor;
+		}
+		div.tiles-preview:before {
+			background-color: @accentColor;
+		}
+	}
+	div.theme-overlay div.theme-color-wrapper div.theme-color[data-tint-wp="@{colorName}"] {
+		background-color: @accentColor;
+	}
+}
+
+.tint-mixin(e('lime'), #a4c400);
+.tint-mixin(e('green'), #60a917);
+.tint-mixin(e('emerald'), #008a00);
+.tint-mixin(e('teal'), #00aba9);
+.tint-mixin(e('cyan'), #1ba1e2);
+.tint-mixin(e('cobalt'), #0050ef);
+.tint-mixin(e('indigo'), #6a00ff);
+.tint-mixin(e('violet'), #aa00ff);
+.tint-mixin(e('pink'), #f472d0);
+.tint-mixin(e('magenta'), #d80073);
+.tint-mixin(e('crimson'), #a20025);
+.tint-mixin(e('red'), #e51400);
+.tint-mixin(e('orange'), #fa6800);
+.tint-mixin(e('amber'), #f0a30a);
+.tint-mixin(e('yellow'), #e3c800);
+.tint-mixin(e('brown'), #825a2c);
+.tint-mixin(e('olive'), #6d8764);
+.tint-mixin(e('steel'), #647687);
+.tint-mixin(e('mauve'), #76608a);
+.tint-mixin(e('taupe'), #87794e);
+
+/* Lumia Device Colors */
+
+.tint-mixin(e('lumia-green'), #00fa6e);
+.tint-mixin(e('lumia-purple'), #4800b8);

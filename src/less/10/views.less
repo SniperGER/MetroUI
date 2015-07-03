@@ -1,0 +1,59 @@
+div.view-inner {
+//	overflow: hidden;
+}
+body {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 66%,rgba(0,0,0,0.7) 100%);
+		opacity: 0;
+		-webkit-transition: opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+	}
+	&.task-view-open {
+		div.view {
+			position: absolute;
+			pointer-events: none;
+
+			img.view-icon, p.view-title {
+				-webkit-transition: opacity 200ms linear 450ms;
+				opacity: 1;
+			}
+			
+			div.view-inner {
+				position: absolute;
+				pointer-events: all;
+				
+				&:hover:after {
+					content: '';
+					position: absolute;
+					top: -3px;
+					bottom: -3px;
+					left: -3px;
+					right: -3px;
+					box-shadow: 0 0 0 5px #fff;
+					overflow: visible;
+				}
+				
+				div.navbar, div.menus, div.pages, div.navbar {
+					pointer-events: none;
+				}
+			}
+		}
+		&:before {
+			opacity: 1;
+		}
+	}
+	&:not(.task-view-open) {
+		img.view-icon, p.view-title {
+			opacity: 0;
+		}
+	}
+
+	div.view.view-footer {
+		height: calc(~"100% - 40px");
+	}
+}

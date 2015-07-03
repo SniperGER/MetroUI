@@ -1,15 +1,20 @@
 {
   "name": "MetroUI",
-  "version": "2.1.0",
-  "description": "MetroUI",
-  "main": "index.js",
-  "scripts": {
-    "test": "make test"
+  "version": "2.1.2",
+  "build": "1099",
+  "description": "CSS",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
   },
-  "author": "Sniper_GER",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sniper (GER)",
   "license": "GNU GPLv2",
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-build-number": "^1.0.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-copy": "^0.7.0",
@@ -17,21 +22,19 @@
     "grunt-contrib-less": "^1.0.0",
     "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-git-deploy": "^0.1.1",
     "grunt-open": "^0.2.3",
-    "grunt-remove": "^0.1.0"
-  },
-  "dependencies": {
-    "grunt": "^0.4.5"
+    "grunt-remove": "^0.1.0",
+    "grunt-run": "^0.3.0",
+    "grunt-shell": "^1.1.1",
+    "grunt-text-replace": "^0.4.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Sniper_GER/MetroUI.git"
+    "url": "https://github.com/SniperGER/MetroUI.git"
   },
-  "keywords": [
-    "MetroUI"
-  ],
   "bugs": {
-    "url": "https://github.com/Sniper_GER/MetroUI/issues"
+    "url": "https://github.com/SniperGER/MetroUI/issues"
   },
-  "homepage": "https://github.com/Sniper_GER/MetroUI"
+  "homepage": "https://github.com/SniperGER/MetroUI"
 }

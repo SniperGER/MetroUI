@@ -1,0 +1,118 @@
+{
+	"hubs": {
+		"title":"Hub Control Demo",
+		"sections": [
+			{
+				"title":"Section 1",
+				"id":"section1",
+				"items": [
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					}
+				]
+			},
+			{
+				"title":"Section 2",
+				"id":"section2",
+				"items": [
+					{
+						"type":"tile detail",
+						"title":"Lorem Ipsum",
+						"description":"Lorem ipsum dolor sit amet. And so on. You know what it says."
+					},
+					{
+						"type":"tile detail",
+						"title":"Lorem Ipsum",
+						"description":"Lorem ipsum dolor sit amet. And so on. You know what it says."
+					},
+					{
+						"type":"tile detail",
+						"title":"Lorem Ipsum",
+						"description":"Lorem ipsum dolor sit amet. And so on. You know what it says."
+					},
+					{
+						"type":"tile detail",
+						"title":"Lorem Ipsum",
+						"description":"Lorem ipsum dolor sit amet. And so on. You know what it says."
+					},
+					{
+						"type":"tile detail",
+						"title":"Lorem Ipsum",
+						"description":"Lorem ipsum dolor sit amet. And so on. You know what it says."
+					},
+					{
+						"type":"tile detail",
+						"title":"Lorem Ipsum",
+						"description":"Lorem ipsum dolor sit amet. And so on. You know what it says."
+					}
+				]
+			},
+			{
+				"title":"Section 3",
+				"id":"section3",
+				"items": [
+					{
+						"type":"tile promo"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile wide"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					}
+				]
+			},
+			{
+				"title":"Section 4",
+				"id":"section4",
+				"items": [
+					{
+						"type":"tile promo"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					},
+					{
+						"type":"tile"
+					}
+				]
+			}
+		]
+	}
+}

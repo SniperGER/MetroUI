@@ -1,0 +1,332 @@
+<div class="navbar">
+	<header data-menu="playground">
+		<div class="navigate-back"></div>
+		<div class="navbar-media">
+			<i class="icon icon-cog"></i>
+		</div>
+		<h1>Playground</h1>
+	</header>
+	<header data-page="playground-text">
+		<h1>Text + Labels</h1>
+	</header>
+	<header data-page="playground-buttons">
+		<h1>Buttons</h1>
+	</header>
+	<header data-page="playground-radio">
+		<h1>Radio Buttons</h1>
+	</header>
+	<header data-page="playground-check">
+		<h1>Checkboxes</h1>
+	</header>
+	<header data-page="playground-switches">
+		<h1>Toggle Switches</h1>
+	</header>
+	<header data-page="playground-sliders">
+		<h1>Sliders</h1>
+	</header>
+	<header data-page="playground-progress">
+		<h1>Progress Indicators</h1>
+	</header>
+	<header data-page="playground-input">
+		<h1>Input Fields</h1>
+	</header>
+	<header data-page="playground-lists">
+		<h1>Lists</h1>
+	</header>
+	<header data-page="playground-modals">
+		<h1>Modals</h1>
+	</header>
+	<header data-page="playground-flyouts">
+		<h1>Flyouts</h1>
+	</header>
+</div>
+<div class="menu" data-menu="playground" data-initial-page="playground-text">
+	<header>
+		<div class="navigate-back"></div>
+		<h1>Playground</h1>
+	</header>
+<!-- if mobile, auto add tile containers by tile count -->
+	<div class="link" href="#playground-text">
+		<p class="label">Text + Labels</p>
+	</div>
+	<div class="link" href="#playground-buttons">
+		<p class="label">Buttons</p>
+	</div>
+	<div class="link" href="#playground-radio">
+		<p class="label">Radio Buttons</p>
+	</div>
+	<div class="link" href="#playground-check">
+		<p class="label">Checkboxes</p>
+	</div>
+	<div class="link" href="#playground-switches">
+		<p class="label">Toggle Switches</p>
+	</div>
+	<div class="link" href="#playground-sliders">
+		<p class="label">Sliders</p>
+	</div>
+	<div class="link" href="#playground-progress">
+		<p class="label">Progress Indicators</p>
+	</div>
+	<div class="link" href="#playground-input">
+		<p class="label">Input Fields + Keyboard</p>
+	</div>
+	<div class="link" href="#playground-lists">
+		<p class="label">Lists</p>
+	</div>
+	<div class="link" href="#playground-modals">
+		<p class="label">Modals</p>
+	</div>
+	<div class="link" href="#playground-flyouts">
+		<p class="label">Flyouts</p>
+	</div>
+</div>
+
+<div class="page" data-page="playground-text">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Text + Labels</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Colored Header</h2>
+		<h3>Description Header</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<a href="#">Example link</a>
+		<p>Example text with <span class="colored">colored parts</span>.</p>
+	</div>
+</div>
+<div class="page" data-page="playground-buttons">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Buttons</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Default Buttons</h2>
+		<button>Button</button>
+		<button disabled="">Disabled</button>
+		
+		<h2 class="colored">Inline Buttons</h2>
+		<button class="inline">Inline Button 1</button>
+		<button>Inline Button 2</button>
+		
+		<h2 class="colored">Colored Buttons</h2>
+		<button class="colored inline">Colored Button</button>
+		<button class="colored" disabled="">Colored Disabled</button>
+	</div>
+</div>
+<div class="page" data-page="playground-radio">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Radio Buttons</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Default</h2>
+		<div class="radio">
+			<input type="radio">
+			<div class="radio-inner"></div>
+			<label>Label</label>
+		</div>
+		<h2 class="colored">Checked</h2>
+		<div class="radio">
+			<input type="radio" checked>
+			<div class="radio-inner"></div>
+			<label>Label</label>
+		</div>
+		<h2 class="colored">Disabled</h2>
+		<div class="radio disabled">
+			<input type="radio">
+			<div class="radio-inner"></div>
+			<label>Label</label>
+		</div>
+		<h2 class="colored">Disabled Checked</h2>
+		<div class="radio disabled">
+			<input type="radio" checked>
+			<div class="radio-inner"></div>
+			<label>Label</label>
+		</div>
+	</div>
+</div>
+<div class="page" data-page="playground-check">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Checkboxes</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Default</h2>
+		<div class="checkbox">
+			<input type="checkbox">
+			<div class="checkbox-inner"></div>
+			<label>Label</label>
+		</div>
+		<h2 class="colored">Checked</h2>
+		<div class="checkbox">
+			<input type="checkbox" checked>
+			<div class="checkbox-inner"></div>
+			<label>Label</label>
+		</div>
+		<h2 class="colored">Disabled</h2>
+		<div class="checkbox disabled">
+			<input type="checkbox">
+			<div class="checkbox-inner"></div>
+			<label>Label</label>
+		</div>
+		<h2 class="colored">Disabled Checked</h2>
+		<div class="checkbox disabled">
+			<input type="checkbox" checked>
+			<div class="checkbox-inner"></div>
+			<label>Label</label>
+		</div>
+	</div>
+</div>
+<div class="page" data-page="playground-switches">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Toggle Switches</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Default</h2>
+		<div class="switch">
+			<input type="checkbox">
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+		<h2 class="colored">Checked</h2>
+		<div class="switch">
+			<input type="checkbox" checked>
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+		<h2 class="colored">Disabled</h2>
+		<div class="switch disabled">
+			<input type="checkbox">
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+		<h2 class="colored">Disabled Checked</h2>
+		<div class="switch disabled">
+			<input type="checkbox" checked>
+			<div class="switch-inner"></div>
+			<label>Off</label>
+		</div>
+	</div>
+</div>
+<div class="page" data-page="playground-sliders">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Sliders</h1>
+	</header>
+	<div class="content">
+		<h2>Horizontal</h2>
+		<div class="range">
+			<input type="range" min="0" max="100" step="0.1" value="50">
+		</div>
+		<div class="range disabled">
+			<input type="range" min="0" max="100" step="0.1" value="50">
+		</div>
+		<h2>Vertical</h2>
+		<div class="range vertical">
+			<input type="range" min="0" max="100" step="0.1" value="50">
+		</div>
+		<div class="range vertical disabled">
+			<input type="range" min="0" max="100" step="0.1" value="50">
+		</div>
+	</div>
+</div>
+<div class="page" data-page="playground-progress">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Progress Indicators</h1>
+	</header>
+	<div class="content">
+		<div class="progress">
+			<progress max="100" value="50" id="progress"></progress>
+			
+			<p class="title">Determinate Progress</p>
+			<div class="progress-inner"></div>
+			<p class="label">Optional subtitle</p>
+		</div>
+	</div>
+</div>
+<div class="page" data-page="playground-input">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Input Fields + Keyboard</h1>
+	</header>
+	<div class="content">
+		<h2>Text</h2>
+		<input type="text" placeholder="Text">
+		<h2>Password</h2>
+		<input type="password" placeholder="Password">
+		<h2>Text Area</h2>
+		<textarea placeholder="Text Area"></textarea>
+		<h2>Disabled</h2>
+		<input type="text" disabled="" placeholder="Disabled">
+		
+		<h2 class="colored">Initialize Keyboard</h2>
+		<p>Only required on non-mobile devices without touchscreen.</p>
+		<button onclick="app.keyboard.initKeyboard()">Initialize Keyboard</button>
+	</div>
+</div>
+<div class="page" data-page="playground-lists">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Lists</h1>
+	</header>
+	<div class="content">
+		<h2>Default List</h2>
+		<div class="list">
+			<select>
+				<option value="test" selected="">Test</option>
+				<option value="test2">Test 2</option>
+				<option value="test3">Test 3</option>
+			</select>
+		</div>
+		<h2>Invalid List</h2>
+		<div class="list">
+			<select>
+				<option value="test" selected=""></option>
+				<option value="test2"></option>
+				<option value="test3"></option>
+			</select>
+		</div>
+		<h2>Disabled</h2>
+		<div class="list disabled">
+			<select>
+				<option selected="">Test</option>
+				<option>Test 2</option>
+				<option>Test 3</option>
+			</select>
+		</div>
+	</div>
+</div>
+<div class="page" data-page="playground-modals">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Modals</h1>
+	</header>
+	<div class="content">
+		<h2 class="colored">Notifications</h2>
+		<button onclick="app.notify()">Trigger Notification</button>
+
+		<h2 class="colored">Alert</h2>
+		<button onclick="app.alert()">Trigger Alert</button>
+
+		<h2 class="colored">Confirm</h2>
+		<button onclick="app.confirm()">Trigger Confirm</button>
+		
+		<h2 class="colored">Preloader</h2>
+		<p>Currently not available</p>
+	</div>
+</div>
+<div class="page" data-page="playground-flyouts">
+	<header data-page="playground-text">
+		<div class="navigate-back"></div>
+		<h1>Flyouts</h1>
+	</header>
+	<div class="content">
+		<h2>Context Menu</h2>
+		<button onclick='app.context({target: this,buttons: [{text: "Open Internal Page",type: "button",href: "javascript:app.navigation.loadPage(\"#playground-text\")"},{type: "separator"},{text: "Open External Page",type: "button",href: "http://google.com"},]});'>Open Context Menu</button>
+		
+		<h2>Popover</h2>
+		<button onclick="app.context({target: this,html: document.getElementById('context-template').innerHTML});">Open Popover</button>
+	</div>
+</div>

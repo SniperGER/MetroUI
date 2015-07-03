@@ -1,0 +1,35 @@
+div.theme-selector {
+	position: relative;
+	font-size: 0;
+	border: 1px solid;
+	display: inline-block;
+	margin: 3px 0px 20px 0px;
+	
+	div.indicator {
+		position: absolute;
+		top: -18px;
+		left: 0;
+		width: 30px;
+		height: 66px;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+	
+	div.theme-color {
+		position: relative;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background-color: #000;
+		cursor: pointer;
+		
+		&:after {
+			content: '';
+			position: absolute;
+			top: 3px;
+			right: 3px;
+			width: 12px;
+			height: 12px;
+		}
+	}
+}
